@@ -5,9 +5,23 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            {% block header %}
+                {% block menu %}
+                    <div class="navbar navbar-default">
+                        <a href="{{ path('front_index') }}" class="btn bt-primary">Home</a>
+                        <a href="{{ path('front_contact') }}" class="btn bt-primary">Contact</a>
+                    </div>
+                {% endblock %}
+            {% endblock %}
+
+            {% block content %}   
+            {% endblock %}            
+        {% endblock %}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
