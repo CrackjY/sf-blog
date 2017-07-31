@@ -1,11 +1,11 @@
 <?php
 
-namespace AppBundle\Model;
+namespace AppBundle\Form\Model;
 
 class ContactModel
 {
     protected $firstname;
-    protected $name;
+    protected $lastname;
     protected $email;
     protected $object;
     protected $message;
@@ -20,14 +20,14 @@ class ContactModel
         $this->firstname = $firstname;
     }
 
-    public function getName()
+    public function getLastName()
     {
-        return $this->name;
+        return $this->lastname;
     }
 
     public function setName($name)
     {
-        $this->name = $name;
+        $this->lastname = $lastname;
     }
 
     public function getEmail()
