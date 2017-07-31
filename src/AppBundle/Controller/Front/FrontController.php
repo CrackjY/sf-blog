@@ -22,11 +22,6 @@ class FrontController extends Controller
         ));
     }
 
-    public function contactAction()
-    {
-        return $this->render(':front:contact.html.twig');
-    }
-
     public function faqAction()
     {
         return $this->render(':front:faq.html.twig');

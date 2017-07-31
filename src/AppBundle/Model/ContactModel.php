@@ -15,7 +15,7 @@ class ContactModel
         return $this->firstname;
     }
 
-    public function setFirstName()
+    public function setFirstName($firstname)
     {
         $this->firstname = $firstname;
     }
@@ -25,7 +25,7 @@ class ContactModel
         return $this->name;
     }
 
-    public function setName()
+    public function setName($name)
     {
         $this->name = $name;
     }
@@ -35,7 +35,7 @@ class ContactModel
         return $this->email;
     }
 
-    public function setEmail()
+    public function setEmail($email)
     {
         $this->email = $email;
     }  
@@ -45,7 +45,7 @@ class ContactModel
         return $this->object;
     }
 
-    public function setObject()
+    public function setObject($object)
     {
         $this->object = $object;
     } 
@@ -55,7 +55,7 @@ class ContactModel
         return $this->message;
     }
 
-    public function setMessage()
+    public function setMessage($message)
     {
         $this->message = $message;
     }

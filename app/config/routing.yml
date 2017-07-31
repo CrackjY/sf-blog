@@ -6,11 +6,11 @@
 front_index:
     path:     /
     defaults: { _controller: AppBundle:Front/Front:index }
-#route contact
-front_contact:
-    path:     /contact
-    defaults: { _controller: AppBundle:Front/Front:contact }
 #route faq
 front_faq:
     path:     /faq
     defaults: { _controller: AppBundle:Front/Front:faq }
+#route contact
+front_contact:
+    path:     /contact
+    defaults: { _controller: AppBundle:Front/Contact:contact }
