@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block content%}
-	{% for tab in tabs %}
-	{{ tab }}
-	{% endfor %}
+	<div class="container-fluid">
+		{% for tab in tabs %}
+		{{ tab }}
+		{% endfor %}
+	</div>
 {% endblock %}

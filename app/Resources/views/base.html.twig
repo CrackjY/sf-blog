@@ -11,9 +11,10 @@
         {% block body %}
             {% block header %}
                 {% block menu %}
-                    <div class="navbar navbar-default">
-                        <a href="{{ path('front_index') }}" class="btn bt-primary">Home</a>
-                        <a href="{{ path('front_contact') }}" class="btn bt-primary">Contact</a>
+                    <div class="navbar navbar-default text-center">
+                        <a href="{{ path('front_index') }}" class="btn btn-primary">Home</a>
+                        <a href="{{ path('front_contact') }}" class="btn btn-primary">Contact</a>
+                        <a href="{{ path('front_faq') }}" class="btn btn-primary">FAQ</a>
                     </div>
                 {% endblock %}
             {% endblock %}
