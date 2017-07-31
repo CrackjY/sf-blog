@@ -28,7 +28,7 @@ class ContactType extends AbstractType
                 'firstname',
                 TextType::class,
                 [
-                    'label'    => 'Prénom',
+                    'label'    => 'Firstname',
                     'required' => false,
                 ]
             )
@@ -36,7 +36,7 @@ class ContactType extends AbstractType
                 'lastname',
                 TextType::class,
                 [
-                    'label'    => 'Nom',
+                    'label'    => 'Lastname',
                     'required' => false,
                 ]
             )
@@ -70,8 +70,7 @@ class ContactType extends AbstractType
                 [
                     'label'    => 'Send'
                 ]
-            )
-            ->getForm();                      
+            );               
     }
     
     /**

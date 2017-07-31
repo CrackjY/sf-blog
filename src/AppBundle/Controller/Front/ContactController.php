@@ -15,7 +15,9 @@ class ContactController extends Controller
     	$contactModel = new ContactModel();
 
     	$form = $this->createForm(ContactType::class, $contactModel);
-
-    	return $this->render(':front:contact.html.twig');
+    	
+    	return $this->render(':front:contact.html.twig', array(
+    		'form' => $form->createView()
+    	));
     }
 }
