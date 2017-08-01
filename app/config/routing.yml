@@ -11,6 +11,6 @@ front_faq:
     path:     /faq
     defaults: { _controller: AppBundle:Front/Front:faq }
 #route contact
-front_contact:
+front_contact_form:
     path:     /contact
     defaults: { _controller: AppBundle:Front/Contact:contact }

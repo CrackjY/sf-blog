@@ -16,8 +16,7 @@ class FrontController extends Controller
             'quatre' => 'test'
         );
 
-        return $this->render(':front:index.html.twig',
-        array(
+        return $this->render(':front:index.html.twig', array(
             'tabs' => $tabs
         ));
     }

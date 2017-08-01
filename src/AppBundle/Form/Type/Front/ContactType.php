@@ -82,7 +82,7 @@ class ContactType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => ContactModel::class,
+                'data_class' => ContactModel::class
             ]
         );
     }

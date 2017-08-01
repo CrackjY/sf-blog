@@ -10,14 +10,23 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ContactController extends Controller
 {
-    public function contactAction()
+    public function contactAction(Request $request)
     {
     	$contactModel = new ContactModel();
 
+    	$contactType = new ContactType();
+
+    	var_dump($this->test($contactType));
+
     	$form = $this->createForm(ContactType::class, $contactModel);
-    	
+
     	return $this->render(':front:contact.html.twig', array(
     		'form' => $form->createView()
     	));
+    }
+
+    public function test(ContactType $contactType)
+    {
+    	return $contactType;
     }
 }
