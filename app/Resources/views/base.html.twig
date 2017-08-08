@@ -12,11 +12,7 @@
         {% block body %}
             {% block header %}
                 {% block menu %}
-                    <div class="navbar navbar-default">
-                        <a href="{{ path('front_index') }}" class="btn btn-link" style="text-decoration:none;">Home</a>
-                        <a href="{{ path('front_contact_form') }}" class="btn btn-link" style="text-decoration:none;">Contact</a>
-                        <a href="{{ path('front_faq') }}" class="btn btn-link" style="text-decoration:none;">FAQ</a>
-                    </div>
+                    {% include 'includes/menu.html.twig' only %}
                 {% endblock %}
             {% endblock %}
             <div class="container-fluid">

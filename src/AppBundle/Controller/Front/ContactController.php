@@ -23,8 +23,6 @@ class ContactController extends Controller
             if ($form->isValid()) {
                 var_dump($form->getData());
                 var_dump($contactModel->getFirstName());
-
-                return $this->redirect('/faq');
             }
         }
 
