@@ -9,15 +9,16 @@ class FrontController extends Controller
 {
     public function indexAction()
     {
-        $firstname = array(
+        $firstnames = array(
             'antoine',
             'toto',
             'yassine',
             'eric',
-            'etienne');
+            'etienne'
+        );
 
         return $this->render(':front:index.html.twig', array(
-            'firstname' => $firstname
+            'firstnames' => $firstnames
         ));
     }
 

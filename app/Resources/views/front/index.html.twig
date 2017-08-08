@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block content%}
-	{% for first in firstname|sort %}
+	{% for firstname in firstnames|sort %}
 		{% if first|length <= 4 %}
-			{{ first }}
+			{{ firstname }}
 		{% endif %}
 	{% endfor %}
 {% endblock %}
