@@ -9,6 +9,11 @@ class ContactModel
     /**
      * @Assert\NotBlank()
      */
+    protected $title;
+
+    /**
+     * @Assert\NotBlank()
+     */
     protected $firstname;
 
     /**
@@ -30,6 +35,16 @@ class ContactModel
      * @Assert\NotBlank()
      */
     protected $message;
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }    
 
     public function getFirstName()
     {

@@ -10,8 +10,7 @@
 	{% for key, people in peoples %}
 		<p>{{ people.firstname }}</p>
 		<p>{{ people.lastname }}</p>
-
-		{% for key, child in people.children %}			    
+		{% for child in people.children %}			    
 			{{ key }}
 			{{ child.firstname }}
 			{{ child.lastname }}
