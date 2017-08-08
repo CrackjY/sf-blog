@@ -7,15 +7,13 @@
 		{% endif %}
 	{% endfor %}
 	</br></br>
-	{% for people in peoples %}
-		<h5>Parents : </h5>
-		{{ people.firstname }}
-		{{ people.lastname }} 
-		{% for child in people.children %}
-			<h5>Children : </h5>
-			{{ child.firstname }}
-			{{ child.lastname }}
-			{{ child.age }}
+	{% for key, people in peoples %}
+		<p>{{ people.firstname }} : {{ key }}</p>
+		<p>{{ people.lastname }} : {{ key }}</p>
+		{% for key, child in people.children %}
+			<p>{{ child.firstname }} : {{ key }}</p>
+			<p>{{ child.lastname }} : {{ key }}</p>
+			<p>{{ child.age }} : {{ key }}</p>
 		{% endfor %}</br></br>
 	{% endfor %}
 {% endblock %}
