@@ -2,7 +2,7 @@
 
 {% block content%}
 	{% for firstname in firstnames|sort %}
-		{% if first|length <= 4 %}
+		{% if firstname|length <= 4 %}
 			{{ firstname }}
 		{% endif %}
 	{% endfor %}
