@@ -9,15 +9,15 @@ class FrontController extends Controller
 {
     public function indexAction()
     {
-        $tabs = array(
-            'un' => 'test',
-            'deux' => 'test',
-            'trois' => 'test',
-            'quatre' => 'test'
-        );
+        $firstname = array(
+            'antoine',
+            'toto',
+            'yassine',
+            'eric',
+            'etienne');
 
         return $this->render(':front:index.html.twig', array(
-            'tabs' => $tabs
+            'firstname' => $firstname
         ));
     }
 
