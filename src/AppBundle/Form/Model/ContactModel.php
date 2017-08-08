@@ -2,12 +2,33 @@
 
 namespace AppBundle\Form\Model;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class ContactModel
 {
+    /**
+     * @Assert\NotBlank()
+     */
     protected $firstname;
+
+    /**
+     * @Assert\NotBlank()
+     */
     protected $lastname;
+
+    /**
+     * @Assert\NotBlank()
+     */
     protected $email;
+
+    /**
+     * @Assert\NotBlank()
+     */
     protected $object;
+
+    /**
+     * @Assert\NotBlank()
+     */
     protected $message;
 
     public function getFirstName()
@@ -25,7 +46,7 @@ class ContactModel
         return $this->lastname;
     }
 
-    public function setName($name)
+    public function setLastName($lastname)
     {
         $this->lastname = $lastname;
     }

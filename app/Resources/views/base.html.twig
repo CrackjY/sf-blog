@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
@@ -11,10 +12,10 @@
         {% block body %}
             {% block header %}
                 {% block menu %}
-                    <div class="navbar navbar-default text-center">
-                        <a href="{{ path('front_index') }}" class="btn btn-primary">Home</a>
-                        <a href="{{ path('front_contact_form') }}" class="btn btn-primary">Contact</a>
-                        <a href="{{ path('front_faq') }}" class="btn btn-primary">FAQ</a>
+                    <div class="navbar navbar-default">
+                        <a href="{{ path('front_index') }}" class="btn btn-link" style="text-decoration:none;">Home</a>
+                        <a href="{{ path('front_contact_form') }}" class="btn btn-link" style="text-decoration:none;">Contact</a>
+                        <a href="{{ path('front_faq') }}" class="btn btn-link" style="text-decoration:none;">FAQ</a>
                     </div>
                 {% endblock %}
             {% endblock %}

@@ -12,17 +12,25 @@ class ContactController extends Controller
 {
     public function contactAction(Request $request)
     {
-    	$contactModel = new ContactModel();
 
-    	$contactType = new ContactType();
+        $contactModel = new ContactModel();
 
-    	var_dump($this->test($contactType));
+        $form = $this->createForm(ContactType::class, $contactModel);
 
-    	$form = $this->createForm(ContactType::class, $contactModel);
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
 
-    	return $this->render(':front:contact.html.twig', array(
-    		'form' => $form->createView()
-    	));
+            if ($form->isValid()) {
+                var_dump($form->getData());
+                var_dump($contactModel->getFirstName());
+
+                return $this->redirect('/faq');
+            }
+        }
+
+        return $this->render(':front:contact.html.twig', array(
+            'form' => $form->createView()
+        ));        
     }
 
     public function test(ContactType $contactType)
