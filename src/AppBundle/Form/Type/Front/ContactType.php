@@ -28,9 +28,9 @@ class ContactType extends AbstractType
             ->add('title', ChoiceType::class, 
                 array(
                     'choices'  => array(
-                        'Mr' => true,
-                        'Mrs' => true,
-                        'Autre' => true,
+                        'mr' => 'mr',
+                        'mrs' => 'mrs',
+                        'other' => 'other',
                     ),
                 )
             )            
