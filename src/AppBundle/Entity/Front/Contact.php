@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Front;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -11,7 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Contact
 {
 	/**
-     * @Assert\NotBlank()
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")

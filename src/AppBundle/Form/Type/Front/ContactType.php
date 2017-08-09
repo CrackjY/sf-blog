@@ -2,7 +2,7 @@
 
 namespace AppBundle\Form\Type\Front;
 
-use AppBundle\Form\Model\ContactModel;
+use AppBundle\Entity\Front\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -92,7 +92,7 @@ class ContactType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => ContactModel::class
+                'data_class' => Contact::class
             ]
         );
     }
