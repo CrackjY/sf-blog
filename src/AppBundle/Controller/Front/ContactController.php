@@ -7,10 +7,11 @@ use AppBundle\Form\Type\Front\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ContactController extends Controller
 {
-    public function contactAction(Request $request)
+    public function contactAction(Request $request, EntityManagerInterface $entityManager)
     {
 
         $contact = new Contact();
@@ -22,7 +23,9 @@ class ContactController extends Controller
 
             if ($form->isValid()) {
                 var_dump($form->getData());
-                var_dump($contact->getFirstName());
+
+                $entityManager->persist($contact);
+                $entityManager->flush();
             }
         }
 
