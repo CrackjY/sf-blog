@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="contact")
+ * @ORM\Table(name="sf_blog_front_contact")
  */
 class Contact
 {
@@ -16,41 +16,106 @@ class Contact
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-	protected $id;
+	private $id;
 
 	/**
      * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
-    protected $title;
+    private $title;
 
     /**
      * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
-    protected $firstname;
+    private $firstname;
 
     /**
      * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
-    protected $lastname;
+    private $lastname;
 
     /**
      * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
-    protected $email;
+    private $email;
 
     /**
      * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
-    protected $object;
+    private $object;
 
     /**
      * @Assert\NotBlank()
      * @ORM\Column(type="string", length=500)
      */
-    protected $message;
+    private $message;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }    
+
+    public function getFirstName()
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstName($firstname)
+    {
+        $this->firstname = $firstname;
+    }
+
+    public function getLastName()
+    {
+        return $this->lastname;
+    }
+
+    public function setLastName($lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }  
+
+    public function getObject()
+    {
+        return $this->object;
+    }
+
+    public function setObject($object)
+    {
+        $this->object = $object;
+    } 
+
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
 }
