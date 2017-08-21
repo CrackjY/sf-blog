@@ -34,15 +34,13 @@ class ContactController extends Controller
         ));        
     }
 
-    public function viewAction($contactId)
+    public function viewAction(EntityManagerInterface $entityManager, $contactId)
     {
-        $contact = $this->getDoctrine()
-            ->getRepository(Contact::class)
-            ->find($contactId);
+        $repository = $entityManager->getRepository(Contact::class);
+        $contact = $repository->find($contactId);
 
-            dump($contactId);
-            die;
-
-        return $this->render(':front:contact.html.twig');
+        return $this->render(':front:show_contact.html.twig', array(
+            'contact' => $contact
+        ));
     }
 }
