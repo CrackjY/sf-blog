@@ -10,7 +10,11 @@ front_index:
 front_faq:
     path:     /faq
     defaults: { _controller: AppBundle:Front/Front:faq }
-#route contact
+#route contactAction
 front_contact_form:
     path:     /contact
     defaults: { _controller: AppBundle:Front/Contact:contact }
+#route viewAction
+front_contact_fetch:
+    path:     /view
+    defaults: { _controller: AppBundle:Front/Contact:view }

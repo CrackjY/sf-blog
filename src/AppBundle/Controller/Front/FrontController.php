@@ -83,8 +83,6 @@ class FrontController extends Controller
                         )
                     );
 
-        var_dump($peoples);
-
         return $this->render(':front:index.html.twig', array(
             'firstnames' => $firstnames,
             'peoples' => $peoples

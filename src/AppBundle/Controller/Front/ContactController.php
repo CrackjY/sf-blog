@@ -33,4 +33,16 @@ class ContactController extends Controller
             'form' => $form->createView()
         ));        
     }
+
+    public function viewAction($contactId)
+    {
+        $contact = $this->getDoctrine()
+            ->getRepository(Contact::class)
+            ->find($contactId);
+
+            dump($contactId);
+            die;
+
+        return $this->render(':front:contact.html.twig');
+    }
 }
