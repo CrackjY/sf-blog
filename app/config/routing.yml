@@ -17,4 +17,4 @@ front_contact_form:
 #route viewAction
 front_contact_show:
     path:     /show/{contactId}
-    defaults: { _controller: AppBundle:Front/Contact:view }
+    defaults: { _controller: AppBundle:Front/Contact:show }

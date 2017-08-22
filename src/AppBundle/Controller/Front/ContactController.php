@@ -34,10 +34,10 @@ class ContactController extends Controller
         ));        
     }
 
-    public function viewAction(EntityManagerInterface $entityManager, $contactId)
+    public function showAction(EntityManagerInterface $entityManager)
     {
         $repository = $entityManager->getRepository(Contact::class);
-        $contact = $repository->find($contactId);
+        $contact = $repository->findAll();
 
         return $this->render(':front:show_contact.html.twig', array(
             'contact' => $contact

@@ -1,3 +1,11 @@
 {% block content %}
-    {{ dump(contact) }}
+     {% for cont in contact %}
+         {{ cont.id }}
+         {{ cont.title }}
+         {{ cont.firstname }}
+         {{ cont.lastname }}
+         {{ cont.object }}
+         {{ cont.message }}
+         </br>
+     {% endfor %}
 {% endblock %}
