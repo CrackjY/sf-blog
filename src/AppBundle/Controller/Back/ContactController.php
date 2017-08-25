@@ -25,7 +25,7 @@ class ContactController extends Controller
         $contact = $entityManager->getRepository(Contact::class)->find($contactId);
 
         $form = $this->createForm(ContactType::class, $contact);
-
+        
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
