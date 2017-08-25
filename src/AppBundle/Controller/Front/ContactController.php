@@ -35,31 +35,31 @@ class ContactController extends Controller
 
     public function showAction(EntityManagerInterface $entityManager, $contactId)
     {
-        $data = $entityManager->getRepository(Contact::class)->find($contactId);
+        $contact = $entityManager->getRepository(Contact::class)->find($contactId);
 
         return $this->render(':front:show_contact.html.twig', array(
-            'data' => $data
+            'contact' => $contact
         ));
     }
 
     public function updateAction(Request $request, EntityManagerInterface $entityManager, $contactId)
     {
-        $data = $entityManager->getRepository(Contact::class)->find($contactId);
+        $contact = $entityManager->getRepository(Contact::class)->find($contactId);
 
-        $form = $this->createForm(ContactType::class, $data);
+        $form = $this->createForm(ContactType::class, $contact);
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-                $entityManager->persist($data);
+                $entityManager->persist($contact);
                 $entityManager->flush();
             }
         }
 
         return $this->render(':front:update.html.twig', array(
             'form' => $form->createView(),
-            'data' => $data
+            'contact' => $contact
         ));
     }
 }

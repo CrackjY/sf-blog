@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Vous êtes entrain d'editer le contact numéro : {{ data.id }}</h1>
+    <h1>Vous êtes entrain d'editer le contact numéro : {{ contact.id }}</h1>
     <div class="well" style="width: 50%;margin:auto;">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
         {{ form_errors(form) }}

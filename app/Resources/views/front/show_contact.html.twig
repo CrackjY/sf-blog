@@ -1,8 +1,10 @@
+{% extends 'base.html.twig' %}
+
 {% block content %}
-    <b>Title</b> : {{ data.title }}</br></br>
-    <b>Firstname</b> : {{ data.firstname }}</br></br>
-    <b>Lastname</b> : {{ data.lastname }}</br></br>
-    <b>Email</b> : {{ data.email     }}</br></br>
-    <b>Object</b> : {{ data.object }}</br></br>
-    <b>Message</b> : {{ data.message }}</br></br>
+    <b>Title</b> : {{ contact.title }}</br></br>
+    <b>Firstname</b> : {{ contact.firstname }}</br></br>
+    <b>Lastname</b> : {{ contact.lastname }}</br></br>
+    <b>Email</b> : {{ contact.email     }}</br></br>
+    <b>Object</b> : {{ contact.object }}</br></br>
+    <b>Message</b> : {{ contact.message }}</br></br>
 {% endblock %}
