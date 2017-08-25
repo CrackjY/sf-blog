@@ -18,3 +18,7 @@ front_contact_form:
 front_contact_show:
     path:     /show/{contactId}
     defaults: { _controller: AppBundle:Front/Contact:show }
+#route updateAction
+front_contact_update:
+    path:     /update/{contactId}
+    defaults: { _controller: AppBundle:Front/Contact:update }

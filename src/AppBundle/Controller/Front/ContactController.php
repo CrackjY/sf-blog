@@ -36,11 +36,21 @@ class ContactController extends Controller
 
     public function showAction(EntityManagerInterface $entityManager, $contactId)
     {
+        $repository = $entityManager->getRepository(Contact::class)->find($contactId);
+
+        return $this->render(':front:show_contact.html.twig', array(
+            'contact' => $repository
+        ));
+    }
+
+    public function updateAction(EntityManagerInterface $entityManager, $contactId)
+    {
         $repository = $entityManager->getRepository(Contact::class);
         $contact = $repository->find($contactId);
 
-        return $this->render(':front:show_contact.html.twig', array(
-            'contact' => $contact
-        ));
+        $contact->setFirstName('plop');
+        $repository->flush();
+
+        return $this->redirectToRoute('front_index');
     }
 }
