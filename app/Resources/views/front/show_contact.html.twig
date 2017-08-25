@@ -1,11 +1,8 @@
 {% block content %}
-     {% for cont in contact %}
-         {{ cont.id }}
-         {{ cont.title }}
-         {{ cont.firstname }}
-         {{ cont.lastname }}
-         {{ cont.object }}
-         {{ cont.message }}
-         </br>
-     {% endfor %}
+    <b>Title</b> : {{ contact.title }}</br></br>
+    <b>Firstname</b> : {{ contact.firstname }}</br></br>
+    <b>Lastname</b> : {{ contact.lastname }}</br></br>
+    <b>Email</b> : {{ contact.email     }}</br></br>
+    <b>Object</b> : {{ contact.object }}</br></br>
+    <b>Message</b> : {{ contact.message }}</br></br>
 {% endblock %}
