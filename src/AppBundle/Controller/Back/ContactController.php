@@ -49,4 +49,13 @@ class ContactController extends Controller
             'contact' => $contact
         ));
     }
+
+    public function deleteAction(EntityManagerInterface $entityManager, $contactId)
+    {
+        $contact = $entityManager->getRepository(Contact::class)->find($contactId);
+        $entityManager->remove($contact);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('back_contact_list');
+    }
 }

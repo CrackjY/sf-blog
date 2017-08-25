@@ -15,14 +15,18 @@ front_contact_form:
     path:     /contact
     defaults: { _controller: AppBundle:Front/Contact:contact }
 #route listAction
-front_contact_list:
+back_contact_list:
     path:     /list
     defaults: { _controller: AppBundle:Back/Contact:list }
 #route viewAction
-front_contact_show:
+back_contact_show:
     path:     /show/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:show }
 #route updateAction
-front_contact_update:
+back_contact_update:
     path:     /update/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:update }
+#route deleteAction
+back_contact_delete:
+    path:     /delete/{contactId}
+    defaults: { _controller: AppBundle:Back/Contact:delete }
