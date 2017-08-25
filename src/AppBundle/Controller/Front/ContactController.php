@@ -13,7 +13,6 @@ class ContactController extends Controller
 {
     public function contactAction(Request $request, EntityManagerInterface $entityManager)
     {
-
         $contact = new Contact();
 
         $form = $this->createForm(ContactType::class, $contact);
@@ -36,21 +35,30 @@ class ContactController extends Controller
 
     public function showAction(EntityManagerInterface $entityManager, $contactId)
     {
-        $repository = $entityManager->getRepository(Contact::class)->find($contactId);
+        $data = $entityManager->getRepository(Contact::class)->find($contactId);
 
         return $this->render(':front:show_contact.html.twig', array(
-            'contact' => $repository
+            'data' => $data
         ));
     }
 
-    public function updateAction(EntityManagerInterface $entityManager, $contactId)
+    public function updateAction(Request $request, EntityManagerInterface $entityManager, $contactId)
     {
-        $repository = $entityManager->getRepository(Contact::class);
-        $contact = $repository->find($contactId);
+        $data = $entityManager->getRepository(Contact::class)->find($contactId);
 
-        $contact->setFirstName('plop');
-        $repository->flush();
+        $form = $this->createForm(ContactType::class, $data);
 
-        return $this->redirectToRoute('front_index');
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $entityManager->persist($data);
+                $entityManager->flush();
+            }
+        }
+
+        return $this->render(':front:update.html.twig', array(
+            'form' => $form->createView()
+        ));
     }
 }
