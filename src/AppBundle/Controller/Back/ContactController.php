@@ -11,11 +11,20 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ContactController extends Controller
 {
+    public function listAction(EntityManagerInterface $entityManager)
+    {
+        $contacts = $entityManager->getRepository(Contact::class)->findAll();
+
+        return $this->render(':Back/contact:list.html.twig', array(
+            'contacts' => $contacts
+        ));
+    }
+
     public function showAction(EntityManagerInterface $entityManager, $contactId)
     {
         $contact = $entityManager->getRepository(Contact::class)->find($contactId);
 
-        return $this->render(':Back:show.html.twig', array(
+        return $this->render(':Back/contact:show.html.twig', array(
             'contact' => $contact
         ));
     }
@@ -25,7 +34,7 @@ class ContactController extends Controller
         $contact = $entityManager->getRepository(Contact::class)->find($contactId);
 
         $form = $this->createForm(ContactType::class, $contact);
-        
+
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
@@ -35,7 +44,7 @@ class ContactController extends Controller
             }
         }
 
-        return $this->render(':Back:update.html.twig', array(
+        return $this->render(':Back/contact:update.html.twig', array(
             'form' => $form->createView(),
             'contact' => $contact
         ));

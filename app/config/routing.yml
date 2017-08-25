@@ -14,6 +14,10 @@ front_faq:
 front_contact_form:
     path:     /contact
     defaults: { _controller: AppBundle:Front/Contact:contact }
+#route listAction
+front_contact_list:
+    path:     /list
+    defaults: { _controller: AppBundle:Back/Contact:list }
 #route viewAction
 front_contact_show:
     path:     /show/{contactId}
