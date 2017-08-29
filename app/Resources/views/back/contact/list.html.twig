@@ -3,28 +3,28 @@
 {% block content %}
     <table border=1 style="text-align: center;">
         <thead>
-            <tr style="text-align: center";>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Object</th>
-                <th>Message</th>
-                <th>Actions</th>
+            <tr>
+                <th style="padding:1em;">Id</th>
+                <th style="padding:1em;">Title</th>
+                <th style="padding:1em;">Firstname</th>
+                <th style="padding:1em;">Lastname</th>
+                <th style="padding:1em;">Email</th>
+                <th style="padding:1em;">Object</th>
+                <th style="padding:1em;">Message</th>
+                <th style="padding:1em;">Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for contact in contacts %}
                 <tr>
-                    <td>{{ contact.id }}</td>
-                    <td>{{ contact.title }}</td>
-                    <td>{{ contact.firstname }}</td>
-                    <td>{{ contact.lastname }}</td>
-                    <td>{{ contact.email }}</td>
-                    <td>{{ contact.object }}</td>
-                    <td>{{ contact.message }}</td>
-                    <td><a class="btn btn-info" href="show/{{ contact.id }}">Show</a> <a class="btn btn-info" href="update/{{ contact.id }}">Update</a> <a class="btn btn-info" href="delete/{{ contact.id }}">Delete</a></td>
+                    <td style="padding:1em;">{{ contact.id }}</td>
+                    <td style="padding:1em;">{{ contact.title }}</td>
+                    <td style="padding:1em;">{{ contact.firstname }}</td>
+                    <td style="padding:1em;">{{ contact.lastname }}</td>
+                    <td style="padding:1em;">{{ contact.email }}</td>
+                    <td style="padding:1em;">{{ contact.object }}</td>
+                    <td style="padding:1em;">{{ contact.message }}</td>
+                    <td style="padding:1em;"><a class="btn btn-info" href="show/{{ contact.id }}">Show</a> <a class="btn btn-info" href="update/{{ contact.id }}">Update</a> <a class="btn btn-info" href="delete/{{ contact.id }}">Delete</a></td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-	<div class="well" style="width: 50%;margin:auto;">
+	<div class="" style="width: 50%;margin:auto;">
 		{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 			{{ form_errors(form) }}
 			<div class="form-group">
 				{{ form_label(form.title, "Title", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-			<div class="col-sm-10">			
+			<div class="col-sm-10">
 				{{ form_widget(form.title, {'attr': {'class': '' } }) }}
 			</div>
 			</div>
@@ -15,7 +15,7 @@
 			</div>
 			<div class="form-group">
 				{{ form_label(form.firstname, "Firstname", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-				<div class="col-sm-10">				
+				<div class="col-sm-10">
 					{{ form_widget(form.firstname, {'attr': {'class': 'form-control'} }) }}
 				</div>
 			</div>
@@ -32,8 +32,8 @@
 				{{ form_errors(form.lastname) }}
 			</div>
 			<div class="form-group">
-				{{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}	 
-				<div class="col-sm-10">  
+				{{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
+				<div class="col-sm-10">
 					{{ form_widget(form.email, {'attr': {'class': 'form-control'} }) }}
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 			</div>
 			<div class="form-group">
 				{{ form_label(form.object, "Object", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-				<div class="col-sm-10">	
+				<div class="col-sm-10">
 					{{ form_widget(form.object, {'attr': {'class': 'form-control'} }) }}
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 			</div>
 			<div class="form-group">
 				{{ form_label(form.message, "Message", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-				<div class="col-sm-10">	
+				<div class="col-sm-10">
 					{{ form_widget(form.message, {'attr': {'class': 'form-control'} }) }}
 				</div>
 			</div>

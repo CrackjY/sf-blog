@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_label(form.content, "Add your article") }}
+        {{ form_widget(form.content) }}
+        {{ form_errors(form.content) }}
+        {{ form_widget(form.save) }}
+        {{ form_rest(form) }}
+    {{ form_end(form) }}
+    </br></br>
+    <table border=1 style="text-align: center;">
+        <thead>
+        <tr>
+            <th style="padding:1em;">Id</th>
+            <th style="padding:1em;">Content</th>
+            <th style="padding:1em;">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td style="padding:1em;">{{ result.id }}</td>
+                    <td style="padding:1em;">{{ result.content }}</td>
+                    <td style="padding:1em;">{{ result.date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

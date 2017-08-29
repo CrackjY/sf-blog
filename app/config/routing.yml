@@ -1,7 +1,6 @@
 #app:
     #resource: '@AppBundle/Controller/'
     #type: annotation
-
 # app/config/routing.yml
 front_index:
     path:     /
@@ -30,3 +29,7 @@ back_contact_update:
 back_contact_delete:
     path:     /delete/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:delete }
+#route articleAction
+front_article:
+    path:     /article
+    defaults: { _controller: AppBundle:Front/Article:article }
