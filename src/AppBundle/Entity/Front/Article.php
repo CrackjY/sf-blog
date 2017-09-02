@@ -46,11 +46,23 @@ class Article
 
     public function getDate()
     {
-        return $this->date;
+        return $this->date = $this->udate('Y-m-d H:i:s.u T');
     }
 
     public function setDate($date)
     {
         return $this->date = $date;
     }
+
+    private function udate($format = 'u', $utimestamp = null) {
+        if (is_null($utimestamp)) {
+            $utimestamp = microtime(true);
+
+            $timestamp = floor($utimestamp);
+            $milliseconds = round(($utimestamp - $timestamp) * 1000000);
+
+            return date(preg_replace('`(?<!\\\\)u`', $milliseconds, $format), $timestamp);
+        }
+    }
+
 }
