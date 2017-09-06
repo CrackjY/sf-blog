@@ -22,16 +22,37 @@ class Article
      * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
+    private $author;
+
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string", length=255)
+     */
     private $content;
 
     /**
-     * @ORM\Column(type="date", nullable=true, name="date")
+     * @ORM\Column(type="date", name="datetime")
      */
     private $date;
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function setAuthor($author)
+    {
+        $this->author = $author;
     }
 
     public function getContent()
@@ -46,23 +67,11 @@ class Article
 
     public function getDate()
     {
-        return $this->date = $this->udate('Y-m-d H:i:s.u T');
+        return $this->date;
     }
 
     public function setDate($date)
     {
-        return $this->date = $date;
+        $this->date = $date;
     }
-
-    private function udate($format = 'u', $utimestamp = null) {
-        if (is_null($utimestamp)) {
-            $utimestamp = microtime(true);
-
-            $timestamp = floor($utimestamp);
-            $milliseconds = round(($utimestamp - $timestamp) * 1000000);
-
-            return date(preg_replace('`(?<!\\\\)u`', $milliseconds, $format), $timestamp);
-        }
-    }
-
 }

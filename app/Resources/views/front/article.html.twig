@@ -3,6 +3,9 @@
 {% block content %}
     {{ form_start(form) }}
         {{ form_errors(form) }}
+        {{ form_label(form.author, "Athor :") }}
+        {{ form_widget(form.author) }}
+        {{ form_errors(form.author) }}
         {{ form_label(form.content, "Add your article") }}
         {{ form_widget(form.content) }}
         {{ form_errors(form.content) }}
@@ -13,19 +16,21 @@
     <table border=1 style="text-align: center;">
         <thead>
         <tr>
-            <th style="padding:1em;">Id</th>
-            <th style="padding:1em;">Content</th>
-            <th style="padding:1em;">Date</th>
+            <th>Id</th>
+            <th>Author</th>
+            <th>Content</th>
+            <th>Date</th>
         </tr>
         </thead>
         <tbody>
-            {% for result in results %}
-                <tr>
-                    <td style="padding:1em;">{{ result.id }}</td>
-                    <td style="padding:1em;">{{ result.content }}</td>
-                    <td style="padding:1em;">{{ result.date }}</td>
-                </tr>
-            {% endfor %}
+        {% for result in results %}
+            <tr>
+                <td>{{ result.id }}</td>
+                <td>{{ result.author }}</td>
+                <td>{{ result.content }}</td>
+                <td>{{ result.date.date }}</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endblock %}

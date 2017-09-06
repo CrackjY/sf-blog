@@ -35,6 +35,14 @@ class ArticleType extends AbstractType
                 ]
             )
             ->add(
+                'author',
+                TextType::class,
+                [
+                    'label'    => 'Author',
+                    'required' => false,
+                ]
+            )
+            ->add(
                 'save',
                 SubmitType::class,
                 [
