@@ -27,6 +27,14 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add(
+                'title',
+                TextType::class,
+                [
+                    'label'    => 'Title',
+                    'required' => false,
+                ]
+            )
+            ->add(
                 'content',
                 TextType::class,
                 [

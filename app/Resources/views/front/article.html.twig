@@ -1,36 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    {{ form_start(form) }}
-        {{ form_errors(form) }}
-        {{ form_label(form.author, "Athor :") }}
-        {{ form_widget(form.author) }}
-        {{ form_errors(form.author) }}
-        {{ form_label(form.content, "Add your article") }}
-        {{ form_widget(form.content) }}
-        {{ form_errors(form.content) }}
-        {{ form_widget(form.save) }}
-        {{ form_rest(form) }}
-    {{ form_end(form) }}
-    </br></br>
-    <table border=1 style="text-align: center;">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Author</th>
-            <th>Content</th>
-            <th>Date</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="row"style="margin-left: 0;margin-right: 0;margin-bottom: 30px;">
+        {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_label(form.title, "Title :", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.title) }}
+            {{ form_errors(form.title) }}
+            {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.content) }}
+            {{ form_errors(form.content) }}
+            {{ form_label(form.author, "Author :", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.author) }}
+            {{ form_errors(form.author) }}
+            {{ form_widget(form.save) }}
+            {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
         {% for result in results %}
-            <tr>
-                <td>{{ result.id }}</td>
-                <td>{{ result.author }}</td>
-                <td>{{ result.content }}</td>
-                <td>{{ result.date.date }}</td>
-            </tr>
+            <div class="row well" style="margin-left: 0;margin-right: 0;">
+                <dl>
+                    <dt style="margin-bottom: 15px;">{{ result.title }}</dt>
+                    <dd style="margin-bottom: 15px;">{{ result.content }}</dd>
+                    <dd style="float: left;position: relative;bottom:0;">{{ result.author }}</dd>
+                    <dd style="float: right;">{{ result.date.date }}</dd>
+                </dl>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
 {% endblock %}

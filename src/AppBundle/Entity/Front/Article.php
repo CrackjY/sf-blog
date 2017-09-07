@@ -20,15 +20,21 @@ class Article
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=1000)
      */
-    private $author;
+    private $title;
+
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string", length=1000)
+     */
+    private $content;
 
     /**
      * @Assert\NotBlank()
      * @ORM\Column(type="string", length=255)
      */
-    private $content;
+    private $author;
 
     /**
      * @ORM\Column(type="datetime", name="date")
@@ -45,6 +51,21 @@ class Article
         return $this->id;
     }
 
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function getContent()
+    {
+        return $this->content;
+    }
+
     public function getAuthor()
     {
         return $this->author;
@@ -52,12 +73,7 @@ class Article
 
     public function setAuthor($author)
     {
-        $this->author = $author;
-    }
-
-    public function getContent()
-    {
-        return $this->content;
+        $this->author = ucfirst($author);
     }
 
     public function setContent($content)
