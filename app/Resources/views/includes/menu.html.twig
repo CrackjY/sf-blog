@@ -1,7 +1,9 @@
-<div class="navbar navbar-default">
-    <a href="{{ path('front_index') }}" class="btn btn-link" style="text-decoration:none;">Home</a>
-    <a href="{{ path('front_contact_form') }}" class="btn btn-link" style="text-decoration:none;">Contact</a>
-    <a href="{{ path('front_faq') }}" class="btn btn-link" style="text-decoration:none;">FAQ</a>
-    <a href="{{ path('back_contact_list') }}" class="btn btn-link" style="text-decoration:none;">Crud</a>
-    <a href="{{ path('front_article') }}" class="btn btn-link" style="text-decoration:none;">Blog</a>
+<div class="container block-menu">
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="{{ path('front_index') }}" class="">Home</a></li>
+        <li role="presentation" class="li-pills"><a href="{{ path('front_contact_form') }}" class="">Contact</a></li>
+        <li role="presentation" class="li-pills"><a href="{{ path('front_faq') }}" class="">FAQ</a></li>
+        <li role="presentation" class="li-pills"><a href="{{ path('back_contact_list') }}" class="">Crud</a></li>
+        <li role="presentation" class="li-pills"><a href="{{ path('front_article') }}" class="">Blog</a></li>
+    </ul>
 </div>

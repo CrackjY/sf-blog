@@ -1,0 +1,66 @@
+body{
+    width: 100%;
+    height: auto;
+    margin:auto;
+    background: rgba(232, 234, 246, 0.35);
+}
+
+.wrapper {
+    width: 65%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.btn {
+    background: #0091EA;
+}
+
+.form-contact-rest {
+    margin-bottom: 50px;
+}
+
+.block-menu {
+    background: #0091EA;
+    width: 100%;
+}
+
+.nav-pills > li > a {
+    color: white;
+}
+.nav-pills > li.active > a{
+    border-radius: 0;
+    background: #00B0FF;
+}
+.nav-pills > li > a:hover {
+    margin-left: 0;
+    background: #40C4FF;
+    border-radius: 0;
+}
+
+.content {
+    background: white;
+    padding-top: 30px;
+}
+
+.footer {
+    background: #0091EA;
+    color: white;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.contact-content {
+    margin-bottom: 10px;
+}
+
+.contact-date {
+    float: right;
+}
+
+.contact-author {
+    float: left;
+}
+
+article {
+    display: flex;
+}

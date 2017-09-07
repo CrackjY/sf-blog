@@ -1,20 +1,5 @@
 {% extends 'base.html.twig' %}
 
 {% block content%}
-	{% for firstname in firstnames|sort %}
-		{% if firstname|length <= 4 %}
-			{{ firstname }}
-		{% endif %}
-	{% endfor %}
-	</br></br>
-	{% for key, people in peoples %}
-		<p>{{ people.firstname }}</p>
-		<p>{{ people.lastname }}</p>
-		{% for child in people.children %}			    
-			{{ key }}
-			{{ child.firstname }}
-			{{ child.lastname }}
-			{{ child.age }}
-		{% endfor %}</br></br>
-	{% endfor %}
+	<h1>Welcome...</h1>
 {% endblock %}

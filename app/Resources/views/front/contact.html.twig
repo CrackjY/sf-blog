@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-	<div class="" style="width: 50%;margin:auto;">
+	<div class="form-contact-rest">
 		{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 			{{ form_errors(form) }}
 			<div class="form-group">
@@ -58,7 +58,7 @@
 			<div class="alert-danger">
 				{{ form_errors(form.message) }}
 			</div>
-			{{ form_widget(form.save, {'attr': {'class': 'btn btn-success'} }) }}
+			{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary btn-send-contact'} }) }}
 		    {{ form_rest(form) }}
 		{{ form_end(form) }}
 	</div>

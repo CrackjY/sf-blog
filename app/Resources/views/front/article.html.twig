@@ -13,18 +13,20 @@
             {{ form_label(form.author, "Author :", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.author) }}
             {{ form_errors(form.author) }}
-            {{ form_widget(form.save) }}
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'} }) }}
             {{ form_rest(form) }}
         {{ form_end(form) }}
     </div>
+    <div class="row block-article">
         {% for result in results %}
-            <div class="row well" style="margin-left: 0;margin-right: 0;">
+            <article class="col-md-6 col-lg-6">
                 <dl>
-                    <dt style="margin-bottom: 15px;">{{ result.title }}</dt>
-                    <dd style="margin-bottom: 15px;">{{ result.content }}</dd>
-                    <dd style="float: left;position: relative;bottom:0;">{{ result.author }}</dd>
-                    <dd style="float: right;">{{ result.date.date }}</dd>
+                    <dt class="contact-title">{{ result.title }}</dt>
+                    <dd class="contact-content">{{ result.content }}</dd>
+                    <dd class="contact-author">Atuhor : {{ result.author }}</dd>
+                    <dd class="contact-date">{{ result.date.date }}</dd>
                 </dl>
-            </div>
+            </article>
         {% endfor %}
+    </div>
 {% endblock %}

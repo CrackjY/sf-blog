@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Vous êtes entrain d'editer le contact numéro : {{ contact.id }}</h1>
-    <div class="well" style="width: 50%;margin:auto;">
+    <div class="well">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
         {{ form_errors(form) }}
         <div class="form-group">
