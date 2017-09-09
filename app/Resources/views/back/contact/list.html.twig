@@ -1,32 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Object</th>
-                <th>Message</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for contact in contacts %}
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>{{ contact.id }}</td>
-                    <td>{{ contact.title }}</td>
-                    <td>{{ contact.firstname }}</td>
-                    <td>{{ contact.lastname }}</td>
-                    <td>{{ contact.email }}</td>
-                    <td>{{ contact.object }}</td>
-                    <td>{{ contact.message }}</td>
-                    <td><a class="btn btn-info" href="show/{{ contact.id }}">Show</a> <a class="btn btn-info" href="update/{{ contact.id }}">Update</a> <a class="btn btn-info" href="delete/{{ contact.id }}">Delete</a></td>
+                    <th>Title</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Object</th>
+                    <th>Message</th>
+                    <th>Actions</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                    <tr>
+                        <td class="text-positive td-data-contact">{{ contact.title }}</td>
+                        <td class="text-positive td-data-contact">{{ contact.firstname }}</td>
+                        <td class="text-positive td-data-contact">{{ contact.lastname }}</td>
+                        <td class="text-positive td-data-contact">{{ contact.email }}</td>
+                        <td class="text-positive td-data-contact">{{ contact.object }}</td>
+                        <td class="text-positive td-data-contact">{{ contact.message }}</td>
+                        <td>
+                            <a class="btn btn-info" href="show/{{ contact.id }}">Show</a>
+                            <a class="btn btn-warning" href="update/{{ contact.id }}">Update</a>
+                            <a class="btn btn-danger" href="delete/{{ contact.id }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

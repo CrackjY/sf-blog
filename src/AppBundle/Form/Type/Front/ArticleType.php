@@ -36,7 +36,7 @@ class ArticleType extends AbstractType
             )
             ->add(
                 'content',
-                TextType::class,
+                TextareaType::class,
                 [
                     'label'    => 'Content',
                     'required' => false,
@@ -54,7 +54,7 @@ class ArticleType extends AbstractType
                 'save',
                 SubmitType::class,
                 [
-                    'label'    => 'Add'
+                    'label'    => 'Post'
                 ]
             );
     }

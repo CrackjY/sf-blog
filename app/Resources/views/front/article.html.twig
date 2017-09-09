@@ -1,32 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="row"style="margin-left: 0;margin-right: 0;margin-bottom: 30px;">
-        {{ form_start(form) }}
-            {{ form_errors(form) }}
-            {{ form_label(form.title, "Title :", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.title) }}
-            {{ form_errors(form.title) }}
+    <div class="row bloc-article-whriting">
+        {{ form_start(form, {'attr': {'class': 'form'} }) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+            {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_errors(form.title) }}
+        <div class="form-group">
             {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.content) }}
-            {{ form_errors(form.content) }}
-            {{ form_label(form.author, "Author :", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.author) }}
-            {{ form_errors(form.author) }}
-            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'} }) }}
-            {{ form_rest(form) }}
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_errors(form.content) }}
+        <div class="form-group bloc-inp-au-lab-au">
+            {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.author, {'attr': {'class': 'form-control input-author'} }) }}
+        </div>
+        {{ form_errors(form.author) }}
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary input-post-article'} }) }}
+        {{ form_rest(form) }}
         {{ form_end(form) }}
     </div>
-    <div class="row block-article">
-        {% for result in results %}
-            <article class="col-md-6 col-lg-6">
-                <dl>
-                    <dt class="contact-title">{{ result.title }}</dt>
-                    <dd class="contact-content">{{ result.content }}</dd>
-                    <dd class="contact-author">Atuhor : {{ result.author }}</dd>
-                    <dd class="contact-date">{{ result.date.date }}</dd>
-                </dl>
-            </article>
-        {% endfor %}
+    <div class="block-all-articles">
+        <div class="row block-article">
+            {% for result in results %}
+                <article class="article">
+                    <dl>
+                        <dt class="text-muted contact-title">{{ result.title }}</dt>
+                        <dd class="text-muted contact-content">{{ result.content }}</dd>
+                        <dd class="text-muted pull-left contact-author">By {{ result.author }}</dd>
+                        <dd class="text-muted pull-right contact-date">Posted the {{  result.date.date|date('F  j  Y, H\\h i\\m') }}</dd>
+                    </dl>
+                </article>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

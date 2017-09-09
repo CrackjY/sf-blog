@@ -1,30 +1,125 @@
-body{
-    width: 100%;
+/********************************************
+
+                BODY
+
+********************************************/
+html, body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
     height: auto;
-    margin:auto;
-    background: rgba(232, 234, 246, 0.35);
-}
+    background-image: url(../img/back.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 
+    margin: 0;
+    padding: 0;
+}
+/********************************************
+
+                WRAPPER
+
+********************************************/
 .wrapper {
-    width: 65%;
-    margin: auto;
-    margin-top: 50px;
+    width:100%;
 }
+/********************************************
 
-.btn {
-    background: #0091EA;
+                CONTAINER
+
+********************************************/
+.container-body {
+    width: 75%;
+    margin: auto;
+    padding-top: 66px;
+    padding-bottom: 66px;
+}
+/********************************************
+
+                ALL-CONTENT
+
+********************************************/
+.content {
+    background: white;
+    padding: 50px 15px 50px 15px;
+}
+/********************************************
+
+                FORM-BOOTSTRAP
+
+********************************************/
+.form-control {
+    border: solid 1px #E8EAF6;
 }
 
 .form-contact-rest {
-    margin-bottom: 50px;
+}
+/********************************************
+
+                MENU-AND-HAMBURGER
+
+********************************************/
+#hamburger {
+    display: none;
 }
 
 .block-menu {
-    background: #0091EA;
+    display: block;
+    background: #673AB7;
+    height: 100px;
     width: 100%;
+    padding-top: 25px;
+}
+
+.with--menu {
+    margin-left: -100%;
+}
+/********************************************
+
+               MEDIA-QUERY-HAM
+
+********************************************/
+@media screen and (min-width: 550px) and (max-width: 2000px) {
+    .block-menu {
+        height: 100px;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .block-hamburger {
+        background: #673AB7;
+        width: 100%;
+        margin: auto;
+    }
+    #hamburger {
+        display: block;
+        background: #673AB7;
+        border: none;
+        outline-style: none;
+    }
+    .block-menu {
+        display: none;
+        height: 262px;
+        position: absolute;
+        width: 32%;
+    }
+    .with--menu {
+        display: block;
+        margin-left: 0;
+    }
+}
+#menu
+{
+    font-size:18px;
+    font-weight:normal;
+    letter-spacing:6px;
+}
+
+.block-menu > .menu {
 }
 
 .nav-pills > li > a {
+    font-size: 17px;
     color: white;
 }
 .nav-pills > li.active > a{
@@ -32,21 +127,26 @@ body{
     background: #00B0FF;
 }
 .nav-pills > li > a:hover {
-    margin-left: 0;
-    background: #40C4FF;
+    border-bottom: white solid 2px;
+    background: #9575CD;
     border-radius: 0;
 }
+/********************************************
 
-.content {
-    background: white;
-    padding-top: 30px;
+                TITLE-EDIT
+
+********************************************/
+h3 {
+    padding-left: 30px;
+    margin-bottom: 30px;
 }
+/********************************************
 
-.footer {
-    background: #0091EA;
-    color: white;
-    padding-top: 10px;
-    text-align: center;
+                PAGE-CONTACT
+
+********************************************/
+.contact-title {
+    margin-bottom: 15px;
 }
 
 .contact-content {
@@ -54,13 +154,96 @@ body{
 }
 
 .contact-date {
-    float: right;
 }
 
 .contact-author {
-    float: left;
+}
+
+.input-send-contact {
+    background: #9575CD;
+    border: none;
+}
+/********************************************
+
+                PAGE-UPDATE
+
+********************************************/
+.block-contact-update {
+}
+
+.contact-send-update {
+    background: #9575CD;
+    border:none;
+    color: white;
+}
+/********************************************
+
+                PAGE-BLOG
+
+********************************************/
+.bloc-article-whriting {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.input-post-article {
+    background: #9575CD;
+    border: none;
+}
+
+.block-all-articles {
+    width: 100%;
+    height: 50em;
+    overflow: scroll;
+}
+
+.block-article {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 article {
+    padding: 15px 15px 15px 15px;
+    background: rgba(213, 167, 255, 0.18);
     display: flex;
+    margin-bottom: 15px;
+    border-radius: 6px;
+}
+
+.bloc-inp-au-lab-au {
+    float: right;
+}
+
+.input-author {
+    width: 70%;
+}
+/********************************************
+
+                PANEL-FAQ
+
+********************************************/
+.panel {
+    background: rgba(149, 117, 205, 0.55);
+    color: white;
+}
+/********************************************
+
+                TAB-CRUD
+
+********************************************/
+.table {
+    margin-bottom: 0;
+}
+
+.td-data-contact {
+
+}
+
+.footer {
+    background: #673AB7;
+    color: white;
+    text-align: center;
+    padding-top:40px;
+    height: 100px;
 }

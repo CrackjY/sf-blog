@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Vous êtes entrain d'editer le contact numéro : {{ contact.id }}</h1>
-    <div class="well">
+    <h3 class="text-info"> Vous êtes entrain d'editer le contact numéro : {{ contact.id }}</h3>
+    <div class="block-contact-update">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
         {{ form_errors(form) }}
         <div class="form-group">
@@ -59,7 +59,7 @@
         <div class="alert-danger">
             {{ form_errors(form.message) }}
         </div>
-        {{ form_widget(form.save, {'attr': {'class': 'btn btn-success'} }) }}
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-default contact-send-update'} }) }}
         {{ form_rest(form) }}
         {{ form_end(form) }}
     </div>

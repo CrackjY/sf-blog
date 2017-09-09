@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}SF-BLOG !{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('libs/bootstrap/bootstrap.min.css') }}" />
+            <link rel="stylesheet" href="{{ asset('libs/font-awesome/css/font-awesome.min.css') }}" />
             <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -12,25 +13,27 @@
     <body>
         {% block body %}
             <div class="wrapper">
-                {% block header %}
-                    {% block menu %}
-                        {% include ':includes:menu.html.twig' %}
+                <div class="container container-body">
+                    {% block header %}
+                        {% block menu %}
+                            {% include ':includes:menu.html.twig' %}
+                        {% endblock %}
                     {% endblock %}
-                {% endblock %}
-                <div class="container-fluid content">
-                    {% block content %}
+                    <div class="content">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                    {% block footer %}
+                        <div class="nav navbar-default footer">
+                            <p>© Yassine Latti - 2017</p>
+                        </div>
                     {% endblock %}
                 </div>
-                {% block footer %}
-                    <div class="nav navbar-default footer">
-                        <p>2017 -</p>
-                    </div>
-                {% endblock %}
             </div>
         {% endblock %}
-
         {% block javascripts %}
             <script type="text/javascript" src="{{ asset('libs/jquery/jquery-3.2.1.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
         {% endblock %}
     </body>
 </html>
