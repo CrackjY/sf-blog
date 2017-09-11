@@ -120,13 +120,13 @@ li > a:hover {
 */
 @media screen and (min-width: 0) and (max-width: 2000px) {
     .block-hamburger {
-        background: rgba(103, 58, 183, 0.56);;
+        background: rgba(103, 58, 183, 0.56);
         width: 100%;
         margin: auto;
     }
     #hamburger {
         display: block;
-        background: rgba(103, 58, 183, 0.40);;
+        background: rgba(103, 58, 183, 0.40);
         color: white;
         border: none;
         outline-style: none;
