@@ -2,12 +2,12 @@
 
 {% block content %}
     <h3 class="text-info"> Vous êtes entrain d'editer le contact numéro : {{ contact.id }}</h3>
-    <div class="block-contact-update">
+    <div class="form-contact-update">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
         {{ form_errors(form) }}
         <div class="form-group">
             {{ form_label(form.title, "Title", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-            <div class="col-sm-10">
+            <div class="col-sm-10 styled-select #673AB7 rounded">
                 {{ form_widget(form.title, {'attr': {'class': '' } }) }}
             </div>
         </div>

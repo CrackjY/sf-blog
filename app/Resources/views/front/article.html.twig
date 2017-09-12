@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <div class="row bloc-article-whriting">
+    <div class="bloc-article-whriting">
         {{ form_start(form, {'attr': {'class': 'form'} }) }}
         {{ form_errors(form) }}
         <div class="form-group">
@@ -24,15 +24,23 @@
         {{ form_end(form) }}
     </div>
     <div class="block-all-articles">
-        <div class="row block-article">
-            {% for result in results %}
-                <article class="article">
-                    <dl>
-                        <dt class="text-muted contact-title">{{ result.title }}</dt>
-                        <dd class="text-muted contact-content">{{ result.content }}</dd>
-                        <dd class="text-muted pull-left contact-author">By {{ result.author }}</dd>
-                        <dd class="text-muted pull-right contact-date">Posted the {{  result.date.date|date('F  j  Y, H\\h i\\m') }}</dd>
-                    </dl>
+        <div class="block-article">
+            {% for article in articles %}
+                <article class="row article">
+                    <header class="">
+                        <a href="#">
+                        <h2>{{ article.title }}</h2>
+                        </a>
+                    </header>
+                    <div class="">
+                        <p class="">{{ article.content }}</p>
+                    </div>
+                    <div class="">
+                        <p class="pull-left">By {{ article.author }}</p>
+                    </div>
+                    <div class="">
+                        <p class="pull-right">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                    </div>
                 </article>
             {% endfor %}
         </div>

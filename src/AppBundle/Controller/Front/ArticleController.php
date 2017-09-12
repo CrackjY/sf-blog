@@ -26,11 +26,11 @@ class ArticleController extends Controller
             }
         }
 
-        $results = $entityManager->getRepository(Article::class)->findAll();
+        $articles = $entityManager->getRepository(Article::class)->findAll();
 
         return $this->render(':front:article.html.twig', array(
             'form' => $form->createView(),
-            'results' => $results
+            'articles' => $articles
         ));
     }
 }
