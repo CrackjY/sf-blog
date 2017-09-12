@@ -4,13 +4,21 @@ namespace AppBundle\Controller\Back;
 
 use AppBundle\Entity\Front\Contact;
 use AppBundle\Form\Type\Front\ContactType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 
+/**
+ * Class ContactController
+ *
+ * @package AppBundle\Controller\Back
+ */
 class ContactController extends Controller
 {
+    /**
+     * @param EntityManagerInterface $entityManager
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function listAction(EntityManagerInterface $entityManager)
     {
         $contacts = $entityManager->getRepository(Contact::class)->findAll();
@@ -20,6 +28,11 @@ class ContactController extends Controller
         ));
     }
 
+    /**
+     * @param EntityManagerInterface $entityManager
+     * @param                        $contactId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function showAction(EntityManagerInterface $entityManager, $contactId)
     {
         $contact = $entityManager->getRepository(Contact::class)->find($contactId);
@@ -29,6 +42,12 @@ class ContactController extends Controller
         ));
     }
 
+    /**
+     * @param Request                $request
+     * @param EntityManagerInterface $entityManager
+     * @param                        $contactId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function updateAction(Request $request, EntityManagerInterface $entityManager, $contactId)
     {
         $contact = $entityManager->getRepository(Contact::class)->find($contactId);
@@ -50,6 +69,11 @@ class ContactController extends Controller
         ));
     }
 
+    /**
+     * @param EntityManagerInterface $entityManager
+     * @param                        $contactId
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function deleteAction(EntityManagerInterface $entityManager, $contactId)
     {
         $contact = $entityManager->getRepository(Contact::class)->find($contactId);

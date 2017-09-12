@@ -2,15 +2,24 @@
 
 namespace AppBundle\Controller\Front;
 
-use AppBundle\Entity\Front\Article;
+use AppBundle\Entity\Article\Article;
 use AppBundle\Form\Type\Front\ArticleType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 
+/**
+ * Class ArticleController
+ *
+ * @package AppBundle\Controller\Front
+ */
 class ArticleController extends Controller
 {
+    /**
+     * @param Request                $request
+     * @param EntityManagerInterface $entityManager
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function articleAction(Request $request, EntityManagerInterface $entityManager)
     {
         $article = new Article();
