@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="bloc-article-whriting">
+        {{ form_start(form, {'attr': {'class': 'form'} }) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+            {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_errors(form.title) }}
+        <div class="form-group">
+            {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_errors(form.content) }}
+        <div class="form-group bloc-inp-au-lab-au">
+            {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.author, {'attr': {'class': 'form-control input-author'} }) }}
+        </div>
+        {{ form_errors(form.author) }}
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary input-post-article'} }) }}
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+    <div class="block-all-articles">
+        <div class="block-article">
+            {% for article in articles %}
+                <article class="row article">
+                    <header class="">
+                        <a href="#">
+                            <h2>{{ article.title }}</h2>
+                        </a>
+                    </header>
+                    <div class="">
+                        <p class="">{{ article.content }}</p>
+                    </div>
+                    <div class="">
+                        <p class="pull-left text-info">By {{ article.author }}</p>
+                    </div>
+                    <div class="">
+                        <p class="pull-right text-info">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                    </div>
+                    <div class="text-center">
+                        <a href="article/{{ article.id }}" class="btn btn-info article-id">Show</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

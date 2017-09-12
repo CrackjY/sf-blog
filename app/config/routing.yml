@@ -29,7 +29,11 @@ back_contact_update:
 back_contact_delete:
     path:     /delete/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:delete }
+#route articlesAction
+front_articles:
+    path:     /articles
+    defaults: { _controller: AppBundle:Front/Article:articles }
 #route articleAction
 front_article:
-    path:     /article
+    path:     /article/{articleId}
     defaults: { _controller: AppBundle:Front/Article:article }

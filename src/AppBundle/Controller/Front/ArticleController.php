@@ -20,7 +20,7 @@ class ArticleController extends Controller
      * @param EntityManagerInterface $entityManager
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function articleAction(Request $request, EntityManagerInterface $entityManager)
+    public function articlesAction(Request $request, EntityManagerInterface $entityManager)
     {
         $article = new Article();
 
@@ -37,9 +37,24 @@ class ArticleController extends Controller
 
         $articles = $entityManager->getRepository(Article::class)->findAll();
 
-        return $this->render(':front:article.html.twig', array(
+        return $this->render(':front:articles.html.twig', array(
             'form' => $form->createView(),
             'articles' => $articles
         ));
     }
+
+    /**
+     * @param EntityManagerInterface $entityManager
+     * @param                        $ArticleId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function articleAction(EntityManagerInterface $entityManager, $articleId)
+    {
+        $article = $entityManager->getRepository(Article::class)->find($articleId);
+
+        return $this->render(':front:article.html.twig', array(
+            'article' => $article
+        ));
+    }
+
 }

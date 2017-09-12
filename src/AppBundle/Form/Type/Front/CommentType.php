@@ -2,7 +2,7 @@
 
 namespace AppBundle\Form\Type\Front;
 
-use AppBundle\Entity\Article\Article;
+use AppBundle\Entity\Article\Comment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ArticleType extends AbstractType
+class CommentType extends AbstractType
 {
     /**
      * BuildForm
@@ -27,26 +27,10 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add(
-                'title',
+                'comment',
                 TextType::class,
                 [
-                    'label'    => 'Title',
-                    'required' => false,
-                ]
-            )
-            ->add(
-                'content',
-                TextareaType::class,
-                [
-                    'label'    => 'Content',
-                    'required' => false,
-                ]
-            )
-            ->add(
-                'author',
-                TextType::class,
-                [
-                    'label'    => 'Author',
+                    'label'    => 'Comment',
                     'required' => false,
                 ]
             )
@@ -54,7 +38,7 @@ class ArticleType extends AbstractType
                 'save',
                 SubmitType::class,
                 [
-                    'label'    => 'Add'
+                    'label'    => 'Post'
                 ]
             );
     }
@@ -68,7 +52,7 @@ class ArticleType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => Article::class
+                'data_class' => Comment::class
             ]
         );
     }
@@ -80,6 +64,6 @@ class ArticleType extends AbstractType
      */
     public function getName()
     {
-        return 'front_article';
+        return 'front_comment';
     }
 }
