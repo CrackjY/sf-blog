@@ -54,7 +54,7 @@ class ArticleType extends AbstractType
                 'save',
                 SubmitType::class,
                 [
-                    'label'    => 'Post'
+                    'label'    => 'Add'
                 ]
             );
     }

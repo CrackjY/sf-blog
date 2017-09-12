@@ -248,7 +248,6 @@ li > a:hover {
     .block-hamburger {
         background: rgba(103, 58, 183, 0.56);
         width: 100%;
-        margin: auto;
     }
     #hamburger {
         display: block;

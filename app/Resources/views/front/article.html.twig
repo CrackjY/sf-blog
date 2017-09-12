@@ -36,10 +36,10 @@
                         <p class="">{{ article.content }}</p>
                     </div>
                     <div class="">
-                        <p class="pull-left">By {{ article.author }}</p>
+                        <p class="pull-left text-info">By {{ article.author }}</p>
                     </div>
                     <div class="">
-                        <p class="pull-right">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                        <p class="pull-right text-info">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
                     </div>
                 </article>
             {% endfor %}

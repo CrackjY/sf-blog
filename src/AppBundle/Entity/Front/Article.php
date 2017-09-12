@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity\Front;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -20,13 +21,14 @@ class Article
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=1000)
+     * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
+     * @ORM\OneToMany(targetEntity=Comment::class, cascade={"persist", "remove"}, mappedBy="content")
      * @Assert\NotBlank()
-     * @ORM\Column(type="string", length=1000)
+     * @ORM\Column(type="string", length=10000)
      */
     private $content;
 
