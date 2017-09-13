@@ -30,13 +30,12 @@ class ArticleController extends Controller
 
         $form = $this->createForm(CommentType::class, $comment);
         $article = $entityManager->getRepository(Article::class)->find($articleId);
+
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
                 $comment->setArticle($article);
-                dump($comment);
-                die();
                 $entityManager->persist($comment);
                 $entityManager->flush();
             }
