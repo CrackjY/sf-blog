@@ -24,7 +24,7 @@ class ArticleController extends Controller
      * @param                        $articleId
      * @return                       Response
      */
-    public function articleAction(Request $request, EntityManagerInterface $entityManager, $articleId)
+    public function showAction(Request $request, EntityManagerInterface $entityManager, $articleId)
     {
         $comment = new Comment();
 

@@ -19,7 +19,7 @@ back_contact_list:
     defaults: { _controller: AppBundle:Back/Contact:list }
 #route viewAction
 back_contact_show:
-    path:     /show/{contactId}
+    path:     /contact/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:show }
 #route updateAction
 back_contact_update:
@@ -30,6 +30,6 @@ back_contact_delete:
     path:     /delete/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:delete }
 #route articleAction
-front_article:
+front_show_article:
     path:     /article/{articleId}
-    defaults: { _controller: AppBundle:Front/Article:article }
+    defaults: { _controller: AppBundle:Front/Article:show }
