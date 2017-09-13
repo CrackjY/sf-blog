@@ -12,7 +12,7 @@ front_faq:
 #route contactAction
 front_contact_form:
     path:     /contact
-    defaults: { _controller: AppBundle:Front/Contact:contact }
+    defaults: { _controller: AppBundle:Front/Front:contact }
 #route listAction
 back_contact_list:
     path:     /list
@@ -29,10 +29,6 @@ back_contact_update:
 back_contact_delete:
     path:     /delete/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:delete }
-#route articlesAction
-front_articles:
-    path:     /articles
-    defaults: { _controller: AppBundle:Front/Article:articles }
 #route articleAction
 front_article:
     path:     /article/{articleId}

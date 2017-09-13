@@ -2,90 +2,69 @@
 
 namespace AppBundle\Controller\Front;
 
+use AppBundle\Entity\Article\Article;
+use AppBundle\Entity\Article\Comment;
+use AppBundle\Entity\Front\Contact;
+use AppBundle\Form\Type\Front\ContactType;
+use AppBundle\Form\Type\Front\ArticleType;
+use AppBundle\Form\Type\Front\CommentsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class FrontController extends Controller
 {
-    public function indexAction()
+    /**
+     * @param Request                $request
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function indexAction(Request $request, EntityManagerInterface $entityManager)
     {
-        $firstnames = array(
-            'antoine',
-            'toto',
-            'yassine',
-            'eric',
-            'etienne'
-        );
+        $article = new Article();
 
-        $peoples =  array(
-                        array(
-                            'firstname' => 'tom',
-                            'lastname' => 'tod',
-                            'children' => array(
-                                array(
-                                    'firstname' => 'uiui',
-                                    'lastname' => 'uouo',
-                                    'age' => 8
-                                ),
-                                array(
-                                    'firstname' => 'qsqqs',
-                                    'lastname' => 'asas',
-                                    'age' => 6
-                                ),
-                                array(
-                                    'firstname' => 'vvbb',
-                                    'lastname' => 'vcvc',
-                                    'age' => 4
-                                )
-                            )
-                        ),
-                        array(
-                            'firstname' => 'dqdq',
-                            'lastname' => 'dqdq',
-                            'children' => array(
-                                array(
-                                    'firstname' => 'uiui',
-                                    'lastname' => 'uouo',
-                                    'age' => 8
-                                    ),
-                                array(
-                                    'firstname' => 'qsqqs',
-                                    'lastname' => 'asas',
-                                    'age' => 6
-                                ),
-                                array(
-                                    'firstname' => 'vvbb',
-                                    'lastname' => 'vcvc',
-                                    'age' => 4
-                                )
-                            )
-                        ),
-                        array(
-                            'firstname' => 'dede',
-                            'lastname' => 'dada',
-                            'children' => array(
-                                array(
-                                    'firstname' => 'uiui',
-                                    'lastname' => 'uouo',
-                                    'age' => 8
-                                ),
-                                array(
-                                    'firstname' => 'qsqqs',
-                                    'lastname' => 'asas',
-                                    'age' => 6
-                                ),
-                                array(
-                                    'firstname' => 'vvbb',
-                                    'lastname' => 'vcvc',
-                                    'age' => 4
-                                )
-                            )
-                        )
-                    );
+        $form = $this->createForm(ArticleType::class, $article);
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $entityManager->persist($article);
+                $entityManager->flush();
+            }
+        }
+
+        $articles = $entityManager->getRepository(Article::class)->findAll();
 
         return $this->render(':front:index.html.twig', array(
-            'firstnames' => $firstnames,
-            'peoples' => $peoples
+            'form' => $form->createView(),
+            'articles' => $articles
+        ));
+    }
+
+    /**
+     * @param Request                $request
+     * @param EntityManagerInterface $entityManager
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function contactAction(Request $request, EntityManagerInterface $entityManager)
+    {
+        $contact = new Contact();
+
+        $form = $this->createForm(ContactType::class, $contact);
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $entityManager->persist($contact);
+                $entityManager->flush();
+            }
+        }
+
+        return $this->render(':front:contact.html.twig', array(
+            'form' => $form->createView(),
         ));
     }
 

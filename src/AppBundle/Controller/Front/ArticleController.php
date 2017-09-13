@@ -21,34 +21,6 @@ class ArticleController extends Controller
     /**
      * @param Request                $request
      * @param EntityManagerInterface $entityManager
-     * @return Response
-     */
-    public function articlesAction(Request $request, EntityManagerInterface $entityManager)
-    {
-        $article = new Article();
-
-        $form = $this->createForm(ArticleType::class, $article);
-
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $entityManager->persist($article);
-                $entityManager->flush();
-            }
-        }
-
-        $articles = $entityManager->getRepository(Article::class)->findAll();
-
-        return $this->render(':front:articles.html.twig', array(
-            'form' => $form->createView(),
-            'articles' => $articles
-        ));
-    }
-
-    /**
-     * @param Request                $request
-     * @param EntityManagerInterface $entityManager
      * @param                        $articleId
      * @return                       Response
      */
