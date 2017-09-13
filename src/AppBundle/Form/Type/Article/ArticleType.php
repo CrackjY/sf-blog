@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form\Type\Front;
+namespace AppBundle\Form\Type\Front\Article;
 
 use AppBundle\Entity\Article\Article;
 use Symfony\Component\Form\AbstractType;
