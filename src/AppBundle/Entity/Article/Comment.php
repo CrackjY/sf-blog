@@ -36,6 +36,14 @@ class Comment
     private $article;
 
     /**
+     * Article constructor.
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
+    /**
      * @return mixed
      */
     public function getId()

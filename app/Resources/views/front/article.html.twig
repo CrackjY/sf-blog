@@ -6,12 +6,12 @@
         <p>{{ article.content }}</p>
         <p>{{ article.author }}</p>
         <p>{{ article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
-        {{ form_start(form) }}
+        {{ form_start(form, {'attr': {'class': 'form'} }) }}
             {{ form_errors(form) }}
-            {{ form_label(form.comment, 'Comment', {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.comment) }}
-            {{ form_errors(form.comment) }}
-            {{ form_widget(form.save, { 'attr': {'class': 'btn btn-warnining' }) } }}
+            {{ form_label(form.content, 'Comment', {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.content) }}
+            {{ form_errors(form.content) }}
+            {{ form_widget(form.save, { 'attr': {'class': 'btn btn-info input-post-article' } })  }}
             {{ form_rest(form) }}
         {{ form_end(form) }}
     </div>

@@ -7,7 +7,7 @@ use AppBundle\Entity\Article\Comment;
 use AppBundle\Entity\Front\Contact;
 use AppBundle\Form\Type\Front\ContactType;
 use AppBundle\Form\Type\Front\ArticleType;
-use AppBundle\Form\Type\Front\CommentsType;
+use AppBundle\Form\Type\Front\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
