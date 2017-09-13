@@ -4,8 +4,8 @@ namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\Article\Article;
 use AppBundle\Entity\Article\Comment;
-use AppBundle\Form\Type\Front\ArticleType;
-use AppBundle\Form\Type\Front\CommentType;
+use AppBundle\Form\Type\Article\ArticleType;
+use AppBundle\Form\Type\Article\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,6 +30,7 @@ class ArticleController extends Controller
 
         $form = $this->createForm(CommentType::class, $comment);
         $article = $entityManager->getRepository(Article::class)->find($articleId);
+        $comments = $article->getComments();
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
@@ -44,7 +45,8 @@ class ArticleController extends Controller
 
         return $this->render(':front:article.html.twig', array(
             'form' => $form->createView(),
-            'article' => $article
+            'article' => $article,
+            'comments' => $comments
         ));
     }
 }
