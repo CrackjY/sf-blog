@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CommentType extends AbstractType
+class CommentsType extends AbstractType
 {
     /**
      * BuildForm
@@ -27,7 +27,7 @@ class CommentType extends AbstractType
     {
         $builder
             ->add(
-                'comment',
+                'comments',
                 TextType::class,
                 [
                     'label'    => 'Comment',

@@ -26,7 +26,7 @@
     <div class="block-all-articles">
         <div class="block-article">
             {% for article in articles %}
-                <article class="row article">
+                <div class="row article">
                     <header class="">
                         <a href="#">
                             <h2>{{ article.title }}</h2>
@@ -42,9 +42,9 @@
                         <p class="pull-right text-info">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
                     </div>
                     <div class="text-center">
-                        <a href="article/{{ article.id }}" class="btn btn-info article-id">Show</a>
+                        <a id="article-id" href="article/{{ article.id }}" class="btn btn-info input-post-article">Show</a>
                     </div>
-                </article>
+                </div>
             {% endfor %}
         </div>
     </div>
