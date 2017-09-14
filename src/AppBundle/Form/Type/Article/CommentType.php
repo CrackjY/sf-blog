@@ -38,7 +38,7 @@ class CommentType extends AbstractType
                 'save',
                 SubmitType::class,
                 [
-                    'label'    => 'Post'
+                    'label'    => 'Comment'
                 ]
             );
     }
