@@ -15,6 +15,6 @@ class CommentRepository extends EntityRepository
      */
     public function findByTerm($term)
     {
-        
+        return true;
     }
 }
