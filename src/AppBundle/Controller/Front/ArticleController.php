@@ -30,7 +30,7 @@ class ArticleController extends Controller
 
         $form = $this->createForm(CommentType::class, $comment);
         $article = $entityManager->getRepository(Article::class)->find($articleId);
-        $comments = $article->findByTerm();
+        $comments = $entityManager->getRepository(Comment::class)->findByTerm('ok');
         dump($comments);
         die();
         if ($request->isMethod('POST')) {
