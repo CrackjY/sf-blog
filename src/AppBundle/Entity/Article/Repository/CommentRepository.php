@@ -10,7 +10,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommentRepository extends EntityRepository
 {
-        public function findByTerm($string) {
-
-        }
+    /**
+     * @param $term
+     */
+    public function findByTerm($term)
+    {
+        
+    }
 }
