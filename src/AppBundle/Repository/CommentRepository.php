@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\EntityRepository;
+
 /**
  * CommentRepository
  *
@@ -10,4 +12,14 @@ namespace AppBundle\Repository;
  */
 class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByTerm($term)
+    {
+        $queryBuilder = $this->createQueryBuilder('a')
+            ->where('a.content = :term')
+            ->setParameter(':term', $term);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
 }

@@ -33,6 +33,7 @@ class ArticleController extends Controller
         $comments = $entityManager->getRepository(Comment::class)->findByTerm('ok');
         dump($comments);
         die();
+
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
