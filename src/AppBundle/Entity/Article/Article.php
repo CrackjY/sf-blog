@@ -48,6 +48,11 @@ class Article
     private $comments;
 
     /**
+     * @ORM\Column(name="active", type="boolean", nullable=true)
+     */
+    private $active;
+
+    /**
      * Article constructor.
      */
     public function __construct()
@@ -155,6 +160,25 @@ class Article
     public function setComments($comments)
     {
         $this->comments = $comments;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     * @return Article
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
 
         return $this;
     }

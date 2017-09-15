@@ -30,9 +30,6 @@ class ArticleController extends Controller
 
         $form = $this->createForm(CommentType::class, $comment);
         $article = $entityManager->getRepository(Article::class)->find($articleId);
-        $comments = $entityManager->getRepository(Comment::class)->findByArticle($article);
-        dump($comments);
-        die();
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
@@ -44,6 +41,10 @@ class ArticleController extends Controller
                 $entityManager->flush();
             }
         }
+
+        $comments = $entityManager->getRepository(Comment::class)->findByArticle($article, array(
+            'date' => 'DESC'
+        ));
 
         return $this->render(':front:article.html.twig', array(
             'form' => $form->createView(),

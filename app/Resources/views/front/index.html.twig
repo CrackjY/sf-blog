@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-	<div class="bloc-article-whriting">
+	<div class="bloc-article-writing">
         {{ form_start(form, {'attr': {'class': 'form'} }) }}
         {{ form_errors(form) }}
 		<div class="form-group">
@@ -36,13 +36,13 @@
 						<p class="">{{ article.content }}</p>
 					</div>
 					<div class="">
-						<p class="pull-left text-info">By {{ article.author }}</p>
+						<a id="article-id" href="article/{{ article.id }}" class="pull-left btn btn-info input-post-article">Show</a>
 					</div>
 					<div class="">
 						<p class="pull-right text-info">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
 					</div>
-					<div class="text-center">
-						<a id="article-id" href="article/{{ article.id }}" class="btn btn-info input-post-article">Show</a>
+					<div class="">
+						<p class="pull-left text-info">By {{ article.author }}</p>
 					</div>
 				</div>
             {% endfor %}

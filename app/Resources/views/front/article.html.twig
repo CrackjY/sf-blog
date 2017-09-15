@@ -3,24 +3,27 @@
 {% block content %}
     <div class="block-article-and-comment">
         <div class="article">
-            <p><a href="{{ path('front_index') }}" class=""><i class="fa fa-undo" aria-hidden="true"> Go Home</i></a></p>
-            <p>{{ article.title }}</p>
+            <p><a href="{{ path('front_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Go Home</a></p>
+            <h4 class="text-info">{{ article.title }}</h4>
             <p>{{ article.content }}</p>
-            <p>{{ article.author }}</p>
-            <p>Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+            <button id="show-input-comment-send" class="pull-left btn btn-info input-post-article">Comment</button>
+            <p class="pull-right text-info">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+            <p class="pull-left text-info">By {{ article.author }}</p>
             {{ form_start(form, {'attr': {'class': 'form'} }) }}
             {{ form_errors(form) }}
-            {{ form_widget(form.content) }}
-            {{ form_errors(form.content) }}
-            {{ form_widget(form.save, { 'attr': {'class': 'btn btn-info input-post-article' } })  }}
+            <div class="writing-comment-and-save">
+                {{ form_widget(form.content) }}
+                {{ form_errors(form.content) }}
+                {{ form_widget(form.save, { 'attr': {'class': 'inut-send-comment btn btn-info input-post-article' } })  }}
+            </div>
             {{ form_rest(form) }}
             {{ form_end(form) }}
         </div>
         <div class="comment-block">
             {% for comment in comments %}
                 <div class="article">
-                    <p>{{ comment.content }}</p>
-                    <p>Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                    <p class="">{{ comment.content }}</p>
+                    <p class="text-info">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
                 </div>
             {% endfor %}
         </div>

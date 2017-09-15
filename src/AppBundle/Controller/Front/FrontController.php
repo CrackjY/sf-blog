@@ -36,7 +36,9 @@ class FrontController extends Controller
             }
         }
 
-        $articles = $entityManager->getRepository(Article::class)->findAll();
+        $articles = $entityManager->getRepository(Article::class)->findBy(array(), array(
+            'date' => 'DESC'
+        ));
 
         return $this->render(':front:index.html.twig', array(
             'form' => $form->createView(),
