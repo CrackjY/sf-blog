@@ -12,15 +12,24 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findByTerm($term)
+    public function findByTerm($term, $limit = null)
     {
         $queryBuilder = $this
         	->createQueryBuilder('co')
             ->where('co.content LIKE :term')
             ->setParameter(':term', '%' . $term . '%');
 
+        if ($limit) {
+            $queryBuilder->setMaxResults($limit);
+        }
+
         return $queryBuilder
             ->getQuery()
             ->getResult();
+    }
+
+    public function findByArtilcle($article)
+    {
+
     }
 }
