@@ -16,8 +16,8 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
     {
         $queryBuilder = $this
         	->createQueryBuilder('co')
-            ->where('co.content = :term')
-            ->setParameter(':term', $term);
+            ->where('co.content LIKE :term')
+            ->setParameter(':term', '%' . $term . '%');
 
         return $queryBuilder
             ->getQuery()
