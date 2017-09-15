@@ -30,6 +30,13 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
 
     public function findByArtilcle($article)
     {
+        $queryBuilder = $this
+            ->createQueryBuilder('co')
+            ->where('co.content = :article')
+            ->addOrderBy('co.date', 'DESC');
 
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
     }
 }
