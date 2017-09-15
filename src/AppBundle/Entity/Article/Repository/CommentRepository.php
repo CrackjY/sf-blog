@@ -14,8 +14,9 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findByTerm($term)
     {
-        $queryBuilder = $this->createQueryBuilder('a')
-            ->where('a.content = :term')
+        $queryBuilder = $this
+        	->createQueryBuilder('co')
+            ->where('co.content = :term')
             ->setParameter(':term', $term);
 
         return $queryBuilder
