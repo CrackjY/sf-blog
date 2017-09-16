@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
+    /**
+     * @param $articleId
+     * @return array
+     */
+    public function myFindAll($article)
+    {
+    }
 }

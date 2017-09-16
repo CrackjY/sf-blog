@@ -19,6 +19,7 @@
             {{ form_widget(form.author, {'attr': {'class': 'form-control input-author'} }) }}
 		</div>
         {{ form_errors(form.author) }}
+        {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
         {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary input-post-article'} }) }}
         {{ form_rest(form) }}
         {{ form_end(form) }}

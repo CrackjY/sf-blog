@@ -5,6 +5,11 @@
         <p><a href="{{ path('back_admin_list_articles') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
         {{ form_start(form, {'attr': {'class': 'form'} }) }}
         {{ form_errors(form) }}
+        <div class="pull-right text-info">
+            <p>{{ form_label(form.active, "Activate : True/False (INT)", {'label_attr': {'class': ''} }) }}</p>
+            <p>{{ form_widget(form.active) }}</p>
+        </div>
+        {{ form_errors(form.active) }}
         <div class="form-group">
             {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.title, {'attr': {'class': 'form-control'} }) }}

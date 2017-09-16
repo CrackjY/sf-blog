@@ -19,6 +19,7 @@ class FrontController extends Controller
     /**
      * @param Request                $request
      * @param EntityManagerInterface $entityManager
+     * @param                        $articleId
      * @return Response
      */
     public function indexAction(Request $request, EntityManagerInterface $entityManager)
@@ -31,6 +32,8 @@ class FrontController extends Controller
             $form->handleRequest($request);
 
             if ($form->isValid()) {
+                $article->setActive(1);
+
                 $entityManager->persist($article);
                 $entityManager->flush();
             }

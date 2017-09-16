@@ -51,6 +51,14 @@ class ArticleType extends AbstractType
                 ]
             )
             ->add(
+                'active',
+                textType::class,
+                [
+                    'label'    => false,
+                    'required' => false,
+                ]
+            )
+            ->add(
                 'save',
                 SubmitType::class,
                 [
