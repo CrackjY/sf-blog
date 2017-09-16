@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="bloc-article-writing">
+        <p><a href="{{ path('back_admin_list_articles') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
+        {{ form_start(form, {'attr': {'class': 'form'} }) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+            {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_errors(form.title) }}
+        <div class="form-group">
+            {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'} }) }}
+        </div>
+        {{ form_errors(form.content) }}
+        <div class="form-group bloc-inp-au-lab-au">
+            {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.author, {'attr': {'class': 'form-control input-author'} }) }}
+        </div>
+        {{ form_errors(form.author) }}
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary input-post-article'} }) }}
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

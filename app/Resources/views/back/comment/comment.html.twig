@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="article">
+        <p><a href="{{ path('back_admin_list_articles') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
+        <div class="article">
+                <p class="">{{ comment.content }}</p>
+                <p class="text-info">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

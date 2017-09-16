@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <div class="article">
+        <p><a href="{{ path('back_admin_list_articles') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
+        {{ form_start(form, {'attr': {'class': 'form'} }) }}
+        {{ form_errors(form) }}
+        <p>{{ form_widget(form.content) }}</p>
+        {{ form_errors(form.content) }}
+        <p>{{ form_label(form.active, "True/False (INT)", {'label_attr': {'class': ''} }) }}</p>
+        <p>{{ form_widget(form.active) }}</p>
+        {{ form_errors(form.active) }}
+        {{ form_widget(form.save, { 'attr': { 'class': 'inut-send-comment btn btn-info input-post-article' } })  }}
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

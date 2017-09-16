@@ -35,10 +35,18 @@ class CommentType extends AbstractType
                 ]
             )
             ->add(
+                'active',
+                textType::class,
+                [
+                    'label'    => false,
+                    'required' => false,
+                ]
+            )
+            ->add(
                 'save',
                 SubmitType::class,
                 [
-                    'label'    => 'Comment'
+                    'label'    => ''
                 ]
             );
     }

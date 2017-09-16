@@ -38,11 +38,30 @@ class CommentRepository extends EntityRepository
      * @param $article
      * @return array
      */
-    public function findByArtilcle($article)
+    public function findByArticle($article)
     {
         $queryBuilder = $this
             ->createQueryBuilder('co')
             ->where('co.article = :article')
+            ->andWhere('co.active = 1')
+            ->orderBy('co.date', 'DESC')
+            ->setParameter(':article', $article);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @param $article
+     * @return array
+     */
+    public function findByArticleForAdmin($article)
+    {
+        $queryBuilder = $this
+            ->createQueryBuilder('co')
+            ->where('co.article = :article')
+            ->orderBy('co.date', 'DESC')
             ->setParameter(':article', $article);
 
         return $queryBuilder

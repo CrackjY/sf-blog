@@ -2,6 +2,7 @@
     #resource: '@AppBundle/Controller/'
     #type: annotation
 # app/config/routing.yml
+#pageBlogParDefault
 front_index:
     path:     /
     defaults: { _controller: AppBundle:Front/Front:index }
@@ -33,3 +34,25 @@ back_contact_delete:
 front_show_article:
     path:     /article/{articleId}
     defaults: { _controller: AppBundle:Front/Article:show }
+##########################################################################
+#AdminBlog
+back_admin_list_articles:
+    path:     /admin/articles
+    defaults: { _controller: AppBundle:Back/Article:articles }
+#route showActionArticleAdmin
+back_admin_show_article:
+    path:     /admin/article/{articleId}
+    defaults: { _controller: AppBundle:Back/Article:show }
+#route updateActionArticleAdmin
+back_article_admin_update:
+    path:     /admin/article/update/{articleId}
+    defaults: { _controller: AppBundle:Back/Article:update }
+#route updateActionCommentAdmin
+back_comment_admin_show:
+    path:     /admin/comment/{commentId}
+    defaults: { _controller: AppBundle:Back/Comment:show }
+#route updateActionCommentAdmin
+back_comment_admin_update:
+    path:     /admin/comment/update/{commentId}
+    defaults: { _controller: AppBundle:Back/Comment:update }
+##########################################################################

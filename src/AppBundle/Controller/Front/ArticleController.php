@@ -36,15 +36,14 @@ class ArticleController extends Controller
 
             if ($form->isValid()) {
                 $comment->setArticle($article);
+                $comment->setActive(1);
 
                 $entityManager->persist($comment);
                 $entityManager->flush();
             }
         }
 
-        $comments = $entityManager->getRepository(Comment::class)->findByArticle($article, array(
-            'date' => 'DESC'
-        ));
+        $comments = $entityManager->getRepository(Comment::class)->findByArticle($article);
 
         return $this->render(':front:article.html.twig', array(
             'form' => $form->createView(),

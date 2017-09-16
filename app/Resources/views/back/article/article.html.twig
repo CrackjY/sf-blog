@@ -3,21 +3,22 @@
 {% block content %}
     <div class="block-article-and-comment">
         <div class="article">
-            <p><a href="{{ path('front_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Go Home</a></p>
+            <p><a href="{{ path('back_admin_list_articles') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
+
             <h4 class="text-info">{{ article.title }}</h4>
             <p>{{ article.content }}</p>
             <button id="show-input-comment-send" class="pull-left btn btn-info input-post-article">Comment</button>
             <p class="pull-right text-info">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
             <p class="pull-left text-info">By {{ article.author }}</p>
             {{ form_start(form, {'attr': {'class': 'form'} }) }}
-                {{ form_errors(form) }}
-                {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
-                <div class="writing-comment-and-save">
-                    {{ form_widget(form.content) }}
-                    {{ form_errors(form.content) }}
-                    {{ form_widget(form.save, { 'attr': {'class': 'inut-send-comment btn btn-info input-post-article' } }) }}
-                </div>
-                {{ form_rest(form) }}
+            {{ form_errors(form) }}
+            {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
+            <div class="writing-comment-and-save">
+                {{ form_widget(form.content) }}
+                {{ form_errors(form.content) }}
+                {{ form_widget(form.save, { 'attr': {'class': 'inut-send-comment btn btn-info input-post-article' } }) }}
+            </div>
+            {{ form_rest(form) }}
             {{ form_end(form) }}
         </div>
         <div class="comment-block">
@@ -25,6 +26,9 @@
                 <div class="article">
                     <p class="">{{ comment.content }}</p>
                     <p class="text-info">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                    <a href="{{ path('back_comment_admin_show', { 'commentId': comment.id }) }}" class="btn btn-info">Show</a>
+                    <a href="{{ path('back_comment_admin_update', { 'commentId': comment.id }) }}" class="btn btn-warning">Update</a>
+                    <a href="{{ path('back_comment_admin_show', { 'commentId': comment.id }) }}" class="btn btn-danger">Delete</a>
                 </div>
             {% endfor %}
         </div>
