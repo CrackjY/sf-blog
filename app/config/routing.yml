@@ -35,6 +35,10 @@ front_show_article:
     path:     /article/{articleId}
     defaults: { _controller: AppBundle:Front/Article:show }
 ##########################################################################
+#interfaceAdmin
+back_index_admin:
+    path:     /admin
+    defaults: { _controller: AppBundle:Back/Back:index }
 #AdminBlog
 back_index_admin_blog:
     path:     /admin/articles
