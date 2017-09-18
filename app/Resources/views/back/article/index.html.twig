@@ -17,14 +17,15 @@
                 {% for article in articles %}
                     <tr>
                         <td>{{ article.title }}</td>
-                        <td>{{ article.date.date|date('F  j  Y, H\\h i\\m') }}</td>
+                        <td>{{ article.date.date|date('d/m/Y h:i:s') }}</td>
                         {% if article.active %}
-                            <td>enable</td>
+                            <td>ENABLE</td>
                         {% else %}
-                            <td>desable</td>
+                            <td>DISABLE</td>
                         {% endif %}
                         <td>{{ article.Author }}</td>
-                        <td><a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id    }) }}" class="pull-left btn btn-info">Show</a>
+                        <td>
+                            <a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id    }) }}" class="pull-left btn btn-info">Show</a>
                             <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id    }) }}" class="pull-left btn btn-warning">update</a>
                         </td>
                     </tr>
