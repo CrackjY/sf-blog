@@ -25,8 +25,8 @@
                         {% endif %}
                         <td>{{ article.Author }}</td>
                         <td>
-                            <a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id    }) }}" class="pull-left btn btn-info">Show</a>
-                            <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id    }) }}" class="pull-left btn btn-warning">update</a>
+                            <a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id }) }}" class="pull-left btn btn-info">Show</a>
+                            <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id }) }}" class="pull-left btn btn-warning">update</a>
                         </td>
                     </tr>
                 {% endfor %}
