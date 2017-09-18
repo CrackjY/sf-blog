@@ -23,7 +23,7 @@ class ArticleController extends Controller
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function articlesAction(Request $request, EntityManagerInterface $entityManager)
+    public function indexAction(Request $request, EntityManagerInterface $entityManager)
     {
         $article = new Article();
 
@@ -33,6 +33,8 @@ class ArticleController extends Controller
             $form->handleRequest($request);
 
             if ($form->isValid()) {
+                $article->setActive(1);
+
                 $entityManager->persist($article);
                 $entityManager->flush();
             }
@@ -42,7 +44,7 @@ class ArticleController extends Controller
             'date' => 'DESC'
         ));
 
-        return $this->render(':back/article:list.html.twig', array(
+        return $this->render(':back/article:index.html.twig', array(
             'form' => $form->createView(),
             'articles' => $articles
         ));

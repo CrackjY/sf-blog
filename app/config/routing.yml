@@ -3,7 +3,7 @@
     #type: annotation
 # app/config/routing.yml
 #pageBlogParDefault
-front_index:
+front_index_blog:
     path:     /
     defaults: { _controller: AppBundle:Front/Front:index }
 #route faq
@@ -36,9 +36,9 @@ front_show_article:
     defaults: { _controller: AppBundle:Front/Article:show }
 ##########################################################################
 #AdminBlog
-back_admin_list_articles:
+back_index_admin_blog:
     path:     /admin/articles
-    defaults: { _controller: AppBundle:Back/Article:articles }
+    defaults: { _controller: AppBundle:Back/Article:index }
 #route showActionArticleAdmin
 back_admin_show_article:
     path:     /admin/article/{articleId}
