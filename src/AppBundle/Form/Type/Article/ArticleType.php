@@ -5,6 +5,7 @@ namespace AppBundle\Form\Type\Article;
 use AppBundle\Entity\Article\Article;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -52,7 +53,7 @@ class ArticleType extends AbstractType
             )
             ->add(
                 'active',
-                textType::class,
+                CheckboxType::class,
                 [
                     'label'    => false,
                     'required' => false,

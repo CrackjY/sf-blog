@@ -19,9 +19,9 @@ class ArticleRepository extends EntityRepository
     public function findByActive($article)
     {
         $queryBuilder = $this
-            ->createQueryBuilder('co')
-            ->Where('co.active = 1')
-            ->orderBy('co.date', 'DESC');
+            ->createQueryBuilder('a')
+            ->Where('a.active = 1')
+            ->orderBy('a.date', 'DESC');
 
         return $queryBuilder
             ->getQuery()

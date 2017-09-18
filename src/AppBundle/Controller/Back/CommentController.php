@@ -50,7 +50,7 @@ class CommentController extends Controller
                 $entityManager->persist($comment);
                 $entityManager->flush();
 
-                return $this->redirect($this->generateUrl('back_admin_list_articles'));            }
+                return $this->redirect($this->generateUrl('back_index_admin_blog'));            }
         }
 
         return $this->render(':back/comment:update.html.twig', array(

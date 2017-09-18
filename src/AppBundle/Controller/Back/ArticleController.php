@@ -98,7 +98,7 @@ class ArticleController extends Controller
                 $entityManager->persist($article);
                 $entityManager->flush();
 
-                return $this->redirect($this->generateUrl('back_admin_list_articles'));
+                return $this->redirect($this->generateUrl('back_index_admin_blog'));
             }
         }
 
