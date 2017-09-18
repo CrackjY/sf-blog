@@ -1,62 +1,69 @@
-#app:
-    #resource: '@AppBundle/Controller/'
-    #type: annotation
-# app/config/routing.yml
-#pageBlogParDefault
+# pageBlogParDefault
 front_index:
     path:     /
     defaults: { _controller: AppBundle:Front/Front:index }
-#route faq
+
+# route faq
 front_faq:
     path:     /faq
     defaults: { _controller: AppBundle:Front/Front:faq }
-#route articleAction
+
+# route articleAction
 front_article_show:
     path:     /article/{articleId}
     defaults: { _controller: AppBundle:Front/Article:show }
-#route contactAction
+
+# route contactAction
 front_contact:
     path:     /contact
     defaults: { _controller: AppBundle:Front/Front:contact }
-#route listAction
+
+# route listAction
 back_contact_list:
     path:     /list
     defaults: { _controller: AppBundle:Back/Contact:list }
-#route viewAction
+
+# route viewAction
 back_contact_show:
     path:     /contact/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:show }
-#route updateAction
+
+# route updateAction
 back_contact_update:
     path:     /update/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:update }
-#route deleteAction
+
+# route deleteAction
 back_contact_delete:
     path:     /delete/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:delete }
-##########################################################################
-#interfaceAdmin
+
+# interfaceAdmin
 back_index:
     path:     /admin
     defaults: { _controller: AppBundle:Back/Back:index }
-#AdminBlog
+
+# AdminBlog
 back_article_index:
     path:     /admin/articles
     defaults: { _controller: AppBundle:Back/Article:index }
-#route showActionArticleAdmin
+
+# route showActionArticleAdmin
 back_article_show:
     path:     /admin/article/{articleId}
     defaults: { _controller: AppBundle:Back/Article:show }
-#route updateActionArticleAdmin
+
+# route updateActionArticleAdmin
 back_article_update:
     path:     /admin/article/update/{articleId}
     defaults: { _controller: AppBundle:Back/Article:update }
-#route updateActionCommentAdmin
+
+# route updateActionCommentAdmin
 back_comment_show:
     path:     /admin/comment/{commentId}
     defaults: { _controller: AppBundle:Back/Comment:show }
-#route updateActionCommentAdmin
+
+# route updateActionCommentAdmin
 back_comment_update:
     path:     /admin/comment/update/{commentId}
     defaults: { _controller: AppBundle:Back/Comment:update }
-##########################################################################
