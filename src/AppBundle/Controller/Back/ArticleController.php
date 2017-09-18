@@ -38,9 +38,7 @@ class ArticleController extends Controller
             }
         }
 
-        $articles = $entityManager->getRepository(Article::class)->findBy(array(), array(
-            'date' => 'DESC'
-        ));
+        $articles = $entityManager->getRepository(Article::class)->findByActive($article);
 
         return $this->render(':back/article:index.html.twig', array(
             'form' => $form->createView(),

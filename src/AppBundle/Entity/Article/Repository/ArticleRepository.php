@@ -13,10 +13,18 @@ use Doctrine\ORM\EntityRepository;
 class ArticleRepository extends EntityRepository
 {
     /**
-     * @param $articleId
+     * @param $article
      * @return array
      */
-    public function myFindAll($article)
+    public function findByActive($article)
     {
+        $queryBuilder = $this
+            ->createQueryBuilder('co')
+            ->Where('co.active = 1')
+            ->orderBy('co.date', 'DESC');
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
     }
 }
