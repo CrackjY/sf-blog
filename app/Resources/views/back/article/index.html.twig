@@ -1,53 +1,29 @@
 {% extends 'base_back.html.twig' %}
 
 {% block content %}
-   <!-- <div class="bloc-article-writing">
-        {{ form_start(form, {'attr': {'class': 'form'} }) }}
-        {{ form_errors(form) }}
-        <div class="form-group">
-            {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.title, {'attr': {'class': 'form-control'} }) }}
-        </div>
-        {{ form_errors(form.title) }}
-        <div class="form-group">
-            {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.content, {'attr': {'class': 'form-control'} }) }}
-        </div>
-        {{ form_errors(form.content) }}
-        <div class="form-group bloc-inp-au-lab-au">
-            {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.author, {'attr': {'class': 'form-control input-author'} }) }}
-        </div>
-        {{ form_errors(form.author) }}
-        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary input-post-article'} }) }}
-        {{ form_rest(form) }}
-        {{ form_end(form) }}
-    </div>-->
-    <div class="block-all-articles">
-        <h1 class="text-danger">Administrator : </h1>
-        <div class="block-article">
-            {% for article in articles %}
-                <div class="row article">
-                    <header class="">
-                        <a href="#">
-                            <h2>{{ article.title }}</h2>
-                        </a>
-                    </header>
-                    <div class="">
-                        <p class="">{{ article.content }}</p>
-                    </div>
-                    <div class="">
-                        <a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id    }) }}" class="pull-left btn btn-info">Show</a>
-                        <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id    }) }}" class="pull-left btn btn-warning">update</a>
-                    </div>
-                    <div class="">
-                        <p class="pull-right text-info">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
-                    </div>
-                    <div class="">
-                        <p class="pull-left text-info">By {{ article.author }}</p>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+    <h1 class="text-danger">Administrator : </h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Active</th>
+                    <th>Author</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td>{{ article.title }}</td>
+                        <td>{{ article.date.date|date('F  j  Y, H\\h i\\m') }}</td>
+                        <td>{{ article.active }}</td>
+                        <td>{{ article.Author }}</td>
+                        <td><a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id    }) }}" class="pull-left btn btn-info">Show</a> <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id    }) }}" class="pull-left btn btn-warning">update</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}

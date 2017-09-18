@@ -27,21 +27,9 @@ class ArticleController extends Controller
     {
         $article = new Article();
 
-        $form = $this->createForm(ArticleType::class, $article);
-
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $entityManager->persist($article);
-                $entityManager->flush();
-            }
-        }
-
         $articles = $entityManager->getRepository(Article::class)->findByActive($article);
 
         return $this->render(':back/article:index.html.twig', array(
-            'form' => $form->createView(),
             'articles' => $articles
         ));
     }

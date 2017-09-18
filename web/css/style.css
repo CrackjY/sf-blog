@@ -408,49 +408,6 @@ h3 {
 }
 /********************************************
 
-     Comment-parent-Page-commentByArticle
-
-********************************************/
-.block-article-and-comment {
-    width: 100%;
-    display: grid;
-}
-
-.return-blog {
-    margin-bottom: 20px;
-}
-
-.comment-block {
-    width: 100%;
-    padding-left: 94px;
-}
-
-#comment_content {
-    width: 100%;
-}
-
-#show-input-comment-send {
-    margin-right: 20px;
-    outline-style: none;
-    border: none;
-}
-
-.writing-comment-and-save {
-    display: none;
-    width: 100%;
-}
-/********************************************
-
-                Admin
-
-********************************************/
-#article_active {
-    float: right;
-    margin-bottom: 15px;
-}
-
-/********************************************
-
                 FOOTER
 
 ********************************************/
@@ -461,3 +418,8 @@ h3 {
     padding-top:40px;
     height: 100px;
 }
+/********************************************
+
+                ADMIN
+
+********************************************/
