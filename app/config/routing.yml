@@ -18,6 +18,11 @@ front_contact:
     path:     /contact
     defaults: { _controller: AppBundle:Front/Front:contact }
 
+# interfaceAdmin
+back_index:
+    path:     /admin
+    defaults: { _controller: AppBundle:Back/Back:index }
+    
 # route listAction
 back_contact_list:
     path:     /list
@@ -37,11 +42,6 @@ back_contact_update:
 back_contact_delete:
     path:     /delete/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:delete }
-
-# interfaceAdmin
-back_index:
-    path:     /admin
-    defaults: { _controller: AppBundle:Back/Back:index }
 
 # AdminBlog
 back_article_index:
