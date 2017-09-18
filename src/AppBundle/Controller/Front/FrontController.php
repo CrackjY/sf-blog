@@ -32,7 +32,6 @@ class FrontController extends Controller
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-
                 $entityManager->persist($article);
                 $entityManager->flush();
             }
