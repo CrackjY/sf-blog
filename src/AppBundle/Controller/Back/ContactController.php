@@ -77,6 +77,7 @@ class ContactController extends Controller
     public function deleteAction(EntityManagerInterface $entityManager, $contactId)
     {
         $contact = $entityManager->getRepository(Contact::class)->find($contactId);
+
         $entityManager->remove($contact);
         $entityManager->flush();
 

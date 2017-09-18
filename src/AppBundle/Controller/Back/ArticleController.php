@@ -74,7 +74,7 @@ class ArticleController extends Controller
 
         $comments = $entityManager->getRepository(Comment::class)->findByArticleForAdmin($article);
 
-        return $this->render(':back/article:article.html.twig', array(
+        return $this->render(':back/article:show.html.twig', array(
             'form' => $form->createView(),
             'article' => $article,
             'comments' => $comments

@@ -26,7 +26,7 @@ class CommentController extends Controller
     {
         $comment = $entityManager->getRepository(Comment::class)->find($commentId);
 
-        return $this->render(':back/comment:comment.html.twig', array(
+        return $this->render(':back/comment:show.html.twig', array(
             'comment' => $comment
         ));
     }
