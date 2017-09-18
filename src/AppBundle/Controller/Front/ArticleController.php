@@ -36,7 +36,6 @@ class ArticleController extends Controller
 
             if ($form->isValid()) {
                 $comment->setArticle($article);
-                $comment->setActive(1);
 
                 $entityManager->persist($comment);
                 $entityManager->flush();
