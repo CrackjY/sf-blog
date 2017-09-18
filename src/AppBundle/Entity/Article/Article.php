@@ -59,7 +59,7 @@ class Article
     {
         $this->comments = new ArrayCollection();
         $this->date = new \DateTime();
-        $this->active = '1';
+        $this->active = true;
     }
 
     /**
