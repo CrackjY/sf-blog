@@ -15,6 +15,6 @@ class BackController extends Controller
      */
     public function indexAction()
     {
-        return $this->render(':back:admin.html.twig');
+        return $this->render(':back:index.html.twig');
     }
 }

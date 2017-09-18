@@ -1,9 +1,9 @@
-{% extends 'base_admin.html.twig' %}
+{% extends 'base_back.html.twig' %}
 
 {% block content %}
     <div class="block-article-and-comment">
         <div class="article">
-            <p><a href="{{ path('back_index_admin_blog') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
+            <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
             <h4 class="text-info">{{ article.title }}</h4>
             <p>{{ article.content }}</p>
             <button id="show-input-comment-send" class="pull-left btn btn-info input-post-article">Comment</button>
@@ -25,9 +25,9 @@
                 <div class="article">
                     <p class="">{{ comment.content }}</p>
                     <p class="text-info">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
-                    <a href="{{ path('back_comment_admin_show', { 'commentId': comment.id }) }}" class="btn btn-info">Show</a>
-                    <a href="{{ path('back_comment_admin_update', { 'commentId': comment.id }) }}" class="btn btn-warning">Update</a>
-                    <a href="{{ path('back_comment_admin_show', { 'commentId': comment.id }) }}" class="btn btn-danger">Delete</a>
+                    <a href="{{ path('back_comment_show', { 'commentId': comment.id }) }}" class="btn btn-info">Show</a>
+                    <a href="{{ path('back_comment_update', { 'commentId': comment.id }) }}" class="btn btn-warning">Update</a>
+                    <a href="{{ path('back_comment_show', { 'commentId': comment.id }) }}" class="btn btn-danger">Delete</a>
                     <p class="text-center text-info">Status : {{ comment.active }}<p>
                 </div>
             {% endfor %}

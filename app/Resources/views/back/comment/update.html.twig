@@ -1,9 +1,9 @@
-{% extends 'base_admin.html.twig' %}
+{% extends 'base_back.html.twig' %}
 
 {% block content %}
 
     <div class="article">
-        <p><a href="{{ path('back_index_admin_blog') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
+        <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
         {{ form_start(form, {'attr': {'class': 'form'} }) }}
         {{ form_errors(form) }}
         <p>{{ form_widget(form.content) }}</p>

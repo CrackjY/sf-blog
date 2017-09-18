@@ -3,15 +3,19 @@
     #type: annotation
 # app/config/routing.yml
 #pageBlogParDefault
-front_index_blog:
+front_index:
     path:     /
     defaults: { _controller: AppBundle:Front/Front:index }
 #route faq
 front_faq:
     path:     /faq
     defaults: { _controller: AppBundle:Front/Front:faq }
+#route articleAction
+front_article_show:
+    path:     /article/{articleId}
+    defaults: { _controller: AppBundle:Front/Article:show }
 #route contactAction
-front_contact_form:
+front_contact:
     path:     /contact
     defaults: { _controller: AppBundle:Front/Front:contact }
 #route listAction
@@ -30,33 +34,29 @@ back_contact_update:
 back_contact_delete:
     path:     /delete/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:delete }
-#route articleAction
-front_show_article:
-    path:     /article/{articleId}
-    defaults: { _controller: AppBundle:Front/Article:show }
 ##########################################################################
 #interfaceAdmin
-back_index_admin:
+back_index:
     path:     /admin
     defaults: { _controller: AppBundle:Back/Back:index }
 #AdminBlog
-back_index_admin_blog:
+back_article_index:
     path:     /admin/articles
     defaults: { _controller: AppBundle:Back/Article:index }
 #route showActionArticleAdmin
-back_admin_show_article:
+back_article_show:
     path:     /admin/article/{articleId}
     defaults: { _controller: AppBundle:Back/Article:show }
 #route updateActionArticleAdmin
-back_article_admin_update:
+back_article_update:
     path:     /admin/article/update/{articleId}
     defaults: { _controller: AppBundle:Back/Article:update }
 #route updateActionCommentAdmin
-back_comment_admin_show:
+back_comment_show:
     path:     /admin/comment/{commentId}
     defaults: { _controller: AppBundle:Back/Comment:show }
 #route updateActionCommentAdmin
-back_comment_admin_update:
+back_comment_update:
     path:     /admin/comment/update/{commentId}
     defaults: { _controller: AppBundle:Back/Comment:update }
 ##########################################################################

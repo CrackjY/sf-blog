@@ -1,4 +1,4 @@
-{% extends 'base_admin.html.twig' %}
+{% extends 'base_back.html.twig' %}
 
 {% block content %}
    <!-- <div class="bloc-article-writing">
@@ -37,8 +37,8 @@
                         <p class="">{{ article.content }}</p>
                     </div>
                     <div class="">
-                        <a id="article-id" href="{{ path('back_admin_show_article', { 'articleId': article.id    }) }}" class="pull-left btn btn-info">Show</a>
-                        <a id="article-id" href="{{ path('back_article_admin_update', { 'articleId': article.id    }) }}" class="pull-left btn btn-warning">update</a>
+                        <a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id    }) }}" class="pull-left btn btn-info">Show</a>
+                        <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id    }) }}" class="pull-left btn btn-warning">update</a>
                     </div>
                     <div class="">
                         <p class="pull-right text-info">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
