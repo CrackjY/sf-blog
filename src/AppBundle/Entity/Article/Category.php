@@ -26,7 +26,9 @@ class Category
     private $name;
 
     /**
-     * @ORM\Column(name="articles", type="string", length=255, nullable=true)
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Article", mappedBy="categories", cascade={"persist"}, fetch="EXTRA_LAZY")
+     *
+     * @var ArrayCollection
      */
     private $articles;
 

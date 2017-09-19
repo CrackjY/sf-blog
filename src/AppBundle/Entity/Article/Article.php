@@ -43,17 +43,20 @@ class Article
     private $date;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Article\Comment", mappedBy="article", fetch="EXTRA_LAZY")
-     */
-    private $comments;
-
-    /**
      * @ORM\Column(name="active", type="boolean", nullable=true)
      */
     private $active;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Category", cascade={"persist"}")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Article\Comment", mappedBy="article", fetch="EXTRA_LAZY")
+     */
+    private $comments;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Category", inversedBy="articles", cascade={"persist"}, fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="sf_blog_article_category_join")
+     *
+     * @var ArrayCollection
      */
     private $categories;
 
@@ -154,6 +157,25 @@ class Article
     /**
      * @return mixed
      */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param mixed $active
+     * @return Article
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getComments()
     {
         return $this->comments;
@@ -173,18 +195,18 @@ class Article
     /**
      * @return mixed
      */
-    public function getActive()
+    public function getCategories()
     {
-        return $this->active;
+        return $this->categories;
     }
 
     /**
-     * @param mixed $active
+     * @param mixed $categories
      * @return Article
      */
-    public function setActive($active)
+    public function setCategories($categories)
     {
-        $this->active = $active;
+        $this->categories = $categories;
 
         return $this;
     }
