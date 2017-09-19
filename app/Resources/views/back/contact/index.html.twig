@@ -24,9 +24,9 @@
                         <td class="text-positive td-data-contact">{{ contact.object }}</td>
                         <td class="text-positive td-data-contact">{{ contact.message }}</td>
                         <td>
-                            <a class="btn btn-info" href="contact/{{ contact.id }}">Show</a>
-                            <a class="btn btn-warning" href="update/{{ contact.id }}">Update</a>
-                            <a class="btn btn-danger" href="delete/{{ contact.id }}">Delete</a>
+                            <a class="btn btn-info" href="{{ path('back_contact_show', { 'contactId': contact.id }) }}">Show</a>
+                            <a class="btn btn-warning" href="{{ path('back_contact_update', { 'contactId': contact.id }) }}">Update</a>
+                            <a class="btn btn-danger" href="{{ path('back_contact_delete', { 'contactId': contact.id }) }}">Delete</a>
                         </td>
                     </tr>
                 {% endfor %}

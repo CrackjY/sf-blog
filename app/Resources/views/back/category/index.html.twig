@@ -1,0 +1,33 @@
+{% extends 'base_back.html.twig' %}
+
+{% block content %}
+    <h1 class="text-danger">Administrator :</h1>
+    <h3><a class="btn btn-info" href="{{ path('back_category_add') }}">Add category</a></h3>
+    <div class="table-responsive">
+    <table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Active</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for category in categories %}
+        <tr>
+            <td>{{ category.name }}</td>
+            {% if category.active %}
+                <td>enable</td>
+            {% else %}
+                <td>disable</td>
+            {% endif %}
+            <td>
+                <a href="" class="btn btn-info">Show</a>
+                <a href="" class="btn btn-warning">Update</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    </div>
+{% endblock %}

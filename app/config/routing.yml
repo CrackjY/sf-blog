@@ -23,10 +23,10 @@ back_index:
     path:     /admin
     defaults: { _controller: AppBundle:Back/Back:index }
 
-# route listAction
-back_contact_list:
-    path:     /list
-    defaults: { _controller: AppBundle:Back/Contact:list }
+# route BackindexContactAction
+back_contact_index:
+    path:     /admin/contact
+    defaults: { _controller: AppBundle:Back/Contact:index }
 
 # route viewAction
 back_contact_show:
@@ -42,6 +42,16 @@ back_contact_update:
 back_contact_delete:
     path:     /delete/{contactId}
     defaults: { _controller: AppBundle:Back/Contact:delete }
+
+# AdminCategoryIndex
+back_category_index:
+    path:    /admin/category
+    defaults: { _controller: AppBundle:Back/Category:index }
+
+# AdminCategoryAdd
+back_category_add:
+    path:    /admin/category/add
+    defaults: { _controller: AppBundle:Back/Category:add }
 
 # AdminBlog
 back_article_index:

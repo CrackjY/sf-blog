@@ -19,11 +19,11 @@ class ContactController extends Controller
      * @param EntityManagerInterface $entityManager
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listAction(EntityManagerInterface $entityManager)
+    public function indexAction(EntityManagerInterface $entityManager)
     {
         $contacts = $entityManager->getRepository(Contact::class)->findAll();
 
-        return $this->render(':Back/contact:list.html.twig', array(
+        return $this->render(':Back/contact:index.html.twig', array(
             'contacts' => $contacts
         ));
     }
@@ -81,6 +81,6 @@ class ContactController extends Controller
         $entityManager->remove($contact);
         $entityManager->flush();
 
-        return $this->redirectToRoute('back_contact_list');
+        return $this->redirectToRoute('back_contact_index');
     }
 }
