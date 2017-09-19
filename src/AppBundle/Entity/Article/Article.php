@@ -66,6 +66,7 @@ class Article
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->categories = new ArrayCollection();
         $this->date = new \DateTime();
         $this->active = true;
     }

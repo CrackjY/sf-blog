@@ -33,6 +33,14 @@ class Category
     private $articles;
 
     /**
+     * Category constructor.
+     */
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
