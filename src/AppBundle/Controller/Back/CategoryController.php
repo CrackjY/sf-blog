@@ -33,7 +33,7 @@ class CategoryController extends Controller
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function addAction(Request $request, EntityManagerInterface $entityManager)
+    public function newAction(Request $request, EntityManagerInterface $entityManager)
     {
         $category = new Category();
 
@@ -50,7 +50,7 @@ class CategoryController extends Controller
             }
         }
 
-        return $this->render(':back/category:add.html.twig', array(
+        return $this->render(':back/category:new.html.twig', array(
             'form' => $form->createView()
         ));
     }

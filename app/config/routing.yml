@@ -49,9 +49,9 @@ back_category_index:
     defaults: { _controller: AppBundle:Back/Category:index }
 
 # AdminCategoryAdd
-back_category_add:
-    path:    /admin/category/add
-    defaults: { _controller: AppBundle:Back/Category:add }
+back_category_new:
+    path:    /admin/category/new
+    defaults: { _controller: AppBundle:Back/Category:new }
 
 # AdminBlog
 back_article_index:
