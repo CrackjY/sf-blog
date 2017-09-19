@@ -1,17 +1,25 @@
 {% extends 'base_front.html.twig' %}
 
 {% block content %}
+	<button id="show-input-article-whriting" class="btn btn-info input-post-article">What's up</button>
 	<div class="bloc-article-writing">
         {{ form_start(form, {'attr': {'class': 'form'} }) }}
         {{ form_errors(form) }}
 		<div class="form-group">
+            {{ form_label(form.categories, "Category", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.categories, {'attr': {'class': 'form-control'} }) }}
+			{{ form_errors(form.categories) }}
+		</div>
+		<div class="form-group">
             {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.title, {'attr': {'class': 'form-control'} }) }}
+            {{ form_errors(form.title) }}
 		</div>
         {{ form_errors(form.title) }}
 		<div class="form-group">
             {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.content, {'attr': {'class': 'form-control'} }) }}
+            {{ form_errors(form.content) }}
 		</div>
         {{ form_errors(form.content) }}
 		<div class="form-group bloc-inp-au-lab-au">

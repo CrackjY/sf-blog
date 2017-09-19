@@ -3,7 +3,11 @@
 namespace AppBundle\Form\Type\Article;
 
 use AppBundle\Entity\Article\Article;
+use AppBundle\Entity\Article\Category;
+use AppBundle\Entity\Article\Repository\CategoryRepository;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -27,6 +31,20 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('categories', EntityType::class,
+                [
+                    'class'         => Category::class,
+                    /*'choice_label'  => 'name',
+                    'multiple'      => true,
+                    'expanded'      => false,
+                    'required'      => true,*/
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('ca')
+                            ->orderBy('ca.name', 'ASC');
+                    },
+                    'choice_label'   => 'name',
+                ]
+            )
             ->add(
                 'title',
                 TextType::class,
@@ -77,7 +95,7 @@ class ArticleType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => Article::class
+                'data_class' => Article::class,
             ]
         );
     }

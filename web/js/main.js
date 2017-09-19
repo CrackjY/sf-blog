@@ -11,4 +11,11 @@ $(function(){
         $('.writing-comment-and-save').show();
         $('#show-input-comment-send').remove();
     })
+
+    $('#show-input-article-whriting').on('click', function(e) {
+        e.preventDefault();
+
+        $('.bloc-article-writing').show();
+        $('#show-input-article-whriting').remove();
+    })
 })

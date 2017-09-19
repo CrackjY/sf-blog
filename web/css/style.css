@@ -338,10 +338,15 @@ h3 {
                 PAGE-BLOG
 
 ********************************************/
+#show-input-article-whriting {
+    margin-bottom: 50px;
+}
+
 .bloc-article-writing {
     margin-left: 15px;
     margin-right: 15px;
     margin-bottom: 15px;
+    display: none;
 }
 
 .input-post-article {
