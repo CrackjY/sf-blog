@@ -53,6 +53,11 @@ class Article
     private $active;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Category", cascade={"persist"}")
+     */
+    private $categories;
+
+    /**
      * Article constructor.
      */
     public function __construct()

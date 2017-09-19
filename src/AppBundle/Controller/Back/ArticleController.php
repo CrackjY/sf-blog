@@ -40,26 +40,11 @@ class ArticleController extends Controller
      */
     public function showAction(Request $request, EntityManagerInterface $entityManager, $articleId)
     {
-        $comment = new Comment();
-
-        $form = $this->createForm(CommentType::class, $comment);
         $article = $entityManager->getRepository(Article::class)->find($articleId);
-
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $comment->setArticle($article);
-
-                $entityManager->persist($comment);
-                $entityManager->flush();
-            }
-        }
 
         $comments = $entityManager->getRepository(Comment::class)->findByArticleForAdmin($article);
 
         return $this->render(':back/article:show.html.twig', array(
-            'form' => $form->createView(),
             'article' => $article,
             'comments' => $comments
         ));

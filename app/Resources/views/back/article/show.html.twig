@@ -2,23 +2,12 @@
 
 {% block content %}
     <div class="block-article-and-comment">
-        <div class="article">
+        <div class="article show-article">
             <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
             <h4 class="text-info">{{ article.title }}</h4>
             <p>{{ article.content }}</p>
-            <button id="show-input-comment-send" class="pull-left btn btn-info input-post-article">Comment</button>
             <p class="pull-right text-info">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
             <p class="pull-left text-info">By {{ article.author }}</p>
-            {{ form_start(form, {'attr': {'class': 'form'} }) }}
-                {{ form_errors(form) }}
-                    {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
-                    <div class="writing-comment-and-save">
-                        {{ form_widget(form.content) }}
-                        {{ form_errors(form.content) }}
-                        {{ form_widget(form.save, { 'attr': {'class': 'inut-send-comment btn btn-info input-post-article' } }) }}
-                    </div>
-                {{ form_rest(form) }}
-            {{ form_end(form) }}
         </div>
         <div class="comment-block">
             {% for comment in comments %}
