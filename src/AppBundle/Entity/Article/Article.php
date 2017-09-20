@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Article;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Article\Category;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -202,13 +203,18 @@ class Article
     }
 
     /**
-     * @param mixed $categories
-     * @return Article
+     * @param \AppBundle\Entity\Article\Category $category
      */
-    public function setCategories($categories)
+    public function addCategory(Category $category)
     {
-        $this->categories = $categories;
+        $this->categories[] = $category;
+    }
 
-        return $this;
+    /**
+     * @param \AppBundle\Entity\Article\Category $category
+     */
+    public function removeCategory(Category $category)
+    {
+        $this->categories->removeElement($category);
     }
 }

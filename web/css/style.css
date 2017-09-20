@@ -162,6 +162,7 @@ select#soflow-color {
 ********************************************/
 .wrapper {
     width:100%;
+    height:100%;
     background-image: url(../img/back.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -347,6 +348,12 @@ h3 {
     margin-right: 15px;
     margin-bottom: 15px;
     display: none;
+}
+
+.bloc-article-update {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
 }
 
 .input-post-article {

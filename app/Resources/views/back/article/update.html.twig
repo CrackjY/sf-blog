@@ -1,7 +1,7 @@
 {% extends 'base_back.html.twig' %}
 
 {% block content %}
-    <div class="bloc-article-writing">
+    <div class="bloc-article-update">
         <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
         {{ form_start(form, {'attr': {'class': 'form'} }) }}
         {{ form_errors(form) }}
@@ -10,6 +10,11 @@
             <p>{{ form_widget(form.active) }}</p>
         </div>
         {{ form_errors(form.active) }}
+        <div class="form-group">
+            {{ form_label(form.categories, "Category", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.categories, {'attr': {'class': 'form-control'} }) }}
+            {{ form_errors(form.categories) }}
+        </div>
         <div class="form-group">
             {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.title, {'attr': {'class': 'form-control'} }) }}

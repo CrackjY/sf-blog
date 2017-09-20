@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\Article\Article;
+use AppBundle\Entity\Article\Category;
 use AppBundle\Entity\Article\Comment;
 use AppBundle\Entity\Front\Contact;
 use AppBundle\Form\Type\Front\ContactType;
