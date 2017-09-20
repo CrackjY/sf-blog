@@ -102,6 +102,17 @@ class Category
     }
 
     /**
+     * @param $articles
+     * @return $this
+     */
+    public function setArticles($articles)
+    {
+        $this->articles = $articles;
+
+        return $this;
+    }
+
+    /**
      * @param Article $article
      */
     public function addArticle(Article $article)

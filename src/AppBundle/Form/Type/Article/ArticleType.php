@@ -34,14 +34,13 @@ class ArticleType extends AbstractType
             ->add('categories', EntityType::class,
                 [
                     'class'         => Category::class,
-                    /*'choice_label'  => 'name',
-                    'multiple'      => true,
                     'expanded'      => false,
-                    'required'      => true,*/
+                    'required'      => true,
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('ca')
                             ->orderBy('ca.name', 'ASC');
                     },
+                    'multiple'      => true,
                     'choice_label'   => 'name',
                 ]
             )

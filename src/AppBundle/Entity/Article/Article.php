@@ -203,6 +203,18 @@ class Article
     }
 
     /**
+     * @param $categories
+     * @return $this
+     */
+    public function setCategories($categories)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+
+    /**
      * @param \AppBundle\Entity\Article\Category $category
      */
     public function addCategory(Category $category)

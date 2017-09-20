@@ -5,10 +5,12 @@
 	<div class="bloc-article-writing">
         {{ form_start(form, {'attr': {'class': 'form'} }) }}
         {{ form_errors(form) }}
-		<div class="form-group">
+		<div class="block-menu-category">
             {{ form_label(form.categories, "Category", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.categories, {'attr': {'class': 'form-control'} }) }}
-			{{ form_errors(form.categories) }}
+			<div class="styled-select #673AB7 rounded">
+                {{ form_widget(form.categories, {'attr': {'class': ''} }) }}
+			</div>
+            {{ form_errors(form.categories) }}
 		</div>
 		<div class="form-group">
             {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
