@@ -21,7 +21,7 @@ class ArticleController extends Controller
     /**
      * @param Request                $request
      * @param EntityManagerInterface $entityManager
-     * @return Response
+     * @return                       Response
      */
     public function indexAction(Request $request, EntityManagerInterface $entityManager)
     {
@@ -29,6 +29,33 @@ class ArticleController extends Controller
 
         return $this->render(':back/article:index.html.twig', array(
             'articles' => $articles
+        ));
+    }
+
+    /**
+     * @param Request                $request
+     * @param EntityManagerInterface $entityManager
+     * @return                       Response
+     */
+    public function newAction(Request $request, EntityManagerInterface $entityManager)
+    {
+        $article = new Article();
+
+        $form = $this->createForm(ArticleType::class, $article);
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $entityManager->persist($article);
+                $entityManager->flush();
+
+                return $this->redirect($this->generateUrl('back_article_index'));
+            }
+        }
+
+        return $this->render(':back/article:new.html.twig', array(
+            'form' => $form->createView()
         ));
     }
 

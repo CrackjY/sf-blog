@@ -34,8 +34,6 @@ class ArticleType extends AbstractType
             ->add('categories', EntityType::class,
                 [
                     'class'         => Category::class,
-                    'expanded'      => false,
-                    'required'      => true,
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('ca')
                             ->orderBy('ca.name', 'ASC');

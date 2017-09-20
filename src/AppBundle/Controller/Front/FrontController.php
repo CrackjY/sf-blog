@@ -23,25 +23,13 @@ class FrontController extends Controller
      * @param                        $articleId
      * @return Response
      */
-    public function indexAction(Request $request, EntityManagerInterface $entityManager)
+    public function indexAction(EntityManagerInterface $entityManager)
     {
         $article = new Article();
-
-        $form = $this->createForm(ArticleType::class, $article);
-
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $entityManager->persist($article);
-                $entityManager->flush();
-            }
-        }
 
         $articles = $entityManager->getRepository(Article::class)->findByActive($article);
 
         return $this->render(':front:index.html.twig', array(
-            'form' => $form->createView(),
             'articles' => $articles
         ));
     }

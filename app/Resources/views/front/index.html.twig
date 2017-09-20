@@ -1,39 +1,6 @@
 {% extends 'base_front.html.twig' %}
 
 {% block content %}
-	<button id="show-input-article-whriting" class="btn btn-info input-post-article">What's up</button>
-	<div class="bloc-article-writing">
-        {{ form_start(form, {'attr': {'class': 'form'} }) }}
-        {{ form_errors(form) }}
-		<div class="block-menu-category">
-            {{ form_label(form.categories, "Category", {'label_attr': {'class': 'text-primary'} }) }}
-			<div class="styled-select #673AB7 rounded">
-                {{ form_widget(form.categories, {'attr': {'class': ''} }) }}
-			</div>
-            {{ form_errors(form.categories) }}
-		</div>
-		<div class="form-group">
-            {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.title, {'attr': {'class': 'form-control'} }) }}
-            {{ form_errors(form.title) }}
-		</div>
-        {{ form_errors(form.title) }}
-		<div class="form-group">
-            {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.content, {'attr': {'class': 'form-control'} }) }}
-            {{ form_errors(form.content) }}
-		</div>
-        {{ form_errors(form.content) }}
-		<div class="form-group bloc-inp-au-lab-au">
-            {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.author, {'attr': {'class': 'form-control input-author'} }) }}
-		</div>
-        {{ form_errors(form.author) }}
-        {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
-        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary input-post-article'} }) }}
-        {{ form_rest(form) }}
-        {{ form_end(form) }}
-	</div>
 	<div class="block-all-articles">
 		<div class="block-article">
             {% for article in articles %}
