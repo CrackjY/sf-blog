@@ -1,12 +1,13 @@
 {% extends 'base_back.html.twig' %}
 
 {% block content %}
-    <a class="btn btn-info link-new-article" href="{{ path('back_article_new') }}">New article</a>
     <h1 class="text-danger">Administrator : </h1>
+    <a class="pull-right btn btn-info link-new-article" href="{{ path('back_article_new') }}">New article</a>
     <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
+                    <th>Category</th>
                     <th>Title</th>
                     <th>Date</th>
                     <th>Active</th>
@@ -17,12 +18,15 @@
             <tbody>
                 {% for article in articles %}
                     <tr>
+                        {% for category in article.categories %}
+                            <td>{{ category.name }}</td>
+                        {% endfor %}
                         <td>{{ article.title }}</td>
                         <td>{{ article.date.date|date('d/m/Y h:i:s') }}</td>
                         {% if article.active %}
-                            <td>enable</td>
+                            <td>Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></td>
                         {% else %}
-                            <td>disable</td>
+                            <td>Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></td>
                         {% endif %}
                         <td>{{ article.Author }}</td>
                         <td>

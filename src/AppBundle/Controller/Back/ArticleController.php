@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\Back;
 
 use AppBundle\Entity\Article\Article;
+use AppBundle\Entity\Article\Category;
 use AppBundle\Entity\Article\Comment;
 use AppBundle\Form\Type\Article\ArticleType;
 use AppBundle\Form\Type\Article\CommentType;
@@ -25,7 +26,7 @@ class ArticleController extends Controller
      */
     public function indexAction(Request $request, EntityManagerInterface $entityManager)
     {
-        $articles = $entityManager->getRepository(Article::class)->findAll();
+        $articles = $entityManager->getRepository(Article::class)->findByCategoryName();
 
         return $this->render(':back/article:index.html.twig', array(
             'articles' => $articles

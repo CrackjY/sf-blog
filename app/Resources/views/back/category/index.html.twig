@@ -9,6 +9,7 @@
     <tr>
         <th>Name</th>
         <th>Active</th>
+        <th>Articles</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -17,10 +18,11 @@
         <tr>
             <td>{{ category.name }}</td>
             {% if category.active %}
-                <td>enable</td>
+                <td><span class="text-success">Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></span></td>
             {% else %}
-                <td>disable</td>
+                <td><span class="text-danger">Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></span></td>
             {% endif %}
+            <td>{{ dump(category.articles) }}</td>
             <td>
                 <a href="" class="btn btn-info">Show</a>
                 <a href="" class="btn btn-warning">Update</a>

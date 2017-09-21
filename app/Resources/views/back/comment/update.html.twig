@@ -6,10 +6,10 @@
         <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
         {{ form_start(form, {'attr': {'class': 'form'} }) }}
         {{ form_errors(form) }}
-        <p>{{ form_widget(form.content) }}</p>
+        {{ form_widget(form.content) }}
         {{ form_errors(form.content) }}
-        <p>{{ form_label(form.active, "Activate : True/False", {'label_attr': {'class': ''} }) }}</p>
-        <p>{{ form_widget(form.active) }}</p>
+        {{ form_label(form.active, "Enable/Desable", {'label_attr': {'class': 'text-warning'} }) }}
+        {{ form_widget(form.active) }}
         {{ form_errors(form.active) }}
         {{ form_widget(form.save, { 'attr': { 'class': 'inut-send-comment btn btn-info input-post-article' } })  }}
         {{ form_rest(form) }}

@@ -1,14 +1,14 @@
 {% extends 'base_front.html.twig' %}
 
 {% block content %}
-    <div class="block-article-and-comment">
-        <div class="article show-article">
-            <p><a href="{{ path('front_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Go Home</a></p>
+    <div class="block-article-and-comment" xmlns="http://www.w3.org/1999/html">
+        <div class="row article show-article">
+            <a href="{{ path('front_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Go Home</a>
             <h4 class="text-info">{{ article.title }}</h4>
             <p>{{ article.content }}</p>
             <button id="show-input-comment-send" class="pull-left btn btn-info input-post-article">Comment</button>
-            <p class="pull-right text-info">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
-            <p class="pull-left text-info">By {{ article.author }}</p>
+            <span class="text-info">By {{ article.author }}</span>
+            <p class="text-info pull-right">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}<p>
             {{ form_start(form, {'attr': {'class': 'form'} }) }}
                 {{ form_errors(form) }}
                 {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
@@ -20,13 +20,13 @@
                 {{ form_rest(form) }}
             {{ form_end(form) }}
         </div>
-        <div class="comment-block">
-            {% for comment in comments %}
-                <div class="article">
+        {% for comment in comments %}
+            <div class="row article comment-block">
+                <div class="">
                     <p class="">{{ comment.content }}</p>
-                    <p class="text-info">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                    <p class="text-info pull-right">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

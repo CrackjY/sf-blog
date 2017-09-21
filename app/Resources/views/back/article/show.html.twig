@@ -2,22 +2,29 @@
 
 {% block content %}
     <div class="block-article-and-comment">
+        <h1 class="text-danger">Administrator : </h1>
         <div class="article show-article">
-            <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
-            <h4 class="text-info">{{ article.title }}</h4>
+            <a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a>
+            <h4 class="text-info text-center"><b>{{ article.title }}</b></h4>
             <p>{{ article.content }}</p>
-            <p class="pull-right text-info">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
-            <p class="pull-left text-info">By {{ article.author }}</p>
+            <span class="text-info">By {{ article.author }}</span>
+            <span class="pull-right text-info">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}</span>
         </div>
         <div class="comment-block">
             {% for comment in comments %}
-                <div class="article">
+                <div class="row article">
                     <p class="">{{ comment.content }}</p>
-                    <p class="text-info">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
-                    <a href="{{ path('back_comment_show', { 'commentId': comment.id }) }}" class="btn btn-info">Show</a>
-                    <a href="{{ path('back_comment_update', { 'commentId': comment.id }) }}" class="btn btn-warning">Update</a>
-                    <a href="{{ path('back_comment_show', { 'commentId': comment.id }) }}" class="btn btn-danger">Delete</a>
-                    <p class="text-center text-info">Status : {{ comment.active }}<p>
+                    {% if comment.active %}
+                        <span class="text-success">Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></span>
+                    {% else %}
+                        <span class="text-danger">Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></span>
+                    {% endif %}
+                    <div class="block-crud-comment text-center">
+                        <a href="{{ path('back_comment_show', { 'commentId': comment.id }) }}" class="btn btn-info">Show</a>
+                        <a href="{{ path('back_comment_update', { 'commentId': comment.id }) }}" class="btn btn-warning">Update</a>
+                        <a href="{{ path('back_comment_show', { 'commentId': comment.id }) }}" class="btn btn-danger">Delete</a>
+                        <span class="pull-right text-info" Posted the>{{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</span>
+                    </div>
                 </div>
             {% endfor %}
         </div>

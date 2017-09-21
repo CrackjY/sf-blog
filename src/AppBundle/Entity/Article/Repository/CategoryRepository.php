@@ -12,5 +12,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
+    public function findByArticleNumber()
+    {
 
+    }
 }

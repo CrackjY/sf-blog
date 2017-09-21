@@ -1,11 +1,9 @@
 {% extends 'base_back.html.twig' %}
 
 {% block content %}
-    <div class="article">
-        <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
-        <div class="article">
-            <p class="">{{ comment.content }}</p>
-            <p class="text-info">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
-        </div>
+    <div class="row article">
+        <a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
+        <p class="">{{ comment.content }}</p>
+        <span class="pull-right text-info">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</span>
     </div>
 {% endblock %}

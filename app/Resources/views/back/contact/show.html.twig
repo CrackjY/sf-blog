@@ -1,10 +1,18 @@
 {% extends 'base_back.html.twig' %}
 
 {% block content %}
-    <b>Title</b> : {{ contact.title }}</br></br>
-    <b>Firstname</b> : {{ contact.firstname }}</br></br>
-    <b>Lastname</b> : {{ contact.lastname }}</br></br>
-    <b>Email</b> : {{ contact.email     }}</br></br>
-    <b>Object</b> : {{ contact.object }}</br></br>
-    <b>Message</b> : {{ contact.message }}</br></br>
+    <dl>
+        <dt class="text-info">Title</dt>
+            <dd>{{ contact.title }}</dd>
+        <dt class="text-info">Firstname</dt>
+            <dd>{{ contact.firstname }}</dd>
+        <dt class="text-info">Lastname</dt>
+            <dd>{{ contact.lastname }}</dd>
+        <dt class="text-info">Email</dt>
+            <dd>{{ contact.email }}</dd>
+        <dt class="text-info">Object</dt>
+            <dd>{{ contact.object }}</dd>
+        <dt class="text-info">Message</dt>
+            <dd>{{ contact.message }}</dd>
+    </dl>
 {% endblock %}

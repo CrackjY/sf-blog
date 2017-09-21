@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity\Article\Repository;
 
+use AppBundle\Entity\Article\Article;
+use AppBundle\Entity\Article\Category;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -16,12 +18,29 @@ class ArticleRepository extends EntityRepository
      * @param $article
      * @return array
      */
-    public function findByActive($article)
+    public function findByActive($active)
     {
         $queryBuilder = $this
             ->createQueryBuilder('a')
             ->Where('a.active = 1')
             ->orderBy('a.date', 'DESC');
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @param $category
+     * @return array
+     */
+    public function findByCategoryName()
+    {
+        $queryBuilder = $this
+            ->createQueryBuilder('a')
+            ->innerJoin('a.categories', 'ca')
+            ->innerJoin('ca.articles', 'c')
+            ->addSelect('ca');
 
         return $queryBuilder
             ->getQuery()

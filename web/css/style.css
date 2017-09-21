@@ -7,10 +7,6 @@ html, body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     height: auto;
-    /*background-image: url(../img/back.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-*/
     margin: 0;
     padding: 0;
 }
@@ -20,7 +16,7 @@ html, body {
 
 ********************************************/
 h4 {
-    margin-bottom: 15px;
+
 }
 /********************************************
 
@@ -91,21 +87,8 @@ li > a {
 }
 
 li > a:hover {
-    /*
-    border-bottom: white solid 2px;
-    border-left: white solid 2px;
-    padding:5px;
-    background: #9575CD;
-    border-radius: 0;
-     */
     color: #F3E5F5;
 }
-
-/*
-#hamburger {
-    display: none;
-}
-*/
 .with--menu {
     margin-left: -100%;
 }
@@ -155,7 +138,7 @@ h3 {
 }
 /********************************************
 
-                PAGE-CONTACT
+             PAGE-CONTACT CLIENT
 
 ********************************************/
 .contact-title {
@@ -179,7 +162,7 @@ h3 {
 }
 /********************************************
 
-                PAGE-UPDATE
+          ADMIN PAGE-contact-UPDATE
 
 ********************************************/
 .block-contact-update {
@@ -197,7 +180,7 @@ h3 {
 }
 /********************************************
 
-                PAGE-BLOG
+         PAGE-BLOG CLIENT-ADMIN
 
 ********************************************/
 /*Admin*/
@@ -216,16 +199,31 @@ h3 {
     margin-right: 15px;
     margin-bottom: 15px;
 }
-
+/*Admin*/
 .input-post-article {
     background: #9575CD;
     border: none;
 }
-
+/*Admin*/
 .block-all-articles {
     width: 100%;
     height: 100em;
     overflow: scroll;
+}
+/*Admin*/
+.bloc-inp-au-lab-au {
+    float: right;
+}
+/*Admin*/
+.input-author {
+    width: 70%;
+}
+/*Admin*/
+#article-id{
+    margin-right: 15px;
+}
+.writing-comment-and-save {
+    display: none;
 }
 
 .block-article {
@@ -238,29 +236,12 @@ h3 {
     word-wrap: break-word;
     text-align: justify;
     margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
     padding-bottom: 15px;
-}
-
-.bloc-inp-au-lab-au {
-    float: right;
-}
-
-.input-author {
-    width: 70%;
-}
-
-#article-id{
-    margin-right: 15px;
-}
-.writing-comment-and-save {
-    display: none;
-}
-
-.show-article {
-    padding-bottom: 42px;
 }
 
 #comment_content {
