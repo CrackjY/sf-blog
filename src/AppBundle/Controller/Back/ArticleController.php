@@ -26,7 +26,7 @@ class ArticleController extends Controller
      */
     public function indexAction(Request $request, EntityManagerInterface $entityManager)
     {
-        $articles = $entityManager->getRepository(Article::class)->findByCategoryName();
+        $articles = $entityManager->getRepository(Article::class)->findAll();
 
         return $this->render(':back/article:index.html.twig', array(
             'articles' => $articles
