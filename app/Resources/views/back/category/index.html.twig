@@ -15,7 +15,7 @@
     <tbody>
     {% for category in categories %}
         <tr>
-            <td>working...</td>
+            <td>{{ category.name }}</td>
             {% if category.active %}
                 <td><span class="text-success">Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></span></td>
             {% else %}

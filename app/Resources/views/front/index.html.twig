@@ -2,6 +2,16 @@
 
 {% block content %}
 	<div class="block-all-articles">
+		<div class="menu-category">
+		{{ form_start(form) }}
+			{{ form_errors(form) }}
+			<div class="form-group">
+                {{ form_label(form.categories) }}
+				{{ form_widget(form.categories, { 'attr': { 'class': 'form-control' } }) }}
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+			</div>
+		</div>
 		<div class="block-article">
             {% for article in articles %}
 				<div class="row article">
