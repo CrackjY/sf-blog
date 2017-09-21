@@ -16,7 +16,7 @@
                 <div class="container container-body">
                     {% block header %}
                         {% block menu %}
-                            {% include ':front/includes:menu_front.html.twig' %}
+                            {{ render(controller('AppBundle:Front/Front:menu')) }}
                         {% endblock %}
                     {% endblock %}
                     <div class="content">

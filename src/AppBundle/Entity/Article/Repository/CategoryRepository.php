@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity\Article\Repository;
 
+use AppBundle\Entity\Article\Article;
+use AppBundle\Entity\Article\Category;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -12,8 +14,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
-    public function findByArticleNumber()
+    /**
+     * @return array
+     */
+        public function findByActive()
     {
+        $queryBuilder = $this
+            ->createQueryBuilder('ca')
+            ->Where('ca.active = 1')
+            ->orderBy('ca.name', 'ASC');
 
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
     }
 }

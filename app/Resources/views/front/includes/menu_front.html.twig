@@ -1,5 +1,14 @@
 <div class="block-hamburger">
-    <button id="hamburger"<i class="fa fa-bars fa-3x" aria-hidden="true"></i></button>
+    <!--<button id="hamburger"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></button>-->
+    <ul class="menu-categories">
+        <li class="li-menu li-category">Categories
+            <ul class="ul-sub-category">
+                {% for category in categories %}
+                    <li class="li-sub-category"><a href="#">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
 </div>
 <div class="block-menu">
     <ul class="menu">

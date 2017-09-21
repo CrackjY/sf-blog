@@ -81,6 +81,36 @@ a:hover {
 
 ********************************************/
 /*working...*/
+.menu, .li-menu {
+    display: inline-block;
+    margin-top: 14px;
+    margin-left: 1.3em;
+    color:white;
+    cursor: pointer;
+}
+
+.li-category {
+}
+
+.ul-sub-category {
+    display:none;
+    list-style-type: none;
+    padding-left: 54px;
+    width: 7.5em;
+}
+
+.li-sub-category {
+    position: relative;
+    left: -15px;
+}
+
+.li-category:hover .ul-sub-category {
+    background-color: rgba(103, 58, 183, 0.56);
+    color: white;
+    list-style-type: none;
+    display: block;
+}
+
 li > a {
     font-size: 17px;
     color: white;
@@ -92,17 +122,14 @@ li > a:hover {
 .with--menu {
     margin-left: -100%;
 }
-/********************************************
 
-               MEDIA-QUERY-HAM
-
-********************************************/
 .block-hamburger {
     background: rgba(103, 58, 183, 0.56);
     width: 100%;
+    height: 50px;
 }
 #hamburger {
-    display: block;
+    /*display: block;*/
     background: rgba(103, 58, 183, 0.40);
     color: white;
     border: none;
@@ -121,11 +148,6 @@ li > a:hover {
 .with--menu {
     display: block;
     margin-left: 0;
-}
-ul, li {
-    display: inline-block;
-    margin-top: 14px;
-    margin-left: 1.3em;
 }
 /********************************************
 

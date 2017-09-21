@@ -15,32 +15,34 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class FrontController
+ * @package AppBundle\Controller\Front
+ */
 class FrontController extends Controller
 {
     /**
-     * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function indexAction(Request $request, EntityManagerInterface $entityManager)
+    public function menuAction(EntityManagerInterface $entityManager)
     {
-        $article = new Article();
+        $categories = $entityManager->getRepository(Category::class)->findByActive();
 
-        $form = $this->createForm(CategoryType::class, $article);
+        return $this->render(':front/includes:menu_front.html.twig', array(
+            'categories' => $categories
+        ));
+    }
 
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $entityManager->persist($article);
-                $entityManager->flush();
-            }
-        }
-
-        $articles = $entityManager->getRepository(Article::class)->findByActive($article);
+    /**
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function indexAction(EntityManagerInterface $entityManager)
+    {
+        $articles = $entityManager->getRepository(Article::class)->findByActive();
 
         return $this->render(':front:index.html.twig', array(
-            'form' => $form->createView(),
             'articles' => $articles
         ));
     }

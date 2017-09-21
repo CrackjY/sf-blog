@@ -15,10 +15,9 @@ use Doctrine\ORM\EntityRepository;
 class ArticleRepository extends EntityRepository
 {
     /**
-     * @param $article
      * @return array
      */
-    public function findByActive($active)
+    public function findByActive()
     {
         $queryBuilder = $this
             ->createQueryBuilder('a')
@@ -31,7 +30,6 @@ class ArticleRepository extends EntityRepository
     }
 
     /**
-     * @param $category
      * @return array
      */
     public function findByCategoryName()
