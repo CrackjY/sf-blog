@@ -12,6 +12,7 @@
                     <th>Author</th>
                     <th>Categories</th>
                     <th>Date</th>
+                    <th>Nb comments</th>
                     <th>Active</th>
                     <th>Actions</th>
                 </tr>
@@ -28,6 +29,7 @@
                                 {% endfor %}
                             </td>
                             <td>{{ article.date.date|date('d/m/Y h:i:s') }}</td>
+                            <td>{{ article.comments|length }}</td>
                             {% if article.active %}
                                 <td>Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></td>
                             {% else %}
