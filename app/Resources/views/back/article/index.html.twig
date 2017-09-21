@@ -20,7 +20,7 @@
                         <tr>
                             <td>
                                 {% for category in article.categories %}
-                                    {{ category.name }}/
+                                    {{ category.name }} {% if loop.last != true %}/{% endif %}
                                 {% endfor %}
                             </td>
                             <td>{{ article.title }}</td>
