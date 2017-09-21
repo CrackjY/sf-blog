@@ -17,9 +17,12 @@
             </thead>
             <tbody>
                 {% for article in articles %}
-                    {% for category in article.categories %}
                         <tr>
-                            <td>{{ category.name }}</td>
+                            <td>
+                                {% for category in article.categories %}
+                                    {{ category.name }}/
+                                {% endfor %}
+                            </td>
                             <td>{{ article.title }}</td>
                             <td>{{ article.date.date|date('d/m/Y h:i:s') }}</td>
                             {% if article.active %}
@@ -33,7 +36,6 @@
                                 <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id }) }}" class="pull-left btn btn-warning">Update</a>
                             </td>
                         </tr>
-                    {% endfor %}
                 {% endfor %}
             </tbody>
         </table>
