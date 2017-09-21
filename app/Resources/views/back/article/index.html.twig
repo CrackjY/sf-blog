@@ -8,11 +8,11 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Categories</th>
                     <th>Title</th>
+                    <th>Author</th>
+                    <th>Categories</th>
                     <th>Date</th>
                     <th>Active</th>
-                    <th>Author</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -20,19 +20,19 @@
                 {% for article in articles %}
                         <tr>
                             <td>{{ article.id }}</td>
+                            <td>{{ article.title }}</td>
+                            <td>{{ article.Author }}</td>
                             <td>
                                 {% for category in article.categories %}
                                     {{ category.name }} {% if loop.last != true %}/{% endif %}
                                 {% endfor %}
                             </td>
-                            <td>{{ article.title }}</td>
                             <td>{{ article.date.date|date('d/m/Y h:i:s') }}</td>
                             {% if article.active %}
                                 <td>Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></td>
                             {% else %}
                                 <td>Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></td>
                             {% endif %}
-                            <td>{{ article.Author }}</td>
                             <td>
                                 <a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id }) }}" class="pull-left btn btn-info">Show</a>
                                 <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id }) }}" class="pull-left btn btn-warning">Update</a>
