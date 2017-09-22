@@ -25,25 +25,14 @@ class FrontController extends Controller
      * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function menuAction(EntityManagerInterface $entityManager)
-    {
-        $categories = $entityManager->getRepository(Category::class)->findByActive();
-
-        return $this->render(':front/includes:menu_front.html.twig', array(
-            'categories' => $categories
-        ));
-    }
-
-    /**
-     * @param EntityManagerInterface $entityManager
-     * @return Response
-     */
     public function indexAction(EntityManagerInterface $entityManager)
     {
+        $categories = $entityManager->getRepository(Category::class)->findByActive();
         $articles = $entityManager->getRepository(Article::class)->findByActive();
 
         return $this->render(':front:index.html.twig', array(
-            'articles' => $articles
+            'articles' => $articles,
+            'categories' => $categories
         ));
     }
 
