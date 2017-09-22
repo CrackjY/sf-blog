@@ -2,12 +2,14 @@
 
 namespace AppBundle\Controller\Front;
 
+use AppBundle\Form\Model\SearchModel;
 use AppBundle\Entity\Article\Article;
 use AppBundle\Entity\Article\Category;
 use AppBundle\Entity\Article\Comment;
 use AppBundle\Entity\Front\Contact;
 use AppBundle\Form\Type\Front\CategoryType;
 use AppBundle\Form\Type\Front\ContactType;
+use AppBundle\Form\Type\Front\SearchType;
 use AppBundle\Form\Type\Article\ArticleType;
 use AppBundle\Form\Type\Article\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -44,6 +46,25 @@ class FrontController extends Controller
 
         return $this->render(':front/includes:menu_front.html.twig', array(
             'categories' => $categories
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function searchAction(Request $request)
+    {
+        $search = new SearchModel();
+
+        $form = $this->createForm(SearchType::class, $search);
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+        }
+
+        return $this->render(':front/includes/search.html.twig', array(
+            'form' => $form->createView(),
         ));
     }
 

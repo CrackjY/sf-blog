@@ -26,7 +26,7 @@ class SearchType extends AbstractType
     {
         $builder
             ->add(
-                'search',
+                'term',
                 SearchType::class,
                 [
                     'label'    => 'Search',
