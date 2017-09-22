@@ -63,7 +63,7 @@ class FrontController extends Controller
             $form->handleRequest($request);
         }
 
-        return $this->render(':front/includes/search.html.twig', array(
+        return $this->render(':front/includes:search.html.twig', array(
             'form' => $form->createView(),
         ));
     }

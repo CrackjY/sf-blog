@@ -4,6 +4,7 @@ namespace AppBundle\Form\Type\Front;
 
 use Symfony\Component\Form\AbstractType;
 use AppBundle\Form\Model\SearchModel;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,7 +28,7 @@ class SearchType extends AbstractType
         $builder
             ->add(
                 'term',
-                SearchType::class,
+                TextType::class,
                 [
                     'label'    => 'Search',
                     'required' => false,

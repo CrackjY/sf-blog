@@ -1,4 +1,8 @@
-<div class="">
-    {{ form_start(form, {'attr': {'class': 'form'}}) }}
+<div class="row pull-right block-search-engine">
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_label(form.term, '', { 'label_attr': { 'class': 'text-info' } }) }}
+        {{ form_widget(form.term) }}
+        {{ form_rest(form) }}
     {{ form_end(form) }}
 </div>
