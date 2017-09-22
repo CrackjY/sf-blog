@@ -40,6 +40,7 @@ class ArticleRepository extends EntityRepository
             ->innerJoin('a.categories', 'ca')
             ->innerJoin('ca.articles', 'c')
             ->where('ca = :ca')
+            ->andWhere('a.active = 1')
             ->orderBy('a.date', 'DESC')
             ->setParameter(':ca', $categoryId);
 
