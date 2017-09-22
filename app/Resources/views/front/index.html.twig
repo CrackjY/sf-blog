@@ -2,6 +2,7 @@
 
 {% block content %}
 	<div class="block-all-articles">
+        {% include ':front/includes:search.html.twig' %}
 		<div class="block-article">
             {% for article in articles %}
 				<div class="row article">

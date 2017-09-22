@@ -38,10 +38,10 @@ class ArticleRepository extends EntityRepository
         $queryBuilder = $this
             ->createQueryBuilder('a')
             ->innerJoin('a.categories', 'ca')
-            ->where('ca = :ca')
+            ->where('ca.id = :categoryId')
             ->andWhere('a.active = :active')
             ->orderBy('a.date', 'DESC')
-            ->setParameter(':ca', $categoryId)
+            ->setParameter(':categoryId', $categoryId)
             ->setParameter(':active', true);
 
         return $queryBuilder
