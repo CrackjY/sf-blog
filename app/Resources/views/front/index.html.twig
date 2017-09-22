@@ -14,7 +14,7 @@
 						<p class="">{{ article.content }}</p>
 					</div>
 					<div class="">
-						<a id="article-id" href="article/{{ article.id }}" class="pull-left btn btn-info input-post-article">Show</a>
+						<a id="article-id" href="{{ path('front_article_show', { 'articleId': article.id }) }}" class="pull-left btn btn-info input-post-article">Show</a>
 					</div>
 					<div class="">
 						<p class="pull-right text-info">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>

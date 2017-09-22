@@ -13,6 +13,11 @@ front_article_show:
     path:     /article/{articleId}
     defaults: { _controller: AppBundle:Front/Article:show }
 
+# route CategoryAction
+front_category_show:
+    path:     /category/{categoryId}
+    defaults: { _controller: AppBundle:Front/Category:show }
+
 # route contactAction
 front_contact:
     path:     /contact

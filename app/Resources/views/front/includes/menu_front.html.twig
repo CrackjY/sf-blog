@@ -1,15 +1,15 @@
 <div class="block-menu">
     <ul class="menu">
         <li class="li-menu"><a href="{{ path('front_index') }}" class="">Blog</a></li>
-        <li class="li-menu"><a href="{{ path('front_faq') }}" class="">FAQ</a></li>
-        <li class="li-menu"><a href="{{ path('front_contact') }}" class="">Contact</a></li>
         <li class="li-menu li-category">Categories
             <ul class="ul-sub-category">
                 {% for category in categories %}
-                    <li class="li-sub-category"><a href="#">{{ category.name }}</a></li>
+                    <li class="li-sub-category"><a href="{{  path('front_category_show', { 'categoryId': category.id }) }}">{{ category.name }}</a></li>
                 {% endfor %}
             </ul>
         </li>
+        <li class="li-menu li-faq"><a href="{{ path('front_faq') }}" class="">FAQ</a></li>
+        <li class="li-menu"><a href="{{ path('front_contact') }}" class="">Contact</a></li>
     </ul>
 </div>
 <div class="block-hamburger">
