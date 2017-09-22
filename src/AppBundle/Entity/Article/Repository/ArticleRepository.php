@@ -38,7 +38,6 @@ class ArticleRepository extends EntityRepository
         $queryBuilder = $this
             ->createQueryBuilder('a')
             ->innerJoin('a.categories', 'ca')
-            ->innerJoin('ca.articles', 'c')
             ->where('ca = :ca')
             ->andWhere('a.active = :active')
             ->orderBy('a.date', 'DESC')
