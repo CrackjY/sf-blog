@@ -33,16 +33,17 @@ class ArticleRepository extends EntityRepository
      * @param $categoryId
      * @return array
      */
-    public function findByCategoryId($categoryId)
+    public function findByCategoryId($categoryId, $active)
     {
         $queryBuilder = $this
             ->createQueryBuilder('a')
             ->innerJoin('a.categories', 'ca')
             ->innerJoin('ca.articles', 'c')
             ->where('ca = :ca')
-            ->andWhere('a.active = 1')
+            ->andWhere('a.active = :active')
             ->orderBy('a.date', 'DESC')
-            ->setParameter(':ca', $categoryId);
+            ->setParameter(':ca', $categoryId)
+            ->setParameter(':active', $active);
 
         return $queryBuilder
             ->getQuery()
