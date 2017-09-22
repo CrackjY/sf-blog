@@ -100,8 +100,7 @@ a:hover {
 .ul-sub-category {
     display:none;
     list-style-type: none;
-    padding-left: 54px;
-    width: 7.5em;
+    padding-top: 10px;
 }
 
 .li-sub-category {
@@ -123,6 +122,7 @@ li > a {
 
 li > a:hover {
     color: #F3E5F5;
+    padding-top: 10px;
 }
 .with--menu {
     margin-left: -100%;
