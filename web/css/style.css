@@ -90,6 +90,7 @@ a:hover {
 }
 
 .li-category {
+    position: absolute;
 }
 
 .ul-sub-category {
