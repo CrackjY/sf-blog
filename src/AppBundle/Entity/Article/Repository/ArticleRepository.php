@@ -33,7 +33,7 @@ class ArticleRepository extends EntityRepository
      * @param $categoryId
      * @return array
      */
-    public function findByCategoryId($categoryId, $active)
+    public function findByCategoryId($categoryId)
     {
         $queryBuilder = $this
             ->createQueryBuilder('a')
@@ -43,7 +43,7 @@ class ArticleRepository extends EntityRepository
             ->andWhere('a.active = :active')
             ->orderBy('a.date', 'DESC')
             ->setParameter(':ca', $categoryId)
-            ->setParameter(':active', $active);
+            ->setParameter(':active', true);
 
         return $queryBuilder
             ->getQuery()

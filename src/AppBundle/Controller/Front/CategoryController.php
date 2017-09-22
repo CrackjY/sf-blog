@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function showAction(EntityManagerInterface $entityManager, $categoryId)
     {
-        $articles = $entityManager->getRepository(Article::class)->findByCategoryId($categoryId, 1);
+        $articles = $entityManager->getRepository(Article::class)->findByCategoryId($categoryId);
 
         return $this->render(':front:category.html.twig', array(
             'articles' => $articles
