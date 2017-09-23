@@ -35,17 +35,33 @@ class ArticleRepository extends EntityRepository
      */
     public function findByCategoryId($categoryId)
     {
-        $queryBuilder = $this
+        return $this
             ->createQueryBuilder('a')
             ->innerJoin('a.categories', 'ca')
             ->where('ca.id = :categoryId')
             ->andWhere('a.active = :active')
             ->orderBy('a.date', 'DESC')
             ->setParameter(':categoryId', $categoryId)
-            ->setParameter(':active', true);
+            ->setParameter(':active', true)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @param $term
+     * @return array
+     */
+    public function findByTerm($term)
+    {
+        $queryBuilder = $this
+            ->createQueryBuilder('a')
+            ->where('a.content LIKE :term')
+            ->setParameter(':term', '%' . $term . '%');
 
         return $queryBuilder
             ->getQuery()
             ->getResult();
     }
+
+
 }

@@ -1,9 +1,8 @@
-{% extends 'base_front.html.twig' %}
+{% extends '::base_front.html.twig' %}
 
 {% block content %}
-    {% block search %}
-        {{ render(controller('AppBundle:Front/Front:search')) }}
-    {% endblock %}
+	{{ render(controller('AppBundle:Front/Front:search')) }}
+
 	<div class="block-all-articles">
 		<div class="block-article">
             {% for article in articles %}

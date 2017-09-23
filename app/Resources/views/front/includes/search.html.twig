@@ -1,8 +1,14 @@
-<div class="row pull-right block-search-engine">
-    {{ form_start(form) }}
+<div class="row block-search-engine">
+    {{ form_start(form, { 'attr': { 'action': path('front_search') } }) }}
         {{ form_errors(form) }}
+
         {{ form_label(form.term, '', { 'label_attr': { 'class': 'text-info' } }) }}
         {{ form_widget(form.term) }}
-        {{ form_rest(form) }}
+        {{ form_errors(form.term) }}
+
+        {{ form_label(form.by_categories, '', { 'label_attr': { 'class': 'text-info' } }) }}
+        {{ form_widget(form.by_categories) }}
+        {{ form_errors(form.by_categories) }}
+
     {{ form_end(form) }}
 </div>

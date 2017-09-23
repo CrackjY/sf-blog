@@ -2,10 +2,14 @@
 
 namespace AppBundle\Form\Type\Front;
 
-use Symfony\Component\Form\AbstractType;
 use AppBundle\Form\Model\SearchModel;
+use AppBundle\Entity\Article\Category;
+use AppBundle\Entity\Article\Article;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,6 +30,18 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('by_categories',  EntityType::class,
+                [
+                    'class'         => Category::class,
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('ca')
+                            ->orderBy('ca.name', 'ASC');
+                    },
+                    'multiple'       => true,
+                    'choice_label'   => 'name',
+                    'label'          => '',
+                ]
+            )
             ->add(
                 'term',
                 TextType::class,
@@ -45,7 +61,7 @@ class SearchType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => SearchModel::class
+                'data_class' => SearchModel::class,
             ]
         );
     }

@@ -3,6 +3,11 @@ front_index:
     path:     /
     defaults: { _controller: AppBundle:Front/Front:index }
 
+# route search
+front_search:
+    path:     /search
+    defaults: { _controller: AppBundle:Front/Front:search }
+
 # route faq
 front_faq:
     path:     /faq

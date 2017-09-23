@@ -51,32 +51,39 @@ class FrontController extends Controller
 
     /**
      * @param Request $request
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function searchAction(Request $request)
+    public function searchAction(Request $request, EntityManagerInterface $entityManager)
     {
         $search = new SearchModel();
-
         $form = $this->createForm(SearchType::class, $search);
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $articles = $entityManager->getRepository(Article::class)->findByTerm($search->getTerm());
+
+                return $this->render(':front:result.html.twig', array(
+                    'articles' => $articles,
+                ));
+            }
         }
 
         return $this->render(':front/includes:search.html.twig', array(
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ));
     }
 
     /**
-     * @param Request                $request
+     * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function contactAction(Request $request, EntityManagerInterface $entityManager)
     {
         $contact = new Contact();
-
         $form = $this->createForm(ContactType::class, $contact);
 
         if ($request->isMethod('POST')) {
@@ -93,6 +100,9 @@ class FrontController extends Controller
         ));
     }
 
+    /**
+     * @return Response
+     */
     public function faqAction()
     {
         return $this->render(':front:faq.html.twig');
