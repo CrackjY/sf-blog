@@ -1,4 +1,4 @@
-{% extends 'base_front.html.twig' %}
+{% extends '::base_front.html.twig' %}
 
 {% block content %}
     <div class="block-all-articles">
@@ -6,9 +6,7 @@
             {% for article in articles %}
                 <div class="row article">
                     <header class="">
-                        <a href="#">
-                            <h2>{{ article.title }}</h2>
-                        </a>
+                        <h2>{{ article.title }}</h2>
                     </header>
                     <div class="">
                         <p class="">{{ article.content }}</p>

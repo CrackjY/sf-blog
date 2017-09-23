@@ -52,6 +52,7 @@ class FrontController extends Controller
     /**
      * @param Request $request
      * @param EntityManagerInterface $entityManager
+     * @param $categoryId
      * @return Response
      */
     public function searchAction(Request $request, EntityManagerInterface $entityManager)
@@ -63,7 +64,7 @@ class FrontController extends Controller
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-                $articles = $entityManager->getRepository(Article::class)->findByTerm($search->getTerm());
+                $articles = $entityManager->getRepository(Article::class)->findByTerm($search->getTerm(), $search->getByCategories(), $search->getDateStart(), $search->getDateEnd());
 
                 return $this->render(':front:result.html.twig', array(
                     'articles' => $articles,

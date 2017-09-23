@@ -38,6 +38,7 @@ class ArticleType extends AbstractType
                         return $er->createQueryBuilder('ca')
                             ->orderBy('ca.name', 'ASC');
                     },
+                    'expanded' => true,
                     'multiple'      => true,
                     'choice_label'   => 'name',
                 ]

@@ -1,14 +1,31 @@
 <div class="row block-search-engine">
-    {{ form_start(form, { 'attr': { 'action': path('front_search') } }) }}
+    <div class="champs-searching pull-left">
+        {{ form_start(form, { 'attr': { 'action': path('front_search'), 'class': 'form' } }) }}
         {{ form_errors(form) }}
-
-        {{ form_label(form.term, '', { 'label_attr': { 'class': 'text-info' } }) }}
-        {{ form_widget(form.term) }}
-        {{ form_errors(form.term) }}
-
-        {{ form_label(form.by_categories, '', { 'label_attr': { 'class': 'text-info' } }) }}
-        {{ form_widget(form.by_categories) }}
-        {{ form_errors(form.by_categories) }}
+        <div class="form-group">
+            {{ form_widget(form.term, { 'attr': { 'class': 'form-control' } }) }}
+            {{ form_errors(form.term) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.categories) }}
+            {{ form_widget(form.categories, { 'attr': { 'class': 'form-control' } }) }}
+            {{ form_errors(form.categories) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.date_start) }}
+            {{ form_widget(form.date_start, { 'attr': { 'class': 'form-control' } }) }}
+            {{ form_errors(form.date_start) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.date_end) }}
+            {{ form_widget(form.date_end, { 'attr': { 'class': 'form-control' } }) }}
+            {{ form_errors(form.date_end) }}
+        </div>
+    </div>
+    <div class="block-button-search">
+        <button type="submit" class="btn btn-default button-search"><i class="fa fa-search fa-5x" aria-hidden="true"></i></button>
+    </div>
+        {{ form_rest(form) }}
 
     {{ form_end(form) }}
 </div>

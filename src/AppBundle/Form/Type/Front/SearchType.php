@@ -8,6 +8,7 @@ use AppBundle\Entity\Article\Article;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,34 +21,51 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class SearchType extends AbstractType
 {
     /**
-     * BuildForm
-     *
      * @param FormBuilderInterface $builder
      * @param array $options
-     *
-     * @return null
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('by_categories',  EntityType::class,
+            ->add('categories',  EntityType::class,
                 [
                     'class'         => Category::class,
                     'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('ca')
                             ->orderBy('ca.name', 'ASC');
                     },
+                    'expanded' => true,
                     'multiple'       => true,
                     'choice_label'   => 'name',
-                    'label'          => '',
                 ]
             )
             ->add(
                 'term',
                 TextType::class,
                 [
-                    'label'    => 'Search',
-                    'required' => false,
+                    'label'       => 'Search',
+                    'required'    => false,
+                    'attr'        => array(
+                        'placeholder' => 'Search'
+                    ),
+                ]
+            )
+            ->add(
+                'date_start',
+                DateType::class,
+                [
+                    'widget' => 'single_text',
+                    'format' => 'yyyy-MM-dd',
+                    'label'  => 'Date start'
+                ]
+            )
+            ->add(
+                'date_end',
+                DateType::class,
+                [
+                    'widget' => 'single_text',
+                    'format' => 'yyyy-MM-dd',
+                    'label'  => 'Date end'
                 ]
             );
     }

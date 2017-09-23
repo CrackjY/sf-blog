@@ -1,14 +1,19 @@
-{% extends 'base_back.html.twig' %}
+{% extends '::base_back.html.twig' %}
 
 {% block content %}
     <div class="row block-form-add-category">
         {{ form_start(form) }}
+
             {{ form_errors(form) }}
+
             {{ form_label(form.name, "Name", { 'label_attr': { 'class': 'text-info'} }) }}
             {{ form_widget(form.name, { 'attr': { 'class': '' } }) }}
             {{ form_errors(form.name) }}
+
             {{ form_widget(form.save, { 'attr': { 'class': 'btn btn-info' } }) }}
+
             {{ form_rest(form) }}
+
         {{ form_end(form) }}
     </div>
 {% endblock %}

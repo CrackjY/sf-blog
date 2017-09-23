@@ -1,12 +1,14 @@
-{% extends 'base_front.html.twig' %}
+{% extends '::base_front.html.twig' %}
 
 {% block content %}
 	<div id="success-contact"></div>
 	<div class="form-contact">
 		{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
 			{{ form_errors(form) }}
+
 			<div class="form-group">
-				{{ form_label(form.title, "Title", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
+				{{ form_label(form.title, "Title", {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
 			<div class="col-sm-10 styled-select #673AB7 rounded">
 				{{ form_widget(form.title, {'attr': {'class': '' } }) }}
 			</div>
@@ -15,7 +17,7 @@
 				{{ form_errors(form.title) }}
 			</div>
 			<div class="form-group">
-				{{ form_label(form.firstname, "Firstname", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
+				{{ form_label(form.firstname, "Firstname", {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
 				<div class="col-sm-10">
 					{{ form_widget(form.firstname, {'attr': {'class': 'form-control'} }) }}
 				</div>
@@ -24,7 +26,7 @@
 				{{ form_errors(form.firstname) }}
 			</div>
 			<div class="form-group">
-				{{ form_label(form.lastname, "Lastname", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
+				{{ form_label(form.lastname, "Lastname", {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
 				<div class="col-sm-10">
 					{{ form_widget(form.lastname, {'attr': {'class': 'form-control'} }) }}
 				</div>
@@ -33,7 +35,7 @@
 				{{ form_errors(form.lastname) }}
 			</div>
 			<div class="form-group">
-				{{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
+				{{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
 				<div class="col-sm-10">
 					{{ form_widget(form.email, {'attr': {'class': 'form-control'} }) }}
 				</div>
@@ -42,7 +44,7 @@
 				{{ form_errors(form.email) }}
 			</div>
 			<div class="form-group">
-				{{ form_label(form.object, "Object", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
+				{{ form_label(form.object, "Object", {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
 				<div class="col-sm-10">
 					{{ form_widget(form.object, {'attr': {'class': 'form-control'} }) }}
 				</div>
@@ -51,7 +53,7 @@
 				{{ form_errors(form.object) }}
 			</div>
 			<div class="form-group">
-				{{ form_label(form.message, "Message", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
+				{{ form_label(form.message, "Message", {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
 				<div class="col-sm-10">
 					{{ form_widget(form.message, {'attr': {'class': 'form-control'} }) }}
 				</div>
@@ -59,8 +61,9 @@
 			<div class="alert-danger">
 				{{ form_errors(form.message) }}
 			</div>
-			{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary input-send-contact'} }) }}
+			{{ form_widget(form.save, {'attr': {'class': 'btn btn-default pull-right'} }) }}
 		    {{ form_rest(form) }}
+
 		{{ form_end(form) }}
 	</div>
 {% endblock %}

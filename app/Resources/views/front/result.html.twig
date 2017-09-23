@@ -8,21 +8,19 @@
             {% for article in articles %}
                 <div class="row article">
                     <header class="">
-                        <a href="#">
-                            <h2>{{ article.title }}</h2>
-                        </a>
+                        <h2>{{ article.title }}</h2>
                     </header>
                     <div class="">
                         <p class="">{{ article.content }}</p>
                     </div>
                     <div class="">
-                        <a id="article-id" href="{{ path('front_article_show', { 'articleId': article.id }) }}" class="pull-left btn btn-info input-post-article">Show</a>
+                        <a id="article-id" href="{{ path('front_article_show', { 'articleId': article.id }) }}" class="pull-left btn btn-default">Show</a>
                     </div>
                     <div class="">
-                        <p class="pull-right text-info">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                        <p class="pull-right">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
                     </div>
                     <div class="">
-                        <p class="pull-left text-info">By {{ article.author }}</p>
+                        <p class="pull-left">By {{ article.author }}</p>
                     </div>
                 </div>
             {% else %}

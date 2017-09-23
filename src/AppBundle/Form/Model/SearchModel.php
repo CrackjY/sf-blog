@@ -9,9 +9,9 @@ namespace AppBundle\Form\Model;
 class SearchModel
 {
     /**
-     * @var $date_end
+     * @var $categories
      */
-    public $by_categories;
+    public $categories;
 
     /**
      * @var string
@@ -31,18 +31,18 @@ class SearchModel
     /**
      * @return mixed
      */
-    public function getSearchCategories()
+    public function getByCategories()
     {
-        return $this->by_Categories;
+        return $this->categories;
     }
 
     /**
-     * @param $by_Categories
+     * @param $categories
      * @return $this
      */
-    public function setSearchCategories($by_Categories)
+    public function setByCategories($categories)
     {
-        $this->by_Categories = $by_Categories;
+        $this->categories = $categories;
 
         return $this;
     }

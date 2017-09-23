@@ -12,21 +12,29 @@ html, body {
 }
 /********************************************
 
-               mini-title-article(h4)
-
-********************************************/
-h4 {
-
-}
-/********************************************
-
             search-engine-articles
 
 ********************************************/
 .block-search-engine {
     margin-bottom: 30px;
     margin-left: 15px;
+    width: 100%;
 }
+
+.champs-searching {
+    width: 60%;
+}
+
+.block-button-search {
+    text-align: center;
+    margin-top: 100px;
+}
+
+#search_categories_1, #search_categories_2, #search_categories_3 {
+    margin-left: 20px;
+}
+
+
 /********************************************
 
                LINK
@@ -34,6 +42,22 @@ h4 {
 ********************************************/
 a:hover {
     text-decoration: none;
+}
+/********************************************
+
+               Boutton
+
+********************************************/
+.btn {
+    background: rgba(58, 58, 58, 0.77);
+    border:none;
+    color:white;
+}
+
+.btn:hover {
+    background: rgba(58, 58, 58, .5);
+    border:none;
+    color:white;
 }
 /********************************************
 
@@ -48,9 +72,10 @@ a:hover {
 .wrapper {
     width:100%;
     height:100%;
-    background-image: url(../img/back.jpg);
+    /*background-image: url(../img/back.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
+    background: rgba(196, 187, 204, 0.18);
 }
 /********************************************
 
@@ -71,6 +96,8 @@ a:hover {
 .content {
     background: white;
     padding: 50px 15px 50px 15px;
+    border-left: solid rgba(47, 79, 79, 0.14);
+    border-top: solid rgba(47, 79, 79, 0.14);
 }
 /********************************************
 
@@ -118,7 +145,7 @@ a:hover {
 }
 
 .li-category:hover .ul-sub-category {
-    background-color: rgba(103, 58, 183, 0.56);
+    background-color: #616161;
     color: white;
     list-style-type: none;
     display: block;
@@ -133,24 +160,25 @@ li > a:hover {
     color: #F3E5F5;
     padding-top: 10px;
 }
-.with--menu {
+.with-menu {
     margin-left: -100%;
 }
-
+/*
 .block-hamburger {
-    background: rgba(103, 58, 183, 0.56);
+    background: rgba(58, 58, 58, 0.77);
     width: 100%;
-    height: 50px;
+    height: 4px;
 }
 #hamburger {
-    /*display: block;*/
-    background: rgba(103, 58, 183, 0.40);
+    /*display: block;
+    background: #CFD8DC;
     color: white;
     border: none;
     outline-style: none;
 }
+*/
 .block-menu {
-    background: #673AB7;
+    background: rgba(0, 0, 0, 0.72);
     /*display: none;*/
     height: 100px;
     position: fixed;
@@ -189,12 +217,6 @@ h3 {
 }
 
 .contact-author {
-}
-
-.input-send-contact {
-    background: #9575CD;
-    border: none;
-    float: right;
 }
 /********************************************
 
@@ -236,11 +258,6 @@ h3 {
     margin-bottom: 15px;
 }
 /*Admin*/
-.input-post-article {
-    background: #9575CD;
-    border: none;
-}
-/*Admin*/
 .block-all-articles {
     width: 100%;
     height: 60em;
@@ -268,7 +285,7 @@ h3 {
 }
 
 .article {
-    background: rgba(213, 167, 255, 0.18);
+    background: rgba(196, 187, 204, 0.18);
     word-wrap: break-word;
     text-align: justify;
     margin-bottom: 15px;
@@ -297,7 +314,7 @@ h3 {
 
 ********************************************/
 .panel-questions {
-    background: rgba(149, 117, 205, 0.55);
+    background: rgba(25, 19, 37, 0.55);;
     color: white;
     margin-bottom: 20px;
 }
@@ -307,7 +324,7 @@ h3 {
 
 ********************************************/
 .footer {
-    background: #673AB7;
+    background: rgba(58, 58, 58, 0.77);
     color: white;
     text-align: center;
     padding-top:40px;

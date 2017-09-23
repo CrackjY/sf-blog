@@ -49,19 +49,26 @@ class ArticleRepository extends EntityRepository
 
     /**
      * @param $term
+     * @param $categories
+     * @param $dateStart
+     * @param $dateEnd
      * @return array
      */
-    public function findByTerm($term)
+    public function findByTerm($term, $categories, $dateStart, $dateEnd)
     {
-        $queryBuilder = $this
+        return $this
             ->createQueryBuilder('a')
-            ->where('a.content LIKE :term')
-            ->setParameter(':term', '%' . $term . '%');
-
-        return $queryBuilder
+            ->innerJoin('a.categories', 'ca')
+            ->where('ca.id = :categories')
+            ->andwhere('a.content LIKE :term')
+            ->andWhere('a.active = :active')
+            ->andWhere('a.date BETWEEN :dateStart AND :dateEnd')
+            ->setParameter(':categories', $categories)
+            ->setParameter(':term', '%' . $term . '%')
+            ->setParameter(':active', true)
+            ->setParameter(':dateStart', $dateStart)
+            ->setParameter(':dateEnd', $dateEnd)
             ->getQuery()
             ->getResult();
     }
-
-
 }

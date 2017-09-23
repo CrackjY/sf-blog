@@ -1,30 +1,35 @@
-{% extends 'base_front.html.twig' %}
+{% extends '::base_front.html.twig' %}
 
 {% block content %}
     <div class="block-article-and-comment" xmlns="http://www.w3.org/1999/html">
         <div class="row article show-article">
-            <a href="{{ path('front_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Go Home</a>
-            <h4 class="text-info">{{ article.title }}</h4>
+            <a href="{{ path('front_index') }}" class="return-blog btn btn-default"><i class="fa fa-undo" aria-hidden="true"></i> Go Home</a>
+            <h4 class="">{{ article.title }}</h4>
             <p>{{ article.content }}</p>
-            <button id="show-input-comment-send" class="pull-left btn btn-info input-post-article">Comment</button>
-            <span class="text-info">By {{ article.author }}</span>
-            <p class="text-info pull-right">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}<p>
+            <span class="">By {{ article.author }}</span>
+            <p class="pull-right">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}<p>
+            <button id="show-input-comment-send" class="pull-left btn btn-default">Comment</button>
             {{ form_start(form, {'attr': {'class': 'form'} }) }}
+
                 {{ form_errors(form) }}
                 {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
+
                 <div class="writing-comment-and-save">
                     {{ form_widget(form.content) }}
                     {{ form_errors(form.content) }}
-                    {{ form_widget(form.save, { 'attr': {'class': 'inut-send-comment btn btn-info input-post-article' } }) }}
+
+                    {{ form_widget(form.save, { 'attr': {'class': 'inut-send-comment btn btn-default' } }) }}
                 </div>
+
                 {{ form_rest(form) }}
+
             {{ form_end(form) }}
         </div>
         {% for comment in comments %}
             <div class="row article comment-block">
                 <div class="">
                     <p class="">{{ comment.content }}</p>
-                    <p class="text-info pull-right">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                    <p class="pull-right">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
                 </div>
             </div>
         {% endfor %}
