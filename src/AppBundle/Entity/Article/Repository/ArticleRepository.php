@@ -4,6 +4,7 @@ namespace AppBundle\Entity\Article\Repository;
 
 use AppBundle\Entity\Article\Article;
 use AppBundle\Entity\Article\Category;
+use AppBundle\Form\Model\SearchModel;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -48,26 +49,37 @@ class ArticleRepository extends EntityRepository
     }
 
     /**
-     * @param $term
-     * @param $categories
-     * @param $dateStart
-     * @param $dateEnd
+     * @param SearchModel $searchModel
      * @return array
      */
-    public function findByTerm($term, $categories, $dateStart, $dateEnd)
+    public function findBySearch(SearchModel $searchModel)
     {
-        return $this
+        $queryBuilder = $this
             ->createQueryBuilder('a')
             ->innerJoin('a.categories', 'ca')
-            ->where('ca.id = :categories')
-            ->andwhere('a.content LIKE :term')
-            ->andWhere('a.active = :active')
-            ->andWhere('a.date BETWEEN :dateStart AND :dateEnd')
-            ->setParameter(':categories', $categories)
-            ->setParameter(':term', '%' . $term . '%')
-            ->setParameter(':active', true)
-            ->setParameter(':dateStart', $dateStart)
-            ->setParameter(':dateEnd', $dateEnd)
+            ->where('a.active = :active')
+            ->setParameter(':active', true);
+
+        if ($searchModel->getCategories()->count()) {
+            $queryBuilder
+                ->andWhere('ca.id IN(:categories)')
+                ->setParameter(':categories', $searchModel->getCategories());
+        }
+
+        if ($searchModel->getTerm()) {
+            $queryBuilder
+                ->andwhere('a.content LIKE :term')
+                ->setParameter(':term', '%' . $searchModel->getTerm() . '%');
+        }
+
+        if ($searchModel->getStartDate() && $searchModel->getEndDate()) {
+            $queryBuilder
+                ->andWhere('a.date BETWEEN :dateStart AND :dateEnd')
+                ->setParameter(':dateStart', $searchModel->getStartDate())
+                ->setParameter(':dateEnd', $searchModel->getEndDate());
+        }
+
+        return $queryBuilder
             ->getQuery()
             ->getResult();
     }

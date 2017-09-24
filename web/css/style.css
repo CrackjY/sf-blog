@@ -6,7 +6,7 @@
 html, body {
     font-family: Arial, sans-serif;
     font-size: 16px;
-    height: auto;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -16,22 +16,23 @@ html, body {
 
 ********************************************/
 .block-search-engine {
+    width: 60%;
+    margin: auto;
+    border-radius: 6px;
+    opacity:0.75;
     margin-bottom: 30px;
-    margin-left: 15px;
-    width: 100%;
 }
 
 .champs-searching {
     width: 60%;
-}
-
-.block-button-search {
-    text-align: center;
-    margin-top: 100px;
+    float:left;
 }
 
 #search_categories_1, #search_categories_2, #search_categories_3 {
     margin-left: 20px;
+}
+
+.button-search {
 }
 
 
@@ -71,22 +72,7 @@ a:hover {
 ********************************************/
 .wrapper {
     width:100%;
-    height:100%;
-    /*background-image: url(../img/back.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;*/
-    background: rgba(196, 187, 204, 0.18);
-}
-/********************************************
-
-                CONTAINER
-
-********************************************/
-.container-body {
-    width: 75%;
-    margin: auto;
-    padding-top: 140px;
-    padding-bottom: 66px;
+    height: auto;
 }
 /********************************************
 
@@ -94,10 +80,10 @@ a:hover {
 
 ********************************************/
 .content {
+    width: 100%;
+    height: 100%;
     background: white;
-    padding: 50px 15px 50px 15px;
-    border-left: solid rgba(47, 79, 79, 0.14);
-    border-top: solid rgba(47, 79, 79, 0.14);
+    padding: 60px 15px 50px 15px;
 }
 /********************************************
 
@@ -136,7 +122,7 @@ a:hover {
 .ul-sub-category {
     display:none;
     list-style-type: none;
-    padding-top: 10px;
+    margin-top: 12px;
 }
 
 .li-sub-category {
@@ -145,7 +131,7 @@ a:hover {
 }
 
 .li-category:hover .ul-sub-category {
-    background-color: #616161;
+    background-color: rgba(0, 0, 0, 0.74);
     color: white;
     list-style-type: none;
     display: block;
@@ -178,15 +164,15 @@ li > a:hover {
 }
 */
 .block-menu {
-    background: rgba(0, 0, 0, 0.72);
-    /*display: none;*/
-    height: 100px;
+    background:rgba(0, 0, 0, 0.74);
+    /*display: none;
     position: fixed;
-    padding-top: 4px;
     top: 0;
     left: 0;
-    right:0;
+    right:0;*/
+    width: 100%;
 }
+
 .with--menu {
     display: block;
     margin-left: 0;
@@ -205,6 +191,11 @@ h3 {
              PAGE-CONTACT CLIENT
 
 ********************************************/
+.form-contact {
+    width: 60%;
+    margin: auto;
+}
+
 .contact-title {
     margin-bottom: 15px;
 }
@@ -257,11 +248,19 @@ h3 {
     margin-right: 15px;
     margin-bottom: 15px;
 }
-/*Admin*/
-.block-all-articles {
-    width: 100%;
-    height: 60em;
-    overflow: scroll;
+
+
+.block-article {
+    width: 60%;
+    margin: auto;
+}
+
+.article {
+    background: rgba(196, 187, 204, 0.18);
+    word-wrap: break-word;
+    text-align: justify;
+    margin-bottom: 15px;
+    padding: 15px;
 }
 /*Admin*/
 .bloc-inp-au-lab-au {
@@ -277,24 +276,6 @@ h3 {
 }
 .writing-comment-and-save {
     display: none;
-}
-
-.block-article {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.article {
-    background: rgba(196, 187, 204, 0.18);
-    word-wrap: break-word;
-    text-align: justify;
-    margin-bottom: 15px;
-    margin-right: 15px;
-    margin-left: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
 #comment_content {
@@ -324,11 +305,12 @@ h3 {
 
 ********************************************/
 .footer {
-    background: rgba(58, 58, 58, 0.77);
-    color: white;
+    background: rgba(0, 0, 0, 0.74);
     text-align: center;
-    padding-top:40px;
-    height: 100px;
+    width: 100%;
+    height: 80px;
+    padding-top: 20px;
+    color: white;
 }
 /********************************************
 

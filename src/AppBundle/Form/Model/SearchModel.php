@@ -9,7 +9,7 @@ namespace AppBundle\Form\Model;
 class SearchModel
 {
     /**
-     * @var $categories
+     * @var array
      */
     public $categories;
 
@@ -19,33 +19,14 @@ class SearchModel
     public $term;
 
     /**
-     * @var $date_start
+     * @var \DateTime
      */
-    public $date_start;
+    public $startDate;
 
     /**
-     * @var $date_end
+     * @var \DateTime
      */
-    public $date_end;
-
-    /**
-     * @return mixed
-     */
-    public function getByCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
-     * @param $categories
-     * @return $this
-     */
-    public function setByCategories($categories)
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
+    public $endDate;
 
     /**
      * @return mixed
@@ -67,40 +48,58 @@ class SearchModel
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getDateStart()
+    public function getCategories()
     {
-        return $this->date_start;
+        return $this->categories;
     }
 
     /**
-     * @param $date_start
-     * @return $this
+     * @param array $categories
+     * @return SearchModel
      */
-    public function setDateStart($date_start)
+    public function setCategories($categories)
     {
-        $this->date_start = $date_start;
-
+        $this->categories = $categories;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
-    public function getDateEnd()
+    public function getStartDate()
     {
-        return $this->date_end;
+        return $this->startDate;
     }
 
     /**
-     * @param $date_end
-     * @return $this
+     * @param \DateTime $startDate
+     * @return SearchModel
      */
-    public function setDateEnd($date_end)
+    public function setStartDate($startDate)
     {
-        $this->date_end = $date_end;
-
+        $this->startDate = $startDate;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @param \DateTime $endDate
+     * @return SearchModel
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+        return $this;
+    }
+
+
 }

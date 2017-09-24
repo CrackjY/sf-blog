@@ -57,14 +57,14 @@ class FrontController extends Controller
      */
     public function searchAction(Request $request, EntityManagerInterface $entityManager)
     {
-        $search = new SearchModel();
-        $form = $this->createForm(SearchType::class, $search);
+        $searchModel = new SearchModel();
+        $form = $this->createForm(SearchType::class, $searchModel);
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-                $articles = $entityManager->getRepository(Article::class)->findByTerm($search->getTerm(), $search->getByCategories(), $search->getDateStart(), $search->getDateEnd());
+                $articles = $entityManager->getRepository(Article::class)->findBySearch($searchModel);
 
                 return $this->render(':front:result.html.twig', array(
                     'articles' => $articles,

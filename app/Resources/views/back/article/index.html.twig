@@ -22,13 +22,13 @@
                         <tr>
                             <td>{{ article.id }}</td>
                             <td>{{ article.title }}</td>
-                            <td>{{ article.Author }}</td>
+                            <td>{{ article.author|capitalize|hook }}</td>
                             <td>
                                 {% for category in article.categories %}
                                     {{ category.name }} {% if loop.last != true %}/{% endif %}
                                 {% endfor %}
                             </td>
-                            <td>{{ article.date.date|date('d/m/Y h:i:s') }}</td>
+                            <td>{{ article.date|date('d/m/Y h:i:s') }}</td>
                             <td>{{ article.comments|length }}</td>
                             {% if article.active %}
                                 <td>Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></td>

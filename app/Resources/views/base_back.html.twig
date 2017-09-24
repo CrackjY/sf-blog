@@ -13,7 +13,7 @@
 <body>
 {% block body %}
     <div class="wrapper">
-        <div class="container container-body">
+        <div class="container-body">
             {% block header %}
                 {% block menu %}
                     {% include ':back/includes:menu_back.html.twig' %}
@@ -23,11 +23,11 @@
                 {% block content %}
                 {% endblock %}
             </div>
+            <div class="footer">
             {% block footer %}
-                <div class="nav navbar-default footer">
-                    <p>© Yassine Latti - 2017</p>
-                </div>
+                <p>© Yassine Latti - 2017</p>
             {% endblock %}
+            </div>
         </div>
     </div>
 {% endblock %}

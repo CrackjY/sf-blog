@@ -41,6 +41,7 @@ class ArticleType extends AbstractType
                     'expanded' => true,
                     'multiple'      => true,
                     'choice_label'   => 'name',
+                    'required'    => false,
                 ]
             )
             ->add(

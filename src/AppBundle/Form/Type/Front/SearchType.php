@@ -31,12 +31,14 @@ class SearchType extends AbstractType
                 [
                     'class'         => Category::class,
                     'query_builder' => function(EntityRepository $er) {
-                        return $er->createQueryBuilder('ca')
+                        return $er
+                            ->createQueryBuilder('ca')
                             ->orderBy('ca.name', 'ASC');
                     },
                     'expanded' => true,
                     'multiple'       => true,
                     'choice_label'   => 'name',
+                    'required'    => false,
                 ]
             )
             ->add(
@@ -51,21 +53,23 @@ class SearchType extends AbstractType
                 ]
             )
             ->add(
-                'date_start',
+                'startDate',
                 DateType::class,
                 [
                     'widget' => 'single_text',
                     'format' => 'yyyy-MM-dd',
-                    'label'  => 'Date start'
+                    'label'  => 'Start date',
+                    'required'    => false,
                 ]
             )
             ->add(
-                'date_end',
+                'endDate',
                 DateType::class,
                 [
                     'widget' => 'single_text',
                     'format' => 'yyyy-MM-dd',
-                    'label'  => 'Date end'
+                    'label'  => 'End date',
+                    'required'    => false,
                 ]
             );
     }

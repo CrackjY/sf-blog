@@ -38,40 +38,50 @@ class ContactType extends AbstractType
                 'firstname',
                 TextType::class,
                 [
-                    'label'    => 'Firstname',
                     'required' => false,
+                    'attr'        => array(
+                        'placeholder' => 'Firstname'
+                    )
                 ]
             )
             ->add(
                 'lastname',
                 TextType::class,
                 [
-                    'label'    => 'Lastname',
                     'required' => false,
+                    'attr'        => array(
+                        'placeholder' => 'Lastname'
+                    )
                 ]
             )
             ->add(
                 'email',
                 EmailType::class,
                 [
-                    'label'    => 'Email',
                     'required' => false,
+                    'attr'        => array(
+                        'placeholder' => 'Email'
+                    )
                 ]
             )
             ->add(
                 'object',
                 TextType::class,
                 [
-                    'label'    => 'Object',
                     'required' => false,
+                    'attr'        => array(
+                        'placeholder' => 'Object'
+                    )
                 ]                
             )
             ->add(
                 'message',
                 TextareaType::class,
                 [
-                    'label'    => 'Message',
                     'required' => false,
+                    'attr'        => array(
+                        'placeholder' => 'Message'
+                    )
                 ]
             )
             ->add(

@@ -2,30 +2,27 @@
 
 {% block content %}
     {{ render(controller('AppBundle:Front/Front:search')) }}
-
-    <div class="block-all-articles">
-        <div class="block-article">
-            {% for article in articles %}
-                <div class="row article">
-                    <header class="">
-                        <h2>{{ article.title }}</h2>
-                    </header>
-                    <div class="">
-                        <p class="">{{ article.content }}</p>
-                    </div>
-                    <div class="">
-                        <a id="article-id" href="{{ path('front_article_show', { 'articleId': article.id }) }}" class="pull-left btn btn-default">Show</a>
-                    </div>
-                    <div class="">
-                        <p class="pull-right">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
-                    </div>
-                    <div class="">
-                        <p class="pull-left">By {{ article.author }}</p>
-                    </div>
+    <div class="block-article">
+        {% for article in articles %}
+            <div class="row article">
+                <header class="">
+                    <h2>{{ article.title }}</h2>
+                </header>
+                <div class="">
+                    <p class="">{{ article.content }}</p>
                 </div>
-            {% else %}
-                <p>Articles not found !</p>
-            {% endfor %}
-        </div>
+                <div class="">
+                    <a id="article-id" href="{{ path('front_article_show', { 'articleId': article.id }) }}" class="pull-left btn btn-default">Show</a>
+                </div>
+                <div class="">
+                    <p class="pull-right">Posted the {{  article.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                </div>
+                <div class="">
+                    <p class="pull-left">By {{ article.author }}</p>
+                </div>
+            </div>
+        {% else %}
+            <p>Articles not found !</p>
+        {% endfor %}
     </div>
 {% endblock %}
