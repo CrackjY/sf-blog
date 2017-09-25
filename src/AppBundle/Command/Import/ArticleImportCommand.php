@@ -3,6 +3,7 @@
 namespace AppBundle\Command\Import;
 
 use AppBundle\Entity\Article\Article;
+use AppBundle\Entity\Article\Category;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
@@ -40,15 +41,22 @@ class ArticleImportCommand extends ContainerAwareCommand
         $progressBar = new ProgressBar($output, $nbArticle);
         $progressBar->start();
 
+        $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
+        $category = $entityManager->getRepository(Category::class)->find($categoryId);
+        dump($category);
+        die();
         $current = 1;
 
-        while($articleRow = fgetcsv($articleCsv, ';')) {
+        while($articleRow = fgetcsv($articleCsv, '', ';')) {
             if ($current != 1) {
-                $entityManager = $this->getContainer()->get('doctrine');
-                $entityManager->getRepository(Article::class);
 
                 $article = new Article();
 
+                $article
+                    ->setTitle($articleRow[0])
+                    ->setContent($articleRow[1])
+                    ->setDate($articleRow[2])
+                    ->addCategory();
                 dump($article);
                 die();
 
