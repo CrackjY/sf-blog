@@ -21,8 +21,9 @@ class CategoryRepository extends EntityRepository
     {
         $queryBuilder = $this
             ->createQueryBuilder('ca')
-            ->Where('ca.active = 1')
-            ->orderBy('ca.name', 'ASC');
+            ->Where('ca.active = :active')
+            ->orderBy('ca.name', 'ASC')
+            ->setParameter(':active', true);
 
         return $queryBuilder
             ->getQuery()
