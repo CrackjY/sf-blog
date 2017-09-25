@@ -52,14 +52,14 @@ class ArticleImportCommand extends ContainerAwareCommand
 
                 $article = new Article();
 
-                $date = new \DateTime($articleRow[2]);
-                dump($date);
-                die();
+                $date = new \DateTime();
+                $date->createFromFormat('d/m/Y', $articleRow[2]);
+                $date->format('Y-m-d');
 
                 $article
                     ->setTitle($articleRow[0])
                     ->setContent($articleRow[1])
-                    ->setDate(date_format($date, 'Y-m-d'))
+                    ->setDate($date)
                     ->addCategory($category);
 
                 $entityManager->persist($article);
@@ -81,4 +81,6 @@ class ArticleImportCommand extends ContainerAwareCommand
         $output->writeln(' > <comment>Memory usage: ' . memory_get_usage() . '</comment>');
         $output->writeln(' > <info>OK duration: ' . $resTime . ' seconds</info>');
      }
+
+
 }
