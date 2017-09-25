@@ -18,16 +18,12 @@ class CommentRepository extends EntityRepository
      * @param null $limit
      * @return array
      */
-    public function findByTerm($term, $limit = null)
+    public function findByTerm($term)
     {
         $queryBuilder = $this
         	->createQueryBuilder('co')
             ->where('co.content LIKE :term')
             ->setParameter(':term', '%' . $term . '%');
-
-        if ($limit) {
-            $queryBuilder->setMaxResults($limit);
-        }
 
         return $queryBuilder
             ->getQuery()
@@ -43,9 +39,10 @@ class CommentRepository extends EntityRepository
         $queryBuilder = $this
             ->createQueryBuilder('co')
             ->where('co.article = :article')
-            ->andWhere('co.active = 1')
+            ->andWhere('co.active = :active')
             ->orderBy('co.date', 'DESC')
-            ->setParameter(':article', $article);
+            ->setParameter(':article', $article)
+            ->setParameter(':active', true);
 
         return $queryBuilder
             ->getQuery()
