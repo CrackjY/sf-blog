@@ -22,8 +22,9 @@ class ArticleRepository extends EntityRepository
     {
         $queryBuilder = $this
             ->createQueryBuilder('a')
-            ->Where('a.active = 1')
-            ->orderBy('a.date', 'DESC');
+            ->Where('a.active = :active')
+            ->orderBy('a.date', 'DESC')
+            ->setParameter(':active', true);
 
         return $queryBuilder
             ->getQuery()
