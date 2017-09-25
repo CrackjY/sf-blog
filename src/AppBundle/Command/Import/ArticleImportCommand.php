@@ -42,14 +42,15 @@ class ArticleImportCommand extends ContainerAwareCommand
         $progressBar->start();
 
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
-        $category = $entityManager->getRepository(Category::class)->find($categoryId);
-        dump($category);
-        die();
+
         $current = 1;
 
         while($articleRow = fgetcsv($articleCsv, '', ';')) {
             if ($current != 1) {
 
+                $category = $entityManager->getRepository(Category::class)->find($articleRow[3]);
+                dump($category);
+                die();
                 $article = new Article();
 
                 $article
