@@ -23,7 +23,7 @@
                         <a href="{{ path('back_comment_show', { 'commentId': comment.id }) }}" class="btn btn-info">Show</a>
                         <a href="{{ path('back_comment_update', { 'commentId': comment.id }) }}" class="btn btn-warning">Update</a>
                         <a href="{{ path('back_comment_show', { 'commentId': comment.id }) }}" class="btn btn-danger">Delete</a>
-                        <span class="pull-right text-info" Posted the>{{ comment.date|date('F  j  Y, H\\h i\\m') }}</span>
+                        <span class="pull-right text-info">Posted the {{ comment.date|date('F  j  Y, H\\h i\\m') }}</span>
                     </div>
                 </div>
             {% endfor %}

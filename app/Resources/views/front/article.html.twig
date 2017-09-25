@@ -7,7 +7,7 @@
             <h4 class="">{{ article.title }}</h4>
             <p>{{ article.content }}</p>
             <span class="">By {{ article.author }}</span>
-            <p class="pull-right">Posted the {{ article.date.date|date('F  j  Y, H\\h i\\m') }}<p>
+            <p class="pull-right">Posted the {{ article..date|date('F  j  Y, H\\h i\\m') }}<p>
             <button id="show-input-comment-send" class="pull-left btn btn-default">Comment</button>
             {{ form_start(form, {'attr': {'class': 'form'} }) }}
 
@@ -29,7 +29,7 @@
             <div class="row article comment-block">
                 <div class="">
                     <p class="">{{ comment.content }}</p>
-                    <p class="pull-right">Posted the {{ comment.date.date|date('F  j  Y, H\\h i\\m') }}</p>
+                    <p class="pull-right">Posted the {{ comment..date|date('F  j  Y, H\\h i\\m') }}</p>
                 </div>
             </div>
         {% endfor %}
