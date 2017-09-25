@@ -50,16 +50,17 @@ class ArticleImportCommand extends ContainerAwareCommand
 
                 $category = $entityManager->getRepository(Category::class)->find($articleRow[3]);
                 dump($category);
-                die();
+
                 $article = new Article();
 
                 $article
                     ->setTitle($articleRow[0])
                     ->setContent($articleRow[1])
-                    ->setDate($articleRow[2])
-                    ->addCategory();
-                dump($article);
-                die();
+                    ->setDate(($articleRow[2])
+                    ->addCategory($category);
+
+                $entityManager->persist($article);
+                $entityManager->flush();
 
                 $progressBar->advance();
             }
