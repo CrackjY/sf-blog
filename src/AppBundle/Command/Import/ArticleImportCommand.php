@@ -52,10 +52,14 @@ class ArticleImportCommand extends ContainerAwareCommand
 
                 $article = new Article();
 
+                $date = new \DateTime($articleRow[2]);
+                dump($date);
+                die();
+
                 $article
                     ->setTitle($articleRow[0])
                     ->setContent($articleRow[1])
-                    ->setDate($articleRow[2])
+                    ->setDate(date_format($date, 'Y-m-d'))
                     ->addCategory($category);
 
                 $entityManager->persist($article);
