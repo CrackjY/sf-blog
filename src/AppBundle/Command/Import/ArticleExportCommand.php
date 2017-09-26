@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Command\Import;
+namespace AppBundle\Command\Export;
 
 use AppBundle\Entity\Article\Article;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -54,10 +54,8 @@ class ArticleExportCommand extends ContainerAwareCommand
          ',');
 
         $current = 1;
-        foreach ($articles as $article) {
 
-        }
-        while($articleRow = $article)
+        while($articleRow = $articles)
         {
             fputcsv($articleCsv,
                 [
