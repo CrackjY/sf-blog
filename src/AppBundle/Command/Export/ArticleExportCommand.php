@@ -35,13 +35,13 @@ class ArticleExportCommand extends ContainerAwareCommand
 
         $articleFile = $this->getContainer()->get('kernel')->getRootDir().'/Resources/data/export/articles.csv';
         $articleCsv = fopen($articleFile, "w+");
-        $nbArticle = count(file($articleFile));
 
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
 
         $articles = $entityManager->getRepository(Article::class)->findAll();
 
-        $progressBar = new ProgressBar($output, $nbArticle);
+        $progressBar = new ProgressBar($output, count($articles));
+
         $progressBar->start();
 
         fputcsv($articleCsv,
@@ -53,20 +53,13 @@ class ArticleExportCommand extends ContainerAwareCommand
             ],
            ',');
 
-        $current = 1;
-
-        while($articleRow = $articles)
-        {
-            fputcsv($articleCsv,
-                [
-                    $articleRow['title'],
-                    $articleRow['author'],
-                    $articleRow['content'],
-                    $articleRow['date'],
-                ],
+        foreach($articles as $article) {
+            fputcsv($articleCsv, array(
+                'TITLE'   => $article->getTitle(),
+                'AUTHOR'  => $article->getAuthor(),
+                'CONTENT' => $article->getContent(),
+                ),
             ';');
-
-            $current++;
         }
 
         fclose($articleCsv);
