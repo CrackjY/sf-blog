@@ -81,6 +81,4 @@ class ArticleImportCommand extends ContainerAwareCommand
         $output->writeln(' > <comment>Memory usage: ' . memory_get_usage() . '</comment>');
         $output->writeln(' > <info>OK duration: ' . $resTime . ' seconds</info>');
      }
-
-
 }
