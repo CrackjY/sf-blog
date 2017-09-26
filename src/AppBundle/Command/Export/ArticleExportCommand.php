@@ -51,7 +51,7 @@ class ArticleExportCommand extends ContainerAwareCommand
                 'CONTENT',
                 'DATE',
             ],
-         ',');
+           ',');
 
         $current = 1;
 
