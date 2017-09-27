@@ -131,7 +131,7 @@ a:hover {
 }
 
 .li-category:hover .ul-sub-category {
-    background-color: grey;
+    background-color: red;
     color: white;
     list-style-type: none;
     display: block;
@@ -307,13 +307,10 @@ h3 {
 .footer {
     background: rgba(0, 0, 0, 0.74);
     text-align: center;
+    width: 100%;
     height: 80px;
     padding-top: 20px;
     color: white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 /********************************************
 
