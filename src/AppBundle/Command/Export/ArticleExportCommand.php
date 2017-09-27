@@ -59,10 +59,12 @@ class ArticleExportCommand extends ContainerAwareCommand
 
             $categories = $article->getCategories();
 
+            $categoryId = [];
+
             foreach ($categories as $category) {
-                dump($category->getId());
+                $categoryId[] = $category->getId();
             }
-            dump('ok');
+            dump(implode('-', $categoryId));
             die();
 
             fputcsv($articleCsv, array(
