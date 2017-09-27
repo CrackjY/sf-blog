@@ -3,6 +3,7 @@
 namespace AppBundle\Command\Export;
 
 use AppBundle\Entity\Article\Article;
+use AppBundle\Entity\Article\Category;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
@@ -50,23 +51,32 @@ class ArticleExportCommand extends ContainerAwareCommand
                 'AUTHOR',
                 'CONTENT',
                 'DATE',
+                'CATEGORIES'
             ],
            ',');
 
         foreach($articles as $article) {
+
+            $categories = $article->getCategories();
+            foreach ($categories as $category) {
+                dump($category);
+                die();
+            }
+
+
             fputcsv($articleCsv, array(
-                    'TITLE'   => $article->getTitle(),
-                    'AUTHOR'  => $article->getAuthor(),
-                    'CONTENT' => $article->getContent(),
-                    'DATE'   => $article->getDate()->format('d/m/Y'),
+                    'TITLE'       => $article->getTitle(),
+                    'AUTHOR'      => $article->getAuthor(),
+                    'CONTENT'     => $article->getContent(),
+                    'DATE'        => $article->getDate()->format('d/m/Y'),
+                    'CATEGORIES' => $category,
                 ),
             ';');
 
+            $progressBar->advance();
         }
 
         fclose($articleCsv);
-
-        $progressBar->advance();
 
         $progressBar->finish();
 
