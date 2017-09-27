@@ -59,13 +59,13 @@ class ArticleExportCommand extends ContainerAwareCommand
 
             $categories = $article->getCategories();
 
-            $categoryId = [];
+            $categoryIds = [];
 
             foreach ($categories as $category) {
-                $categoryId[] = $category->getId();
+                $categoryIds[] = $category->getId();
             }
 
-            $categoriesId = implode('-', $categoryId);
+            $categoriesId = implode('-', $categoryIds);
 
             fputcsv($articleCsv, array(
                 'TITLE' => $article->getTitle(),
