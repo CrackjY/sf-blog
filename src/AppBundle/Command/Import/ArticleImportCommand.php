@@ -62,9 +62,9 @@ class ArticleImportCommand extends ContainerAwareCommand
                 $categoryIds = explode('-', $articleRow[3]);
 
                 foreach ($categoryIds as $categoryId) {
-                    $categories = $entityManager->getRepository(Category::class)->find($categoryId);
+                    $category = $entityManager->getRepository(Category::class)->find($categoryId);
 
-                    $article->addCategory($categories);
+                    $article->addCategory($category);
                     $entityManager->persist($article);
                     $entityManager->flush();
                 }
