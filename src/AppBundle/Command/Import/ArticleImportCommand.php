@@ -66,8 +66,7 @@ class ArticleImportCommand extends ContainerAwareCommand
 
                     $article->addCategory($category);
                 }
-                dump($article);
-                die();
+
                 $entityManager->persist($article);
                 $entityManager->flush();
 
