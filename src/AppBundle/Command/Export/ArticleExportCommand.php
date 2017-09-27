@@ -63,6 +63,8 @@ class ArticleExportCommand extends ContainerAwareCommand
                 dump($category->getId());
                 die();
             }
+            dump();
+            die();
 
             fputcsv($articleCsv, array(
                 'TITLE' => $article->getTitle(),
