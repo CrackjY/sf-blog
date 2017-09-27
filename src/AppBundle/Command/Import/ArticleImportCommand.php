@@ -65,9 +65,11 @@ class ArticleImportCommand extends ContainerAwareCommand
                     $category = $entityManager->getRepository(Category::class)->find($categoryId);
 
                     $article->addCategory($category);
-                    $entityManager->persist($article);
-                    $entityManager->flush();
                 }
+                dump($article);
+                die();
+                $entityManager->persist($article);
+                $entityManager->flush();
 
                 $progressBar->advance();
             }
