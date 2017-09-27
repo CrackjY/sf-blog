@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Class ArticleImportCommand
@@ -48,8 +49,7 @@ class ArticleImportCommand extends ContainerAwareCommand
         while($articleRow = fgetcsv($articleCsv, '', ';')) {
             if ($current != 1) {
 
-                $date = new \DateTime();
-                $date->createFromFormat('d/m/Y', $articleRow[2]);
+                $date = \DateTime::createFromFormat('d/m/Y', $articleRow[2]);
                 $date->format('Y-m-d');
 
                 $article = new Article();
@@ -68,13 +68,6 @@ class ArticleImportCommand extends ContainerAwareCommand
                     $entityManager->persist($article);
                     $entityManager->flush();
                 }
-
-
-
-
-
-
-
 
                 $progressBar->advance();
             }
