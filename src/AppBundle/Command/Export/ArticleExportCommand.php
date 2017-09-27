@@ -59,21 +59,23 @@ class ArticleExportCommand extends ContainerAwareCommand
 
             $categories = $article->getCategories();
             foreach ($categories as $category) {
-                dump($category);
+                dump($category->getId());
                 die();
             }
 
 
-            fputcsv($articleCsv, array(
-                    'TITLE'       => $article->getTitle(),
-                    'AUTHOR'      => $article->getAuthor(),
-                    'CONTENT'     => $article->getContent(),
-                    'DATE'        => $article->getDate()->format('d/m/Y'),
-                    'CATEGORIES' => $category,
+                fputcsv($articleCsv, array(
+                    'TITLE' => $article->getTitle(),
+                    'AUTHOR' => $article->getAuthor(),
+                    'CONTENT' => $article->getContent(),
+                    'DATE' => $article->getDate()->format('d/m/Y'),
+                    'CATEGORIES' => $category->getId(),
                 ),
-            ';');
+                    ';');
 
-            $progressBar->advance();
+                $progressBar->advance();
+
+
         }
 
         fclose($articleCsv);
