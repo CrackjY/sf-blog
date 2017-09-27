@@ -48,21 +48,33 @@ class ArticleImportCommand extends ContainerAwareCommand
         while($articleRow = fgetcsv($articleCsv, '', ';')) {
             if ($current != 1) {
 
-                dump($articleRow[3]);
-                die();
-                $category = $entityManager->getRepository(Category::class)->find($articleRow[3]);
-
-                $article = new Article();
-
                 $date = new \DateTime();
                 $date->createFromFormat('d/m/Y', $articleRow[2]);
                 $date->format('Y-m-d');
 
+                $article = new Article();
+
                 $article
                     ->setTitle($articleRow[0])
                     ->setContent($articleRow[1])
-                    ->setDate($date)
-                    ->addCategory($category);
+                    ->setDate($date);
+
+                $categoryIds = explode('-', $articleRow[3]);
+
+                foreach ($categoryIds as $categoryId) {
+                    $categories = $entityManager->getRepository(Category::class)->find($categoryId);
+
+                    $article->addCategory($categories);
+                    $entityManager->persist($article);
+                    $entityManager->flush();
+                }
+
+
+
+
+
+
+
 
                 $progressBar->advance();
             }
