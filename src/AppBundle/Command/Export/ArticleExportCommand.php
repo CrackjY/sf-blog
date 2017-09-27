@@ -65,13 +65,13 @@ class ArticleExportCommand extends ContainerAwareCommand
             }
 
             fputcsv($articleCsv, array(
-                'TITLE' => $article->getTitle(),
-                'AUTHOR' => $article->getAuthor(),
-                'CONTENT' => $article->getContent(),
-                'DATE' => $article->getDate()->format('d/m/Y'),
-                'CATEGORIES' => $category->getId(),
-            ),
-                ';');
+                    'TITLE' => $article->getTitle(),
+                    'AUTHOR' => $article->getAuthor(),
+                    'CONTENT' => $article->getContent(),
+                    'DATE' => $article->getDate()->format('d/m/Y'),
+                    'CATEGORIES' => $category->getId(),
+                ),
+            ';');
 
             $progressBar->advance();
         }
