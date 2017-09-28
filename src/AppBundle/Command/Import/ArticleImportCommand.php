@@ -42,8 +42,6 @@ class ArticleImportCommand extends ContainerAwareCommand
         $progressBar = new ProgressBar($output, $nbArticle);
         $progressBar->start();
 
-        $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
-
         $current = 1;
 
         while($articleRow = fgetcsv($articleCsv, '', ';')) {
