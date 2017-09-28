@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputArgument;
 
 /**
  * Class DateCommand
@@ -20,7 +21,8 @@ class DateCommand extends ContainerAwareCommand
     {
         $this
             ->setName('sf-blog:training:date')
-            ->setDescription('Training Date');
+            ->setDescription('Training Date')
+            ->addArgument('date', InputArgument::REQUIRED, 'Enter date !');
     }
 
     /**
@@ -32,7 +34,16 @@ class DateCommand extends ContainerAwareCommand
 
         $startTime = time();
 
-        die('ici');
+        $date = \DateTime::createFromFormat('27/09/2017', '27/09/2017');
+        $date->format('d/m/Y');
+        $date->modify('+1 month -1 day');
+        $dateFormat = $date->format('d/m/Y');
+
+        $input->getArgument('date');
+
+        $text = 'The ' . $dateFormat . ' ';
+
+        $output->writeln($text.'!');
 
         $endTime = time();
         $resTime = $endTime - $startTime;

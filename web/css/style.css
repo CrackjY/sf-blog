@@ -131,7 +131,7 @@ a:hover {
 }
 
 .li-category:hover .ul-sub-category {
-    background-color: red;
+    background-color: grey;
     color: white;
     list-style-type: none;
     display: block;
