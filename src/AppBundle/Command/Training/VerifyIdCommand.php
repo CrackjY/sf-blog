@@ -41,11 +41,11 @@ class VerifyIdCommand extends ContainerAwareCommand
 
         foreach ($articleIds as $articleId) {
             $getId = $entityManager->getRepository(Article::class)->find($articleId);
-
-            if ($getId) {
-                $output->writeln('find the id successfully :)');
-            } else {
-                $output->writeln('Error : Id not found !');
+                if ($getId) {
+                    $output->writeln('Articles found successfully :)');
+                } else {
+                    $output->writeln('Articles not found');
+                }
             }
         }
 
