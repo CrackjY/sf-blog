@@ -35,7 +35,6 @@ class DateCommand extends ContainerAwareCommand
         $startTime = time();
 
         $date = \DateTime::createFromFormat('d/m/Y', '27/09/2017');
-        $date->format('d/m/Y');
         $date->modify('+1 month -1 day');
         $dateFormat = $date->format('d/m/Y');
 
