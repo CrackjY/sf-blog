@@ -37,11 +37,7 @@ class VerifyIdCommand extends ContainerAwareCommand
 
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
 
-        $inputId = $input->getArgument('id');
-        $getIds = [];
-        $getIds[] = $inputId;
-
-        $articleIds = explode(',', $getIds[0]);
+        $articleIds = explode(',', $input->getArgument('id'));
 
         foreach ($articleIds as $articleId) {
             $getId = $entityManager->getRepository(Article::class)->find($articleId);
@@ -52,7 +48,7 @@ class VerifyIdCommand extends ContainerAwareCommand
                 $output->writeln('Error : Id not found !');
             }
         }
-        
+
         $endTime = time();
         $resTime = $endTime - $startTime;
 
