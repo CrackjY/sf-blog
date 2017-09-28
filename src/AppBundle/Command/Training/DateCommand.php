@@ -39,8 +39,6 @@ class DateCommand extends ContainerAwareCommand
         $date->modify('+1 month');
         $dateFormat = $date->format('d/m/Y');
 
-        $text =
-
         $output->writeln('The ' . $dateFormat . ' ! ';);
 
         $endTime = time();
