@@ -45,12 +45,11 @@ class VerifyIdCommand extends ContainerAwareCommand
         foreach ($articleIds as $articleId) {
             $article = $entityManager->getRepository(Article::class)->find($articleId);
 
-                if ($article) {
-                    $idFound[] = $article->getId();
-
-                } else if (!$article) {
-                    $idNotFound[] = $articleId;
-                }
+            if ($article) {
+                $idFound[] = $article->getId();
+            } else if (!$article) {
+                $idNotFound[] = $articleId;
+            }
         }
 
         $output->writeln('Article found : ' . implode(',', $idFound));
