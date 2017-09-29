@@ -1,6 +1,8 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
+    <h2>Id : {{ article.id }}</h2>
+
     <div class="bloc-article-update">
         <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
         {{ form_start(form) }}

@@ -62,12 +62,21 @@ class Article
     private $categories;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Tag", inversedBy="articles", cascade={"persist"}, fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="sf_blog_article_tag_join")
+     *
+     * @var ArrayCollection
+     */
+    private $tags;
+
+    /**
      * Article constructor.
      */
     public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->categories = new ArrayCollection();
+        $this->tags = new ArrayCollection();
         $this->date = new \DateTime();
         $this->active = true;
     }
@@ -228,5 +237,24 @@ class Article
     public function removeCategory(Category $category)
     {
         $this->categories->removeElement($category);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param $tags
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
     }
 }
