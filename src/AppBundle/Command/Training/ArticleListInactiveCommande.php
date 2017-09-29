@@ -22,7 +22,7 @@ class ArticleListInactiveCommande extends ContainerAwareCommand
     {
         $this
             ->setName('sf-blog:article:list-inactive')
-            ->setDescription('Training verify if activate id');
+            ->setDescription('Training verify Inactive id');
     }
 
     /**
@@ -36,12 +36,12 @@ class ArticleListInactiveCommande extends ContainerAwareCommand
 
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
 
-        $articlesInactive = $entityManager->getRepository(Article::class)->findByDeactivates();
+        $inactiveArticles = $entityManager->getRepository(Article::class)->findInactives();
 
         $listInactiveId = [];
 
-        foreach($articlesInactive as $articleInactive) {
-            $listInactiveId[] =  $articleInactive->getId();
+        foreach($inactiveArticles as $inactiveArticle) {
+            $listInactiveId[] =  $inactiveArticle->getId();
         }
 
         $output->writeln('Idle list of inactive items : ' . implode(',', $listInactiveId));

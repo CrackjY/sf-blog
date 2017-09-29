@@ -31,7 +31,7 @@ class ArticleRepository extends EntityRepository
             ->getResult();
     }
 
-    public function findByDeactivates()
+    public function findInactives()
     {
         $queryBuilder = $this
             ->createQueryBuilder('a')
