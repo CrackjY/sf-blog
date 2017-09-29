@@ -10,10 +10,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
- * Class ArticleListInactiveCommande
+ * Class ArticleListInactiveCommand
  * @package AppBundle\Command\Training
  */
-class ArticleListInactiveCommande extends ContainerAwareCommand
+class ArticleListInactiveCommand extends ContainerAwareCommand
 {
     /**
      * {@inheritdoc}
@@ -35,16 +35,14 @@ class ArticleListInactiveCommande extends ContainerAwareCommand
         $startTime = time();
 
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
-
         $inactiveArticles = $entityManager->getRepository(Article::class)->findInactives();
-
-        $listInactiveId = [];
+        $listInactiveIds = [];
 
         foreach($inactiveArticles as $inactiveArticle) {
-            $listInactiveId[] =  $inactiveArticle->getId();
+            $listInactiveIds[] =  $inactiveArticle->getId();
         }
 
-        $output->writeln('Idle list of inactive items : ' . implode(',', $listInactiveId));
+        $output->writeln('Idle list of inactive items : ' . implode(',', $listInactiveIds));
 
         $endTime = time();
         $resTime = $endTime - $startTime;
