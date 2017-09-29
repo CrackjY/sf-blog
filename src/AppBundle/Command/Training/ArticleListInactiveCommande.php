@@ -10,10 +10,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 
 /**
- * Class ArticlesDeactivatesCommande
+ * Class ArticleListInactiveCommande
  * @package AppBundle\Command\Training
  */
-class ArticlesDeactivatesCommande extends ContainerAwareCommand
+class ArticleListInactiveCommande extends ContainerAwareCommand
 {
     /**
      * {@inheritdoc}
@@ -21,7 +21,7 @@ class ArticlesDeactivatesCommande extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('sf-blog:deactivates:article')
+            ->setName('sf-blog:article:list-inactive')
             ->setDescription('Training verify if activate id');
     }
 
@@ -36,15 +36,15 @@ class ArticlesDeactivatesCommande extends ContainerAwareCommand
 
         $entityManager = $this->getContainer()->get('doctrine.orm.entity_manager');
 
-        $articlesDeactivates = $entityManager->getRepository(Article::class)->findByDeactivates();
+        $articlesInactive = $entityManager->getRepository(Article::class)->findByDeactivates();
 
-        $listOfInactifId = [];
+        $listInactiveId = [];
 
-        foreach($articlesDeactivates as $articleDeactivates) {
-            $listOfInactifId[] =  $articleDeactivates->getId();
+        foreach($articlesInactive as $articleInactive) {
+            $listInactiveId[] =  $articleInactive->getId();
         }
 
-        $output->writeln('Idle list of inactive items : ' . implode(',', $listOfInactifId));
+        $output->writeln('Idle list of inactive items : ' . implode(',', $listInactiveId));
 
         $endTime = time();
         $resTime = $endTime - $startTime;
