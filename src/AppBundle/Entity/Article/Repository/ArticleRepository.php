@@ -31,6 +31,19 @@ class ArticleRepository extends EntityRepository
             ->getResult();
     }
 
+    public function findByDeactivates()
+    {
+        $queryBuilder = $this
+            ->createQueryBuilder('a')
+            ->Where('a.active = :active')
+            ->orderBy('a.date', 'DESC')
+            ->setParameter(':active', false);
+
+        return $queryBuilder
+            ->getQuery()
+            ->getResult();
+    }
+
     /**
      * @param $categoryId
      * @return array
