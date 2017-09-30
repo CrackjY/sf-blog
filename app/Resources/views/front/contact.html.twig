@@ -7,55 +7,26 @@
 
 			{{ form_errors(form) }}
 
-			<div class="form-group">
-			<div class="col-sm-10 styled-select #673AB7 rounded">
 				{{ form_widget(form.title, {'attr': {'class': '' } }) }}
-			</div>
-			</div>
-			<div class="alert-danger">
 				{{ form_errors(form.title) }}
-			</div>
-			<div class="form-group">
-				<div class="col-sm-10">
-					{{ form_widget(form.firstname, {'attr': {'class': 'form-control'} }) }}
-				</div>
-			</div>
-			<div class="alert-danger">
+
+				{{ form_widget(form.firstname, {'attr': {'class': 'form-control'} }) }}
 				{{ form_errors(form.firstname) }}
-			</div>
-			<div class="form-group">
-				<div class="col-sm-10">
-					{{ form_widget(form.lastname, {'attr': {'class': 'form-control'} }) }}
-				</div>
-			</div>
-			<div class="alert-danger">
+
+				{{ form_widget(form.lastname, {'attr': {'class': 'form-control'} }) }}
 				{{ form_errors(form.lastname) }}
-			</div>
-			<div class="form-group">
-				<div class="col-sm-10">
-					{{ form_widget(form.email, {'attr': {'class': 'form-control'} }) }}
-				</div>
-			</div>
-			<div class="alert-danger">
+
+				{{ form_widget(form.email, {'attr': {'class': 'form-control'} }) }}
 				{{ form_errors(form.email) }}
-			</div>
-			<div class="form-group">
-				<div class="col-sm-10">
-					{{ form_widget(form.object, {'attr': {'class': 'form-control'} }) }}
-				</div>
-			</div>
-			<div class="alert-danger">
+
+				{{ form_widget(form.object, {'attr': {'class': 'form-control'} }) }}
 				{{ form_errors(form.object) }}
-			</div>
-			<div class="form-group">
-				<div class="col-sm-10">
-					{{ form_widget(form.message, {'attr': {'class': 'form-control'} }) }}
-				</div>
-			</div>
-			<div class="alert-danger">
+
+				{{ form_widget(form.message, {'attr': {'class': 'form-control'} }) }}
 				{{ form_errors(form.message) }}
-			</div>
-			{{ form_widget(form.save, {'attr': {'class': 'btn btn-default'} }) }}
+
+				{{ form_widget(form.save, {'attr': {'class': 'btn btn-default'} }) }}
+
 		    {{ form_rest(form) }}
 
 		{{ form_end(form) }}

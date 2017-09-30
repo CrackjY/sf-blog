@@ -4,63 +4,37 @@
     <h3 class="text-info"> Vous êtes entrain d'editer le contact numéro : {{ contact.id }}</h3>
     <div class="form-contact-update">
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
             {{ form_errors(form) }}
-            <div class="form-group">
-                {{ form_label(form.title, "Title", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-                <div class="col-sm-10 styled-select #673AB7 rounded">
-                    {{ form_widget(form.title, {'attr': {'class': '' } }) }}
-                </div>
-            </div>
-            <div class="alert-danger">
-                {{ form_errors(form.title) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.firstname, "Firstname", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-                <div class="col-sm-10">
-                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control'} }) }}
-                </div>
-            </div>
-            <div class="alert-danger">
-                {{ form_errors(form.firstname) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.lastname, "Lastname", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-                <div class="col-sm-10">
-                    {{ form_widget(form.lastname, {'attr': {'class': 'form-control'} }) }}
-                </div>
-            </div>
-            <div class="alert-danger">
-                {{ form_errors(form.lastname) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.email, "Email", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-                <div class="col-sm-10">
-                    {{ form_widget(form.email, {'attr': {'class': 'form-control'} }) }}
-                </div>
-            </div>
-            <div class="alert-danger">
-                {{ form_errors(form.email) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.object, "Object", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-                <div class="col-sm-10">
-                    {{ form_widget(form.object, {'attr': {'class': 'form-control'} }) }}
-                </div>
-            </div>
-            <div class="alert-danger">
-                {{ form_errors(form.object) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.message, "Message", {'label_attr': {'class': 'col-sm-2 control-label text-info'} }) }}
-                <div class="col-sm-10">
-                    {{ form_widget(form.message, {'attr': {'class': 'form-control'} }) }}
-                </div>
-            </div>
-            <div class="alert-danger">
-                {{ form_errors(form.message) }}
-            </div>
+
+            {{ form_label(form.title, "Title", {'label_attr': {'class': ''} }) }}
+            {{ form_widget(form.title, {'attr': {'class': '' } }) }}
+            {{ form_errors(form.title) }}
+
+            {{ form_label(form.firstname, "Firstname", {'label_attr': {'class': ''} }) }}
+            {{ form_widget(form.firstname, {'attr': {'class': ''} }) }}
+            {{ form_errors(form.firstname) }}
+
+            {{ form_label(form.lastname, "Lastname", {'label_attr': {'class': ''} }) }}
+            {{ form_widget(form.lastname, {'attr': {'class': ''} }) }}
+            {{ form_errors(form.lastname) }}
+
+            {{ form_label(form.email, "Email", {'label_attr': {'class': ''} }) }}
+            {{ form_widget(form.email, {'attr': {'class': ''} }) }}
+            {{ form_errors(form.email) }}
+
+            {{ form_label(form.object, "Object", {'label_attr': {'class': ''} }) }}
+            {{ form_widget(form.object, {'attr': {'class': ''} }) }}
+            {{ form_errors(form.object) }}
+
+            {{ form_label(form.message, "Message", {'label_attr': {'class': ''} }) }}
+            {{ form_widget(form.message, {'attr': {'class': 'form-control'} }) }}
+            {{ form_errors(form.message) }}
+
             {{ form_widget(form.save, {'attr': {'class': 'btn btn-default contact-send-update'} }) }}
+
             {{ form_rest(form) }}
+
         {{ form_end(form) }}
     </div>
 {% endblock %}

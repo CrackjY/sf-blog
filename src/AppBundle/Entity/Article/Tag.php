@@ -109,4 +109,12 @@ class Tag
     {
         $this->articles = $articles;
     }
+
+    /**
+     * @return mixed
+     */
+    public function __toString()
+    {
+        return $this->tag;
+    }
 }

@@ -6,34 +6,37 @@
     <div class="bloc-article-update">
         <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
         {{ form_start(form) }}
+
             {{ form_errors(form) }}
-            <div class="form-group">
-                {{ form_label(form.active, "Enable/Desable", {'label_attr': {'class': ''} }) }}
-                {{ form_widget(form.active, {'attr': {'class': ''} }) }}
-            </div>
+
+            {{ form_label(form.active, "Enable/Desable", {'label_attr': {'class': ''} }) }}
+            {{ form_widget(form.active, {'attr': {'class': ''} }) }}
             {{ form_errors(form.active) }}
-            <div class="form-group">
-                {{ form_label(form.categories, "Category", {'label_attr': {'class': 'text-primary'} }) }}
-                {{ form_widget(form.categories, {'attr': {'class': 'form-control'} }) }}
-            </div>
+
+            {{ form_label(form.categories, "Category", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.categories, {'attr': {'class': ''} }) }}
             {{ form_errors(form.categories) }}
-            <div class="form-group">
-                {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
-                {{ form_widget(form.title, {'attr': {'class': 'form-control'} }) }}
-            </div>
+
+            {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.title, {'attr': {'class': ''} }) }}
             {{ form_errors(form.title) }}
-            <div class="form-group">
-                {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
-                {{ form_widget(form.content, {'attr': {'class': 'form-control'} }) }}
-            </div>
+
+            {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.content, {'attr': {'class': ''} }) }}
             {{ form_errors(form.content) }}
-            <div class="form-group">
-                {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
-                {{ form_widget(form.author, {'attr': {'class': 'form-control input-author'} }) }}
-            </div>
+
+            {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_widget(form.author, {'attr': {'class': ' input-author'} }) }}
             {{ form_errors(form.author) }}
+
+            {{ form_label(form.tags) }}
+            {{ form_widget(form.tags, {'attr': {'class': ''} }) }}
+            {{ form_errors(form.tags) }}
+
             {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary input-post-article'} }) }}
+
             {{ form_rest(form) }}
+
         {{ form_end(form) }}
     </div>
 {% endblock %}

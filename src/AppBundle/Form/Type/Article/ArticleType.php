@@ -4,29 +4,24 @@ namespace AppBundle\Form\Type\Article;
 
 use AppBundle\Entity\Article\Article;
 use AppBundle\Entity\Article\Category;
-use AppBundle\Entity\Article\Repository\CategoryRepository;
+use AppBundle\Entity\Article\Tag;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ArticleType extends AbstractType
 {
     /**
-     * BuildForm
-     *
      * @param FormBuilderInterface $builder
      * @param array $options
-     *
-     * @return null
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -67,6 +62,9 @@ class ArticleType extends AbstractType
                     'label'    => 'Author',
                     'required' => false,
                 ]
+            )
+            ->add(
+                'tags'
             )
             ->add(
                 'active',
