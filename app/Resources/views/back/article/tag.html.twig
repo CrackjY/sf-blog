@@ -1,5 +1,7 @@
 {% block _article_tags_entry_row %}
-    {{ form_widget(form.name) }}
+    <div class="tag-form">
+        {{ form_widget(form.name) }}
 
-    <button id="delete-tag" class="btn btn-danger">X</button>
+        <button id="delete-tag" class="btn btn-danger">X</button>
+    </div>
 {% endblock _article_tags_entry_row %}

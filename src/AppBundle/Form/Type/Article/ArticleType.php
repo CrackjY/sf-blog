@@ -81,13 +81,6 @@ class ArticleType extends AbstractType
                     'label'    => false,
                     'required' => false,
                 ]
-            )
-            ->add(
-                'save',
-                SubmitType::class,
-                [
-                    'label'    => 'Add article'
-                ]
             );
     }
 
