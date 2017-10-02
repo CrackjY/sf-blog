@@ -14,17 +14,13 @@
                 {{ form_widget(form.title, {'attr': {'class': ''} }) }}
                 {{ form_errors(form.title) }}
 
-                {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
+                {{ form_label(form.content, "Article", {'label_attr': {'class': 'text-primary'} }) }}
                 {{ form_widget(form.content, {'attr': {'class': ''} }) }}
                 {{ form_errors(form.content) }}
 
                 {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
                 {{ form_widget(form.author, {'attr': {'class': ' input-author'} }) }}
                 {{ form_errors(form.author) }}
-
-                {{ form_label(form.tags) }}
-                {{ form_widget(form.tags, {'attr': {'class': ''} }) }}
-                {{ form_errors(form.tags) }}
 
                 {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
                 {{ form_errors(form.active) }}

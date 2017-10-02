@@ -1,10 +1,12 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
+    {% form_theme form':back/article:tag.html.twig' %}
+
     <h2>Id : {{ article.id }}</h2>
 
     <div class="bloc-article-update">
-        <p><a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a></p>
+        <a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a>
         {{ form_start(form) }}
 
             {{ form_errors(form) }}
@@ -21,7 +23,7 @@
             {{ form_widget(form.title, {'attr': {'class': ''} }) }}
             {{ form_errors(form.title) }}
 
-            {{ form_label(form.content, "Add your article", {'label_attr': {'class': 'text-primary'} }) }}
+            {{ form_label(form.content, "Article", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.content, {'attr': {'class': ''} }) }}
             {{ form_errors(form.content) }}
 
@@ -29,7 +31,8 @@
             {{ form_widget(form.author, {'attr': {'class': ' input-author'} }) }}
             {{ form_errors(form.author) }}
 
-            {{ form_label(form.tags) }}
+            <button id="add-tag" class="btn btn-default input-post-article">Add tag</button>
+
             {{ form_widget(form.tags, {'attr': {'class': ''} }) }}
             {{ form_errors(form.tags) }}
 

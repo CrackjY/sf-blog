@@ -64,7 +64,15 @@ class ArticleType extends AbstractType
                 ]
             )
             ->add(
-                'tags'
+                'tags',
+                CollectionType::class,
+                [
+                    'entry_type'     => TagType::class,
+                    'allow_add'      => true,
+                    'allow_delete'   => true,
+                    'prototype'      => true,
+                    'prototype_name' => '__tag__',
+                ]
             )
             ->add(
                 'active',
@@ -78,7 +86,7 @@ class ArticleType extends AbstractType
                 'save',
                 SubmitType::class,
                 [
-                    'label'    => 'Add'
+                    'label'    => 'Add article'
                 ]
             );
     }

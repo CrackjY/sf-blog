@@ -51,7 +51,6 @@ class ArticleImportCommand extends ContainerAwareCommand
                 $date->format('Y-m-d');
 
                 $article = new Article();
-
                 $article
                     ->setTitle($articleRow[0])
                     ->setContent($articleRow[1])

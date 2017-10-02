@@ -8,7 +8,7 @@
             <p>{{ article.content }}</p>
             <span class="">By {{ article.author }}</span>
             <p class="pull-right">Posted the {{ article.date|date('F  j  Y, H\\h i\\m') }}<p>
-            <button id="show-input-comment-send" class="pull-left btn btn-default">Comment</button>
+            <button id="show-input-comment-send" class="btn btn-default">Comment</button>
             {{ form_start(form, {'attr': {'class': 'form'} }) }}
 
                 {{ form_errors(form) }}

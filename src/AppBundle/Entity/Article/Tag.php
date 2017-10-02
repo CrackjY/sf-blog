@@ -21,9 +21,9 @@ class Tag
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(name="tag", type="string", length=255, nullable=true)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
-    private $tag;
+    private $name;
 
     /**
      * @ORM\Column(name="active", type="boolean", nullable=true)
@@ -55,27 +55,22 @@ class Tag
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
-    public function getTag()
+    public function getName()
     {
-        return $this->tag;
+        return $this->name;
     }
 
     /**
-     * @param mixed $tag
+     * @param mixed $name
+     * @return Tag
      */
-    public function setTag($tag)
+    public function setName($name)
     {
-        $this->tag = $tag;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -88,10 +83,13 @@ class Tag
 
     /**
      * @param mixed $active
+     * @return Tag
      */
     public function setActive($active)
     {
         $this->active = $active;
+
+        return $this;
     }
 
     /**
@@ -104,10 +102,13 @@ class Tag
 
     /**
      * @param ArrayCollection $articles
+     * @return Tag
      */
     public function setArticles($articles)
     {
         $this->articles = $articles;
+
+        return $this;
     }
 
     /**
@@ -115,6 +116,6 @@ class Tag
      */
     public function __toString()
     {
-        return $this->tag;
+        return $this->name;
     }
 }
