@@ -23,8 +23,6 @@ $(function() {
         tagForm = tagForm.replace(/__tag__/g, tagCount);
 
         tagContainer.append(tagForm);
-
-        tagCount++;
     });
 
     /**
