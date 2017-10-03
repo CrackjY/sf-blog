@@ -2,7 +2,7 @@
  * add tag
  */
 $(function() {
-    var tagCount = $('#article_tags___tag___name').length;
+    var tagCount = $('.tag-form').length;
     var tagContainer = $('#article_tags');
     var tagForm = tagContainer.attr('data-prototype');
 
@@ -18,9 +18,9 @@ $(function() {
 
         tagForm = tagForm.replace(/__tag__/g, tagCount);
 
-        tagCount++;
-
         tagContainer.append(tagForm);
+
+        tagCount++;
     });
 
     /**
@@ -29,6 +29,6 @@ $(function() {
     $('body').on('click', '#delete-tag', function(e) {
         e.preventDefault();
 
-        console.log($(this).closest('.tag-form').remove());
+        $(this).closest('.tag-form').remove();
     })
 });
