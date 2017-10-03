@@ -1,10 +1,11 @@
-var tagCount = $('#article_tags___tag___name').length;
-var tagContainer = $('#article_tags');
-var tagForm = tagContainer.attr('data-prototype');
 /**
  * add tag
  */
 $(function() {
+    var tagCount = $('#article_tags___tag___name').length;
+    var tagContainer = $('#article_tags');
+    var tagForm = tagContainer.attr('data-prototype');
+
     $('body').on('click', '#show-input-comment-send', function(e) {
         e.preventDefault();
 
@@ -20,12 +21,11 @@ $(function() {
         tagCount++;
 
         tagContainer.append(tagForm);
-    })
-});
-/**
- * Delete tag
- */
-$(function() {
+    });
+
+    /**
+     * Delete tag
+     */
     $('body').on('click', '#delete-tag', function(e) {
         e.preventDefault();
 
