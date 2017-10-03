@@ -2,7 +2,7 @@
  * add tag
  */
 $(function() {
-    var tagCount = $('.tag-form').length;
+
     var tagContainer = $('#article_tags');
     var tagForm = tagContainer.attr('data-prototype');
 
@@ -15,6 +15,10 @@ $(function() {
 
     $('body').on('click', '#add-tag', function(e) {
         e.preventDefault();
+
+        var tagContainer = $('#article_tags');
+        var tagForm = tagContainer.attr('data-prototype');
+        var tagCount = $('.tag-form').length;
 
         tagForm = tagForm.replace(/__tag__/g, tagCount);
 
