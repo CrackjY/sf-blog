@@ -96,10 +96,11 @@ class ArticleController extends Controller
 
             if ($form->isValid()) {
 
-                foreach ($article->getTags() as $tag) {
-                    $tagName = $entityManager->getRepository(Tag::class)->findByName($tag->getName());
-                    dump($tagName);
-                    die();
+                foreach($article->getTags() as $tag) {
+
+                    if (!$entityManager->getRepository(Tag::class)->findByName($tag->getName())) {
+                        $entityManager->persist($tag);
+                    }
                 }
 
                 $entityManager->persist($article);
