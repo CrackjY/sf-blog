@@ -62,7 +62,7 @@ class Article
     private $categories;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Tag", inversedBy="articles", cascade={"persist"}, fetch="EXTRA_LAZY")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Tag", inversedBy="articles", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="sf_blog_article_tag_join")
      *
      * @var ArrayCollection

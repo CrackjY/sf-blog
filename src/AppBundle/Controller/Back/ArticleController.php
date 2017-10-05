@@ -96,8 +96,6 @@ class ArticleController extends Controller
             if ($form->isValid()) {
                 $entityManager->persist($article);
                 $entityManager->flush();
-
-                return $this->redirect($this->generateUrl('back_article_index'));
             }
         }
 
