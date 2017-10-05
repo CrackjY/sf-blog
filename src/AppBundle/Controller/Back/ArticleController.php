@@ -5,6 +5,7 @@ namespace AppBundle\Controller\Back;
 use AppBundle\Entity\Article\Article;
 use AppBundle\Entity\Article\Category;
 use AppBundle\Entity\Article\Comment;
+use AppBundle\Entity\Article\Tag;
 use AppBundle\Form\Type\Article\ArticleType;
 use AppBundle\Form\Type\Article\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -94,6 +95,13 @@ class ArticleController extends Controller
             $form->handleRequest($request);
 
             if ($form->isValid()) {
+
+                foreach ($article->getTags() as $tag) {
+                    $tagName = $entityManager->getRepository(Tag::class)->findByName($tag->getName());
+                    dump($tagName);
+                    die();
+                }
+
                 $entityManager->persist($article);
                 $entityManager->flush();
             }
