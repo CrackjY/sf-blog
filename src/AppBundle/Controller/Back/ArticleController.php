@@ -8,6 +8,7 @@ use AppBundle\Entity\Article\Comment;
 use AppBundle\Entity\Article\Tag;
 use AppBundle\Form\Type\Article\ArticleType;
 use AppBundle\Form\Type\Article\CommentType;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
@@ -88,20 +89,27 @@ class ArticleController extends Controller
     public function updateAction(Request $request, EntityManagerInterface $entityManager, $articleId)
     {
         $article = $entityManager->getRepository(Article::class)->find($articleId);
-
         $form = $this->createForm(ArticleType::class, $article);
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
+                $currentTags = new ArrayCollection();
 
                 foreach($article->getTags() as $tag) {
+                    $tagDb = $entityManager->getRepository(Tag::class)->findOneByName($tag->getName());
 
-                    if (!$entityManager->getRepository(Tag::class)->findByName($tag->getName())) {
+                    if ($tagDb) {
+                        $currentTags->add($tagDb);
+                    } else {
                         $entityManager->persist($tag);
+
+                        $currentTags->add($tag);
                     }
                 }
+
+                $article->setTags($currentTags);
 
                 $entityManager->persist($article);
                 $entityManager->flush();
