@@ -30,10 +30,6 @@ class RegisterController extends Controller
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
-            if ($form->isValid()) {
-                $entityManager->persist($user);
-                $entityManager->flush();
-            }
         }
 
         return $this->render(':front:register.html.twig', array(

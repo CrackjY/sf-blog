@@ -28,9 +28,9 @@ class RegisterType extends AbstractType
                 TextType::class,
                 [
                     'required' => false,
-                    'attr'        => array(
-                        'placeholder' => 'Username'
-                    )
+                    'attr' => [
+                        'placeholder' => 'Username',
+                    ],
                 ]
             )
             ->add(
@@ -38,9 +38,9 @@ class RegisterType extends AbstractType
                 EmailType::class,
                 [
                     'required' => false,
-                    'attr'        => array(
-                        'placeholder' => 'Email'
-                    )
+                    'attr' => [
+                        'placeholder' => 'Email',
+                    ],
                 ]
             )
             ->add('plainPassword',

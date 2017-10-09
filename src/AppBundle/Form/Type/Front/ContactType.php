@@ -25,23 +25,24 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', ChoiceType::class, 
-                array(
-                    'choices'  => array(
+            ->add('title',
+                ChoiceType::class,
+                [
+                    'choices'  => [
                         'Mr' => 'mr',
                         'Mrs' => 'mrs',
                         'Other' => 'other',
-                    ),
-                )
+                    ],
+                ]
             )            
             ->add(
                 'firstname',
                 TextType::class,
                 [
                     'required' => false,
-                    'attr'        => array(
-                        'placeholder' => 'Firstname'
-                    )
+                    'attr' => [
+                        'placeholder' => 'Firstname',
+                    ],
                 ]
             )
             ->add(
@@ -49,9 +50,9 @@ class ContactType extends AbstractType
                 TextType::class,
                 [
                     'required' => false,
-                    'attr'        => array(
-                        'placeholder' => 'Lastname'
-                    )
+                    'attr' => [
+                        'placeholder' => 'Lastname',
+                    ],
                 ]
             )
             ->add(
@@ -59,9 +60,9 @@ class ContactType extends AbstractType
                 EmailType::class,
                 [
                     'required' => false,
-                    'attr'        => array(
-                        'placeholder' => 'Email'
-                    )
+                    'attr' => [
+                        'placeholder' => 'Email',
+                    ],
                 ]
             )
             ->add(
@@ -69,19 +70,19 @@ class ContactType extends AbstractType
                 TextType::class,
                 [
                     'required' => false,
-                    'attr'        => array(
-                        'placeholder' => 'Object'
-                    )
-                ]                
+                    'attr' => [
+                        'placeholder' => 'Object',
+                    ],
+                ]
             )
             ->add(
                 'message',
                 TextareaType::class,
                 [
                     'required' => false,
-                    'attr'        => array(
+                    'attr' => [
                         'placeholder' => 'Message'
-                    )
+                    ],
                 ]
             )
             ->add(
