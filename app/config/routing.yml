@@ -28,6 +28,11 @@ front_contact:
     path:     /contact
     defaults: { _controller: AppBundle:Front/Front:contact }
 
+# route registerAction
+front_register:
+    path:     /register
+    defaults: { _controller: AppBundle:Front/Register:register }
+
 # interfaceAdmin
 back_index:
     path:     /admin
