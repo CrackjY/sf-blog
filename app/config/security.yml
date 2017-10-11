@@ -1,6 +1,6 @@
 security:
     providers:
-        sf-blog:
+        sf_blog:
             entity:
                 class:    AppBundle:User\User
                 property: username
