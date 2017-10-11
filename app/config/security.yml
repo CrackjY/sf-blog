@@ -1,28 +1,29 @@
-# To get started with security, check out the documentation:
-# https://symfony.com/doc/current/security.html
-
-# app/config/security.yml
 security:
-    encoders:
-        AppBundle\Entity\User\User: bcrypt
-
-    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
+        sf-blog:
+            entity:
+                class:    AppBundle:User\User
+                property: username
+
+    encoders:
+        AppBundle\Entity\User\User:
+            algorithm: bcrypt
+            cost     : 15
 
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
+        back:
             anonymous: ~
-            # activate different ways to authenticate
+            logout:
+                path:   logout
+                target: /login
+            guard:
+                authenticators:
+                    - st_app.security.guard.authenticator.form
 
-            # $https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
-
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/*, role: ROLE_USER }
