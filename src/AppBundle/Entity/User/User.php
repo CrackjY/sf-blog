@@ -32,7 +32,6 @@ class User implements AdvancedUserInterface
     private $email;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(name="password", type="string", length=255, nullable=true)
      */
     private $password;
@@ -75,6 +74,7 @@ class User implements AdvancedUserInterface
     {
         $this->salt = base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
         $this->enabled = true;
+        $this->lastLogin = new \DateTime();
         $this->locked  = false;
         $this->expired  = false;
     }

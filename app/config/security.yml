@@ -1,6 +1,10 @@
 # To get started with security, check out the documentation:
 # https://symfony.com/doc/current/security.html
+
+# app/config/security.yml
 security:
+    encoders:
+        AppBundle\Entity\User\User: bcrypt
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
@@ -17,7 +21,7 @@ security:
             anonymous: ~
             # activate different ways to authenticate
 
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            # $https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
             #http_basic: ~
 
             # https://symfony.com/doc/current/security/form_login_setup.html

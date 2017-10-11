@@ -109,8 +109,8 @@ a:hover {
 
 .ul-sub-category {
     display:none;
+    position: absolute;
     list-style-type: none;
-    margin-top: 12px;
 }
 
 .li-sub-category {
@@ -119,6 +119,7 @@ a:hover {
 }
 
 .li-category:hover .ul-sub-category {
+    position: absolute;
     background-color: grey;
     color: white;
     list-style-type: none;
@@ -134,36 +135,10 @@ li > a:hover {
     color: #F3E5F5;
     padding-top: 10px;
 }
-.with-menu {
-    margin-left: -100%;
-}
-/*
-.block-hamburger {
-    background: rgba(58, 58, 58, 0.77);
-    width: 100%;
-    height: 4px;
-}
-#hamburger {
-    /*display: block;
-    background: #CFD8DC;
-    color: white;
-    border: none;
-    outline-style: none;
-}
-*/
+
 .block-menu {
     background:rgba(0, 0, 0, 0.74);
-    /*display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right:0;*/
     width: 100%;
-}
-
-.with--menu {
-    display: block;
-    margin-left: 0;
 }
 /********************************************
 

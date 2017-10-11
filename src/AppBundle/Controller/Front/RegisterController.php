@@ -7,6 +7,7 @@ use AppBundle\Form\Type\User\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -18,10 +19,11 @@ class RegisterController extends Controller
     /**
      * @param Request $request
      * @param EntityManagerInterface $entityManager
+     * @param UserPasswordEncoderInterface $encoder
      *
      * @return Response
      */
-    public function registerAction(Request $request, EntityManagerInterface $entityManager)
+    public function registerAction(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder)
     {
         $user = new User();
 
@@ -30,6 +32,14 @@ class RegisterController extends Controller
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
+            if ($form->isValid()) {
+                $plainPassword = $user->getPlainPassword();
+                $password = $encoder->encodePassword($user, $plainPassword);
+                $user->setPassword($password);
+
+                $entityManager->persist($user);
+                $entityManager->flush();
+            }
         }
 
         return $this->render(':front:register.html.twig', array(
