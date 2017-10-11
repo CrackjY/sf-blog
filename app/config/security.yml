@@ -22,7 +22,7 @@ security:
                 target: /login
             guard:
                 authenticators:
-                    - st_app.security.guard.authenticator.form
+                    - AppBundle\Security\Guard\Authenticator\FormAuthenticator
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
