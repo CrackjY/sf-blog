@@ -1,3 +1,13 @@
+# route registerAction
+front_register:
+    path:     /register
+    defaults: { _controller: AppBundle:Front/Register:register }
+
+# route loginAction
+front_login:
+    path:     /login
+    defaults: { _controller: AppBundle:Front/Login:login }
+
 # pageBlogParDefault
 front_index:
     path:     /
@@ -27,11 +37,6 @@ front_category_show:
 front_contact:
     path:     /contact
     defaults: { _controller: AppBundle:Front/Front:contact }
-
-# route registerAction
-front_register:
-    path:     /register
-    defaults: { _controller: AppBundle:Front/Register:register }
 
 # interfaceAdmin
 back_index:

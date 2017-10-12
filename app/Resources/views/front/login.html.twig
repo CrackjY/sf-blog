@@ -1,0 +1,19 @@
+{% extends '::base_front.html.twig' %}
+
+{% block content %}
+    {{ form_start(form) }}
+
+        {{ form_errors(form) }}
+
+        {{ form_widget(form.email) }}
+        {{ form_errors(form.email) }}
+
+        {{ form_widget(form.password) }}
+        {{ form_errors(form.password) }}
+
+        {{ form_rest(form) }}
+
+        <button class="btn btn-default" type="submit">Go</button>
+
+    {{ form_end(form) }}
+{% endblock %}
