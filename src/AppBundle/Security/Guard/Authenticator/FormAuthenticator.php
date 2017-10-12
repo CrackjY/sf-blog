@@ -125,7 +125,7 @@ class FormAuthenticator extends AbstractGuardAuthenticator
      */
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        $url = $this->router->generate('login');
+        $url = $this->router->generate('front_login');
 
         return new RedirectResponse($url);
     }

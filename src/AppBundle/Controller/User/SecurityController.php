@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -43,7 +44,7 @@ class SecurityController extends Controller
             }
         }
 
-        return $this->render(':front:register.html.twig', array(
+        return $this->render(':security:register.html.twig', array(
             'form' => $form->createView(),
         ));
     }
@@ -51,22 +52,23 @@ class SecurityController extends Controller
     /**
      * @param Request $request
      * @param EntityManagerInterface $entityManager
-     * @param UserPasswordEncoderInterface $encoder
+     * @param AuthenticationUtils $authUtils
      *
      * @return Response
      */
-    public function loginAction(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder)
+    public function loginAction(Request $request, EntityManagerInterface $entityManager, AuthenticationUtils $authUtils)
     {
         $user = new User();
 
         $form = $this->createForm(LoginType::class, $user);
 
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-        }
+        $error = $authUtils->getLastAuthenticationError();
+        $lastUsername = $authUtils->getLastUsername();
 
-        return $this->render(':front:login.html.twig', array(
+        return $this->render(':security:login.html.twig', array(
             'form' => $form->createView(),
+            'lastUsername' => $lastUsername,
+            'error' => $error,
         ));
     }
 }
