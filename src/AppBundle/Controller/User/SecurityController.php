@@ -1,9 +1,10 @@
 <?php
 
-namespace AppBundle\Controller\Front;
+namespace AppBundle\Controller\User;
 
 use AppBundle\Entity\User\User;
 use AppBundle\Form\Type\User\RegisterType;
+use AppBundle\Form\Type\User\LoginType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
@@ -11,10 +12,10 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class RegisterController
- * @package AppBundle\Controller\Front
+ * Class SecurityController
+ * @package AppBundle\Controller\User
  */
-class RegisterController extends Controller
+class SecurityController extends Controller
 {
     /**
      * @param Request $request
@@ -43,6 +44,28 @@ class RegisterController extends Controller
         }
 
         return $this->render(':front:register.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @param UserPasswordEncoderInterface $encoder
+     *
+     * @return Response
+     */
+    public function loginAction(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder)
+    {
+        $user = new User();
+
+        $form = $this->createForm(LoginType::class, $user);
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+        }
+
+        return $this->render(':front:login.html.twig', array(
             'form' => $form->createView(),
         ));
     }

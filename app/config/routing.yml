@@ -1,12 +1,12 @@
 # route registerAction
 front_register:
     path:     /register
-    defaults: { _controller: AppBundle:Front/Register:register }
+    defaults: { _controller: AppBundle:User/Security:register }
 
 # route loginAction
 front_login:
     path:     /login
-    defaults: { _controller: AppBundle:Front/Login:login }
+    defaults: { _controller: AppBundle:User/Security:login }
 
 # pageBlogParDefault
 front_index:

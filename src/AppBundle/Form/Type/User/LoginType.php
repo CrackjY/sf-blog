@@ -36,7 +36,12 @@ class LoginType extends AbstractType
             )
             ->add('password',
                 PasswordType::class,
-                []
+                [
+                    'required' => false,
+                    'attr' => [
+                        'placeholder' => 'Password',
+                    ],
+                ]
             );
     }
 
