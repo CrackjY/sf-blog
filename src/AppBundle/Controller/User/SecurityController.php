@@ -61,10 +61,7 @@ class SecurityController extends Controller
         $user = new User();
 
         $form = $this->createForm(LoginType::class, $user);
-
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-        }
+        $form->handleRequest($request);
 
         $error = $authUtils->getLastAuthenticationError();
         $lastUsername = $authUtils->getLastUsername();
