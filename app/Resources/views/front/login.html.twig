@@ -1,7 +1,10 @@
 {% extends '::base_front.html.twig' %}
 
 {% block content %}
-    {{ form_start(form) }}
+
+    <div class="block-form">
+
+        {{ form_start(form) }}
 
         {{ form_errors(form) }}
 
@@ -15,5 +18,8 @@
 
         <button class="btn btn-default" type="submit">Go</button>
 
-    {{ form_end(form) }}
+        {{ form_end(form) }}
+
+    </div>
+
 {% endblock %}

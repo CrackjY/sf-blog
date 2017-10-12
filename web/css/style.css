@@ -75,15 +75,21 @@ a:hover {
 }
 /********************************************
 
-                FORM-BOOTSTRAP
+        FORM-BOOTSTRAP && form-contact
 
 ********************************************/
 .form-control {
     border: solid 1px #E8EAF6;
+    margin-bottom: 15px;
 }
 
 .form-contact, .form-contact-update {
     padding-bottom: 24px;
+}
+
+.block-form {
+    width: 60%;
+    margin: auto;
 }
 /********************************************
 
@@ -91,7 +97,12 @@ a:hover {
 
 ********************************************/
 /*working...*/
-.menu, .li-menu {
+.block-menu {
+    background:rgba(0, 0, 0, 0.74);
+    width: 100%;
+}
+
+ul.menu, li.li-menu {
     display: inline-block;
     margin-top: 14px;
     margin-left: 1.3em;
@@ -99,31 +110,17 @@ a:hover {
     cursor: pointer;
 }
 
-.li-category {
-    position: absolute;
-}
-
-.li-faq {
-    margin-left: 130px;
-}
-
 .ul-sub-category {
     display:none;
-    position: absolute;
     list-style-type: none;
 }
 
-.li-sub-category {
-    position: relative;
-    left: -15px;
-}
-
 .li-category:hover .ul-sub-category {
+    display: block;
     position: absolute;
     background-color: grey;
     color: white;
     list-style-type: none;
-    display: block;
 }
 
 li > a {
@@ -134,11 +131,6 @@ li > a {
 li > a:hover {
     color: #F3E5F5;
     padding-top: 10px;
-}
-
-.block-menu {
-    background:rgba(0, 0, 0, 0.74);
-    width: 100%;
 }
 /********************************************
 
@@ -177,9 +169,6 @@ h3 {
           ADMIN PAGE-contact-UPDATE
 
 ********************************************/
-.block-contact-update {
-}
-
 .contact-send-update {
     background: #9575CD;
     border:none;

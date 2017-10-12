@@ -1,23 +1,29 @@
 {% extends '::base_front.html.twig' %}
 
 {% block content %}
-    {{ form_start(form) }}
 
-        {{ form_errors(form) }}
+    <div class="block-form">
 
-        {{ form_widget(form.username) }}
-        {{ form_errors(form.username) }}
+        {{ form_start(form) }}
 
-        {{ form_widget(form.email) }}
-        {{ form_errors(form.email) }}
+            {{ form_errors(form) }}
 
-        {{ form_widget(form.plainPassword.first) }}
-        {{ form_widget(form.plainPassword.second) }}
-        {{ form_errors(form.plainPassword) }}
+            {{ form_widget(form.username) }}
+            {{ form_errors(form.username) }}
 
-        {{ form_rest(form) }}
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
 
-        <button class="btn btn-default" type="submit">Register</button>
+            {{ form_widget(form.plainPassword.first) }}
+            {{ form_widget(form.plainPassword.second) }}
+            {{ form_errors(form.plainPassword) }}
 
-    {{ form_end(form) }}
+            {{ form_rest(form) }}
+
+            <button class="btn btn-default" type="submit">Register</button>
+
+        {{ form_end(form) }}
+
+    </div>
+
 {% endblock %}
