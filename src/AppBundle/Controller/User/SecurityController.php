@@ -43,25 +43,18 @@ class SecurityController extends Controller
                 $entityManager->flush();
             }
         }
-
-        return $this->render(':security:register.html.twig', array(
-            'form' => $form->createView(),
-        ));
     }
 
     /**
      * @param Request $request
-     * @param EntityManagerInterface $entityManager
      * @param AuthenticationUtils $authUtils
-     *
      * @return Response
      */
-    public function loginAction(Request $request, EntityManagerInterface $entityManager, AuthenticationUtils $authUtils)
+    public function loginAction(Request $request, AuthenticationUtils $authUtils)
     {
         $user = new User();
 
         $form = $this->createForm(LoginType::class, $user);
-        $form->handleRequest($request);
 
         $error = $authUtils->getLastAuthenticationError();
         $lastUsername = $authUtils->getLastUsername();

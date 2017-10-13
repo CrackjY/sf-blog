@@ -13,12 +13,11 @@ use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
-use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * Class FormAuthenticator
- * @package AppBundle\Security
+ * @package AppBundle\Security\Guard
  */
 class FormAuthenticator extends AbstractGuardAuthenticator
 {
@@ -28,7 +27,7 @@ class FormAuthenticator extends AbstractGuardAuthenticator
     private $router;
 
     /**
-     * @var UserPasswordEncoder
+     * @var UserPasswordEncoderInterface
      */
     private $passwordEncoder;
 
@@ -41,11 +40,10 @@ class FormAuthenticator extends AbstractGuardAuthenticator
 
     /**
      * FormAuthenticator constructor.
-
      * @param RouterInterface $router
-     * @param UserPasswordEncoder $passwordEncoder
+     * @param UserPasswordEncoderInterface $passwordEncoder
      */
-    public function __construct(RouterInterface $router, UserPasswordEncoder $passwordEncoder)
+    public function __construct(RouterInterface $router, UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->router          = $router;
         $this->passwordEncoder = $passwordEncoder;
@@ -67,7 +65,7 @@ class FormAuthenticator extends AbstractGuardAuthenticator
         }
 
         return [
-            'username' => $loginData['email'],
+            'username' => $loginData['username'],
             'password' => $loginData['password'],
         ];
     }
@@ -103,7 +101,7 @@ class FormAuthenticator extends AbstractGuardAuthenticator
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        $url = $this->router->generate('home_back');
+        $url = $this->router->generate('back_index');
 
         return new RedirectResponse($url);
     }
@@ -115,7 +113,7 @@ class FormAuthenticator extends AbstractGuardAuthenticator
     {
         $request->getSession()->set(Security::AUTHENTICATION_ERROR, $exception);
 
-        $url = $this->router->generate('login');
+        $url = $this->router->generate('front_login');
 
         return new RedirectResponse($url);
     }
