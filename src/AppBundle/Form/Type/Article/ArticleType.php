@@ -78,7 +78,7 @@ class ArticleType extends AbstractType
                 'active',
                 CheckboxType::class,
                 [
-                    'label'    => false,
+                    'label'    => 'Enable/Desable',
                     'required' => false,
                 ]
             );

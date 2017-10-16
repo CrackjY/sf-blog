@@ -11,10 +11,6 @@
 
             {{ form_errors(form) }}
 
-            {{ form_label(form.active, "Enable/Desable", {'label_attr': {'class': ''} }) }}
-            {{ form_widget(form.active, {'attr': {'class': ''} }) }}
-            {{ form_errors(form.active) }}
-
             {{ form_label(form.categories, "Category", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.categories, {'attr': {'class': ''} }) }}
             {{ form_errors(form.categories) }}
@@ -30,6 +26,9 @@
             {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.author, {'attr': {'class': ' input-author'} }) }}
             {{ form_errors(form.author) }}
+
+            {{ form_widget(form.active, {'attr': {'class': ''} }) }}
+            {{ form_errors(form.active) }}
 
             <button id="add-tag" class="btn btn-default input-post-article">Add tag</button>
 

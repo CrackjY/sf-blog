@@ -21,13 +21,13 @@ class Role
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(name="username", type="string", length=255)
+     * @ORM\Column(name="role_name", type="string", length=255)
      */
     private $role;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User\User", mappedBy="roles", cascade={"persist"}, fetch="EXTRA_LAZY")
-     * @ORM\JoinTable(name="sf_blog_role_user_join")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User\User", inversedBy="roles", fetch="EXTRA_LAZY")
+     * @ORM\JoinTable(name="sf_blog_user_role")
      *
      * @var ArrayCollection
      */
@@ -65,6 +65,7 @@ class Role
     public function setRole($role)
     {
         $this->role = $role;
+
         return $this;
     }
 
@@ -83,6 +84,7 @@ class Role
     public function setUsers($users)
     {
         $this->users = $users;
+
         return $this;
     }
 
