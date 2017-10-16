@@ -22,9 +22,8 @@ class RoleController extends Controller
     {
         $roles = $entityManager->getRepository(Role::class)->findAll();
 
-        return $this->render(':back/user:index.html.twig', array(
+        return $this->render(':back/role:index.html.twig', array(
             'roles' => $roles,
         ));
-
     }
 }
