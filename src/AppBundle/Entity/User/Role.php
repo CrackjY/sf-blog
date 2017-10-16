@@ -26,7 +26,7 @@ class Role
     private $role;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Category", mappedBy="roles", cascade={"persist"}, fetch="EXTRA_LAZY")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User\User", mappedBy="roles", cascade={"persist"}, fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="sf_blog_role_user_join")
      *
      * @var ArrayCollection
@@ -41,4 +41,49 @@ class Role
     {
         $this->users = new ArrayCollection();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param mixed $role
+     * @return Role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+        return $this;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param ArrayCollection $users
+     * @return Role
+     */
+    public function setUsers($users)
+    {
+        $this->users = $users;
+        return $this;
+    }
 }
+

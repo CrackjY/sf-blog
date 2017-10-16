@@ -69,7 +69,7 @@ class User implements AdvancedUserInterface
     private $expired;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Article", inversedBy="users", cascade={"persist"}, fetch="EXTRA_LAZY")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User\Role", inversedBy="users", cascade={"persist"}, fetch="EXTRA_LAZY")
      *
      * @var ArrayCollection
      */
