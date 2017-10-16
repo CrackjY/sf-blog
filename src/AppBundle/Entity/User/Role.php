@@ -28,7 +28,6 @@ class Role
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User\User", inversedBy="roles", fetch="EXTRA_LAZY")
      * @ORM\JoinTable(name="sf_blog_user_role")
-     *
      * @var ArrayCollection
      */
     private $users;

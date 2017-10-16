@@ -107,3 +107,13 @@ back_comment_show:
 back_comment_update:
     path:     /admin/comment/update/{commentId}
     defaults: { _controller: AppBundle:Back/Comment:update }
+
+# route users back
+back_user_index:
+    path:     /admin/users
+    defaults: { _controller: AppBundle:Back/User:index }
+
+# route roles back
+back_role_index:
+    path:     /admin/roles
+    defaults: { _controller: AppBundle:Back/Role:index }

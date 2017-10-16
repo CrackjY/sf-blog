@@ -1,0 +1,39 @@
+{% extends '::base_back.html.twig' %}
+
+{% block content %}
+    <h1 class="text-danger">Administrator : </h1>
+    <a class="btn btn-info link-new-article" href="{{ path('back_article_new') }}">New article</a>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Enabled</th>
+                <th>Last login</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email|capitalize|hook }}</td>
+                    {% if user.enabled %}
+                        <td>Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></td>
+                    {% else %}
+                        <td>Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></td>
+                    {% endif %}
+                    <td>{{ user.lastLogin|date('d/m/Y h:i:s') }}<td>
+                    <td>
+                        <a id="user-id" href="" class="pull-left btn btn-info">Show</a>
+                        <a id="user-id" href="" class="pull-left btn btn-warning">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
