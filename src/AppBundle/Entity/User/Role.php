@@ -85,5 +85,20 @@ class Role
         $this->users = $users;
         return $this;
     }
-}
 
+    /**
+     * @param User $user
+     */
+    public function addUser(User $user)
+    {
+        $this->users[] = $user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function removeArticle(User $user)
+    {
+        $this->users->removeElement($user);
+    }
+}
