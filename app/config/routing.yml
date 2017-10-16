@@ -8,6 +8,11 @@ front_login:
     path:     /login
     defaults: { _controller: AppBundle:User/Security:login }
 
+# route logoutAction
+logout:
+    path:     /logout
+    defaults: { _controller: AppBundle:User/Security:logout }
+
 # pageBlogParDefault
 front_index:
     path:     /

@@ -60,9 +60,6 @@ class FormAuthenticator extends AbstractGuardAuthenticator
 
         $loginData = $request->request->get('login');
 
-        dump($loginData);
-        die;
-
         if (empty($loginData)) {
             return null;
         }

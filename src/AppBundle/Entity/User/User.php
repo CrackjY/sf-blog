@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity\User;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -68,6 +69,13 @@ class User implements AdvancedUserInterface
     private $expired;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Article\Article", inversedBy="users", cascade={"persist"}, fetch="EXTRA_LAZY")
+     *
+     * @var ArrayCollection
+     */
+    private $roles;
+
+    /**
      * User constructor.
      */
     public function __construct()
@@ -77,6 +85,7 @@ class User implements AdvancedUserInterface
         $this->lastLogin = new \DateTime();
         $this->locked  = false;
         $this->expired  = false;
+        $this->roles = new ArrayCollection();
     }
 
     /**

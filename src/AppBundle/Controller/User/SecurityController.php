@@ -43,6 +43,10 @@ class SecurityController extends Controller
                 $entityManager->flush();
             }
         }
+
+        return $this->render(':security:register.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
     /**
