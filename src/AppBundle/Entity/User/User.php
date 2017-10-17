@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\User\Repository\UserRepository")
  * @ORM\Table(name="sf_blog_user")
  */
 class User implements AdvancedUserInterface

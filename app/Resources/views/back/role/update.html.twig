@@ -1,0 +1,18 @@
+{% extends '::base_back.html.twig' %}
+
+{% block content %}
+
+    {{ form_start(form) }}
+
+        {{ form_errors(form) }}
+
+        {{ form_widget(form.role) }}
+        {{ form_errors(form.role) }}
+
+        {{ form_rest(form) }}
+
+        <button class="btn btn-default" type="submit">Update</button>
+
+    {{ form_end(form) }}
+
+{% endblock %}

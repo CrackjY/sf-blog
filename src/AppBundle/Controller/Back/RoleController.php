@@ -61,7 +61,7 @@ class RoleController extends Controller
      */
     public function showAction(Request $request, EntityManagerInterface $entityManager, $roleId)
     {
-        $role = $entityManager->getRepository(RoleType::class)->find($roleId);
+        $role = $entityManager->getRepository(Role::class)->find($roleId);
 
         return $this->render(':back/role:show.html.twig', array(
             'user' => $role,
@@ -76,7 +76,7 @@ class RoleController extends Controller
      */
     public function updateAction(Request $request, EntityManagerInterface $entityManager, $roleId)
     {
-        $role = $entityManager->getRepository(RoleType::class)->find($roleId);
+        $role = $entityManager->getRepository(Role::class)->find($roleId);
         $form = $this->createForm(RoleType::class, $role);
 
         if ($request->isMethod('POST')) {

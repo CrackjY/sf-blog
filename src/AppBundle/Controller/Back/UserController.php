@@ -62,7 +62,7 @@ class UserController extends Controller
      */
     public function showAction(Request $request, EntityManagerInterface $entityManager, $userId)
     {
-        $user = $entityManager->getRepository(RegisterType::class)->find($userId);
+        $user = $entityManager->getRepository(User::class)->find($userId);
 
         return $this->render(':back/user:show.html.twig', array(
             'user' => $user,
@@ -92,5 +92,19 @@ class UserController extends Controller
         return $this->render(':back/user:update.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+
+    public function deleteAction(EntityManagerInterface $entityManager,$userId)
+    {
+
+        $user = $entityManager->getRepository(User::class)->find($userId);
+
+        dump($user);
+        die;
+
+        $entityManager->remove($user);
+        $entityManager->flush();
+
+        return $this->redirect($this->generateUrl('GuestBundle:Page:viewGuests.html.twig'));
     }
 }

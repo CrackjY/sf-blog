@@ -1,0 +1,34 @@
+{% extends '::base_back.html.twig' %}
+
+{% block content %}
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Enabled</th>
+            <th>Last login</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email|capitalize|hook }}</td>
+                    {% if user.enabled %}
+                        <td>Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></td>
+                    {% else %}
+                        <td>Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></td>
+                    {% endif %}
+                    <td>{{ user.lastLogin|date('d/m/Y h:i:s') }}<td>
+                    <td>
+                        <a id="user-id" href="{{ path('back_user_delete', { 'userId': user.id }) }}" class="pull-left btn btn-info">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

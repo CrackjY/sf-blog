@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Type\User;
 
+use AppBundle\Entity\User\Role;
 use AppBundle\Entity\User\User;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
@@ -30,7 +31,7 @@ class RoleType extends AbstractType
                         'placeholder' => 'Role',
                     ],
                 ]
-            )
+            );
     }
 
     /**
@@ -40,7 +41,7 @@ class RoleType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class' => User::class,
+                'data_class' => Role::class,
             ]
         );
     }

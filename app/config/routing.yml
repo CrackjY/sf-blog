@@ -113,7 +113,32 @@ back_user_index:
     path:     /admin/users
     defaults: { _controller: AppBundle:Back/User:index }
 
+# route show user back
+back_user_show:
+    path:     /admin/user/{userId}
+    defaults: { _controller: AppBundle:Back/User:show }
+
+# route user update back
+back_user_update:
+    path:     /admin/update/{userId}
+    defaults: { _controller: AppBundle:Back/User:update }
+
+# route user update back
+back_user_delete:
+    path:     /admin/delete/{userId}
+    defaults: { _controller: AppBundle:Back/User:delete }
+
 # route roles back
 back_role_index:
     path:     /admin/roles
     defaults: { _controller: AppBundle:Back/Role:index }
+
+# route new role back
+back_role_new:
+    path:     /admin/role/new
+    defaults: { _controller: AppBundle:Back/Role:new }
+
+# route update role back
+back_role_update:
+    path:     /admin/role/update/{roleId}
+    defaults: { _controller: AppBundle:Back/Role:update }
