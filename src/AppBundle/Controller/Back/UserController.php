@@ -4,6 +4,7 @@ namespace AppBundle\Controller\Back;
 
 use AppBundle\Entity\User\User;
 use AppBundle\Form\Type\User\RegisterType;
+use AppBundle\Form\Type\User\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
@@ -78,7 +79,7 @@ class UserController extends Controller
     public function updateAction(Request $request, EntityManagerInterface $entityManager, $userId)
     {
         $user = $entityManager->getRepository(User::class)->find($userId);
-        $form = $this->createForm(RegisterType::class, $user);
+        $form = $this->createForm(UserType::class, $user);
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
@@ -98,9 +99,6 @@ class UserController extends Controller
     {
 
         $user = $entityManager->getRepository(User::class)->find($userId);
-
-        dump($user);
-        die;
 
         $entityManager->remove($user);
         $entityManager->flush();

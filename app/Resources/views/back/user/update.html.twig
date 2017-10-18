@@ -11,12 +11,7 @@
         {{ form_widget(form.username) }}
         {{ form_errors(form.username) }}
 
-        {{ form_widget(form.email) }}
-        {{ form_errors(form.email) }}
-
-        {{ form_widget(form.plainPassword.first) }}
-        {{ form_widget(form.plainPassword.second) }}
-        {{ form_errors(form.plainPassword) }}
+        {{ dump(form.roles) }}
 
         {{ form_rest(form) }}
 
