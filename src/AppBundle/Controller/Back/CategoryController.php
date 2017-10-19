@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\Back;
 
+use AppBundle\Test\Test;
 use AppBundle\Entity\Article\Article;
 use AppBundle\Entity\Article\Category;
 use AppBundle\Form\Type\Article\CategoryType;
@@ -58,18 +59,17 @@ class CategoryController extends Controller
 
     public function showAction(Request $request, EntityManagerInterface $entityManager, $categoryId)
     {
+        $test = new Test();
+
         $category = $entityManager->getRepository(Category::class)->find($categoryId);
 
         $articles = $entityManager->getRepository(Article::class)->findByCategoryId($category);
 
+        $countArticle = $test->count($articles);
+
         return $this->render(':back/category:show.html.twig', array(
             'category' => $category,
-            'articles' => $this->count($articles)
+            'countArticle' => $countArticle,
         ));
-    }
-
-    public function count($value)
-    {
-        return count($value);
     }
 }
