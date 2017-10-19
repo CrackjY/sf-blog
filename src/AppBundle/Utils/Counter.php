@@ -2,15 +2,21 @@
 
 namespace AppBundle\Utils;
 
-use Doctrine\ORM\EntityRepository;
-use AppBundle\Entity\Article\Repository\ArticleRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Class Counter
  * @package AppBundle\Utils
  */
-class Counter extends ArticleRepository
+class Counter
 {
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     /**
      * @param $categoryId
      * @return mixed
