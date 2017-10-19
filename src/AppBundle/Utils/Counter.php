@@ -18,7 +18,7 @@ class Counter
     }
 
     /**
-     * 
+     *
      */
     public function count()
     {

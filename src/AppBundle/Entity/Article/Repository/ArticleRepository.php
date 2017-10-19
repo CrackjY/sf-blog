@@ -79,6 +79,22 @@ class ArticleRepository extends EntityRepository
     }
 
     /**
+     * @param $categoryId
+     * @return mixed
+     */
+    public function countByCategory($categoryId)
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->select('count(a.id)')
+            ->innerJoin('a.categories', 'ca')
+            ->where('ca.id = :categoryId')
+            ->setParameter(':categoryId', $categoryId)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /**
      * @param SearchModel $searchModel
      * @return array
      */
