@@ -82,7 +82,7 @@ class ArticleRepository extends EntityRepository
     {
         return $this
             ->createQueryBuilder('a')
-            ->select('COUNT(a)')
+            ->select('count(a.id)')
             ->innerJoin('a.categories', 'ca')
             ->where('ca.id = :categoryId')
             ->setParameter(':categoryId', $categoryId)

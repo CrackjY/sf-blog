@@ -24,12 +24,14 @@ class CategoryController extends Controller
      */
     public function showAction(EntityManagerInterface $entityManager, $categoryId)
     {
+        $category = $entityManager->getRepository(Category::class)->find($categoryId);
+
+        $nbArticles = $entityManager->getRepository(Article::class)->countByCategory($category);
+
         $articles = $entityManager->getRepository(Article::class)->findByCategoryId($categoryId);
 
-        $countArticle = count($articles);
-
         return $this->render(':front:category.html.twig', array(
-            'countArticle' => $countArticle,
+            'nbArticles' => $nbArticles,
             'articles' => $articles,
         ));
     }
