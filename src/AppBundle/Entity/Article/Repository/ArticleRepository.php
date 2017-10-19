@@ -63,6 +63,22 @@ class ArticleRepository extends EntityRepository
     }
 
     /**
+     * @param $categoryId
+     * @return array
+     */
+    public function findByCategoryIdForAdmin($categoryId)
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->innerJoin('a.categories', 'ca')
+            ->where('ca.id = :categoryId')
+            ->orderBy('a.date', 'DESC')
+            ->setParameter(':categoryId', $categoryId)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
      * @param SearchModel $searchModel
      * @return array
      */

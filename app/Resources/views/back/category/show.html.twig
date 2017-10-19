@@ -1,0 +1,14 @@
+{% extends '::base_back.html.twig' %}
+
+{% block content %}
+    <div class="block-article-and-comment">
+        <h1 class="text-danger">Administrator : </h1>
+        <div class="article show-article">
+            <a href="{{ path('back_category_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a>
+            <h4 class="text-info text-center"><b>{{ category.name }}</b></h4>
+        </div>
+        <div class="article show-article">
+            {{ articles|length }}
+        </div>
+    </div>
+{% endblock %}

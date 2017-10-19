@@ -45,19 +45,6 @@ class UserType extends AbstractType
                         'placeholder' => 'Email',
                     ],
                 ]
-            )
-            ->add('roles', EntityType::class,
-                [
-                    'class'         => Role::class,
-                    'query_builder' => function(EntityRepository $er) {
-                        return $er->createQueryBuilder('ro')
-                            ->orderBy('ro.role', 'ASC');
-                    },
-                    'expanded' => true,
-                    'multiple'      => true,
-                    'choice_label'   => 'role',
-                    'required'    => false,
-                ]
             );
     }
 

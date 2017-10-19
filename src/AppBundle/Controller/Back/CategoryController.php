@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\Back;
 
+use AppBundle\Entity\Article\Article;
 use AppBundle\Entity\Article\Category;
 use AppBundle\Form\Type\Article\CategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -52,6 +53,18 @@ class CategoryController extends Controller
 
         return $this->render(':back/category:new.html.twig', array(
             'form' => $form->createView()
+        ));
+    }
+
+    public function showAction(Request $request, EntityManagerInterface $entityManager, $categoryId)
+    {
+        $category = $entityManager->getRepository(Category::class)->find($categoryId);
+
+        $articles = $entityManager->getRepository(Article::class)->findByCategoryId($category);
+
+        return $this->render(':back/category:show.html.twig', array(
+            'category' => $category,
+            'articles' => $articles
         ));
     }
 }
