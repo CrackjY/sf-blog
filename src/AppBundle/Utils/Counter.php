@@ -23,13 +23,5 @@ class Counter
      */
     public function count($categoryId)
     {
-        return $this
-            ->createQueryBuilder('a')
-            ->select('count(a.id)')
-            ->innerJoin('a.categories', 'ca')
-            ->where('ca.id = :categoryId')
-            ->setParameter(':categoryId', $categoryId)
-            ->getQuery()
-            ->getSingleScalarResult();
     }
 }
