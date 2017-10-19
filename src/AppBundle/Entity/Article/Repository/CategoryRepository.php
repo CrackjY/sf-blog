@@ -17,7 +17,7 @@ class CategoryRepository extends EntityRepository
     /**
      * @return array
      */
-        public function findByActive()
+    public function findByActive()
     {
         $queryBuilder = $this
             ->createQueryBuilder('ca')
