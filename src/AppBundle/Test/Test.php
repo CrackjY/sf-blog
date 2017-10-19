@@ -8,8 +8,4 @@ namespace AppBundle\Test;
  */
 class Test
 {
-    public function count($value)
-    {
-        return count($value);
-    }
 }
