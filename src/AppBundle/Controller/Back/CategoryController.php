@@ -64,7 +64,12 @@ class CategoryController extends Controller
 
         return $this->render(':back/category:show.html.twig', array(
             'category' => $category,
-            'articles' => $articles
+            'articles' => $this->count($articles)
         ));
+    }
+
+    public function count($value)
+    {
+        return count($value);
     }
 }
