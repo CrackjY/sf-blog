@@ -21,7 +21,7 @@ class Counter
      * @param $categoryId
      * @return mixed
      */
-    public function countByCategory($categoryId)
+    public function count($categoryId)
     {
         return $this
             ->createQueryBuilder('a')
