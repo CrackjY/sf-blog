@@ -18,10 +18,9 @@ class Counter
     }
 
     /**
-     * @param $categoryId
-     * @return mixed
+     * 
      */
-    public function count($categoryId)
+    public function count()
     {
     }
 }
