@@ -20,26 +20,22 @@ class ArticleRepository extends EntityRepository
      */
     public function findByActive()
     {
-        $queryBuilder = $this
+        return $this
             ->createQueryBuilder('a')
             ->Where('a.active = :active')
             ->orderBy('a.date', 'DESC')
-            ->setParameter(':active', true);
-
-        return $queryBuilder
+            ->setParameter(':active', true)
             ->getQuery()
             ->getResult();
     }
 
     public function findInactives()
     {
-        $queryBuilder = $this
+        return $this
             ->createQueryBuilder('a')
             ->Where('a.active = :active')
             ->orderBy('a.date', 'DESC')
-            ->setParameter(':active', false);
-
-        return $queryBuilder
+            ->setParameter(':active', false)
             ->getQuery()
             ->getResult();
     }

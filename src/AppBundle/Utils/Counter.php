@@ -2,6 +2,7 @@
 
 namespace AppBundle\Utils;
 
+use AppBundle\Entity\Article\Article;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -18,9 +19,11 @@ class Counter
     }
 
     /**
-     *
+     * @param $value
+     * @return mixed
      */
-    public function count()
+    public function count($value)
     {
+        return $this->entityManager->getRepository(Article::class)->countByCategory($value);
     }
 }
