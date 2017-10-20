@@ -30,7 +30,6 @@ class Counter
      */
     public function count($entity, $function, $value)
     {
-
-        return $this->entityManager->getRepository($entity)->{$function}($value);
+        return $this->entityManager->getRepository($entity)->{'count'.$function}($value);
     }
 }

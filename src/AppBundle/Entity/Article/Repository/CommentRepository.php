@@ -65,4 +65,22 @@ class CommentRepository extends EntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * @param $articleId
+     * @return mixed
+     */
+    public function countByArticle($articleId)
+    {
+        return $queryBuilder = $this
+            ->createQueryBuilder('co')
+            ->select('count(co.article)')
+            ->where('co.article = :articleId')
+            ->andWhere('co.active = :active')
+            ->orderBy('co.date', 'DESC')
+            ->setParameter(':articleId', $articleId)
+            ->setParameter(':active', true)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

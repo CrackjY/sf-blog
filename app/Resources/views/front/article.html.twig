@@ -2,6 +2,9 @@
 
 {% block content %}
     <div class="block-article">
+        <div class="well">
+            {{ nbComments }} comments in this article.
+        </div>
         <div class="row article show-article">
             <a href="{{ path('front_index') }}" class="return-blog btn btn-default"><i class="fa fa-undo" aria-hidden="true"></i> Go Home</a>
             <h4 class="">{{ article.title }}</h4>
