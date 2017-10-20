@@ -49,7 +49,7 @@ class ArticleController extends Controller
 
         //$nbComments = $entityManager->getRepository(Comment::class)->countByArticle($article);
 
-        $nbComments = $counter->count(Comment::class, 'byArticle', $comment);
+        $nbComments = $counter->count(Comment::class, 'byArticle', $article);
 
         return $this->render(':front:article.html.twig', array(
             'form' => $form->createView(),
