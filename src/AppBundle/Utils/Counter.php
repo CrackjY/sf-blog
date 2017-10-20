@@ -13,17 +13,22 @@ class Counter
 {
     private $entityManager;
 
+    /**
+     * Counter constructor.
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }
 
     /**
+     * @param $repository
      * @param $value
      * @return mixed
      */
-    public function count($value)
+    public function count($repository, $value)
     {
-        return $this->entityManager->getRepository(Article::class)->countByCategory($value);
+         return $this->entityManager->getRepository($repository)->countByCategory($value);
     }
 }

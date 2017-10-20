@@ -30,7 +30,7 @@ class CategoryController extends Controller
 
         $articles = $entityManager->getRepository(Article::class)->findByCategoryId($categoryId);
 
-        $nbArticles = $counter->count($category);
+        $nbArticles = $counter->count(Article::class, $category);
 
         return $this->render(':front:category.html.twig', array(
             'nbArticles' => $nbArticles,
