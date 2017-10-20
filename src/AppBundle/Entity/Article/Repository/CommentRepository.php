@@ -74,7 +74,7 @@ class CommentRepository extends EntityRepository
     {
         return $queryBuilder = $this
             ->createQueryBuilder('co')
-            ->select('count(co.article)')
+            ->select('count(co.id)')
             ->where('co.article = :articleId')
             ->andWhere('co.active = :active')
             ->orderBy('co.date', 'DESC')
