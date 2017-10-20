@@ -23,12 +23,14 @@ class Counter
     }
 
     /**
-     * @param $repository
+     * @param $entity
+     * @param $function
      * @param $value
      * @return mixed
      */
-    public function count($repository, $value)
+    public function count($entity, $function, $value)
     {
-         return $this->entityManager->getRepository($repository)->countByCategory($value);
+
+        return $this->entityManager->getRepository($entity)->{$function}($value);
     }
 }
