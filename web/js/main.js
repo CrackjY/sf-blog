@@ -3,9 +3,6 @@
  */
 $(function() {
 
-    var tagContainer = $('#article_tags');
-    var tagForm = tagContainer.attr('data-prototype');
-
     $('body').on('click', '#show-input-comment-send', function(e) {
         e.preventDefault();
 

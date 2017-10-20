@@ -4,7 +4,11 @@
     <div class="block-all-articles">
         <div class="block-article">
             <div class="well">
-                {{ nbArticles }} in this category.
+                {% if nbArticles < nbArticles|length %}
+                    {{ nbArticles }} article in this category.
+                {% else %}
+                    {{ nbArticles }} articles in this category.
+                {% endif %}
             </div>
             {% for article in articles %}
                 <div class="row article">
