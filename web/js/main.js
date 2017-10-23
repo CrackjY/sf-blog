@@ -46,7 +46,7 @@ $(function () {
         e.preventDefault();
 
         var activeToggle = $(this);
-        var route = "";
+        var route = activeToggle.attr('data-href');
 
         console.log(route);
 
@@ -56,7 +56,5 @@ $(function () {
                 console.log(data);
             }
         })
-
-
     })
 });

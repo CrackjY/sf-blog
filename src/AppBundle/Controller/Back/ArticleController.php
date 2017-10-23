@@ -135,6 +135,16 @@ class ArticleController extends Controller
 
         $active = $article->getActive();
 
+        if($active == false) {
+            $article->setActive(true);
+            $entityManager->persist($article);
+        } else {
+            $article->setActive(false);
+            $entityManager->persist($article);
+        }
+
+        $entityManager->flush();
+
         $response = new JsonResponse();
 
         return $response->setData(array(
