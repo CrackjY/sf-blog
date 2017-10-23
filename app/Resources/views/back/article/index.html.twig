@@ -13,14 +13,14 @@
                     <th>Categories</th>
                     <th>Date</th>
                     <th>Nb comments</th>
-                    <th>Active</th>
+                    <th id="th-active">Active</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {% for article in articles %}
-                        <tr>
-                            <td>{{ article.id }}</td>
+                        <tr class="row-article">
+                            <td class="article-id">{{ article.id }}</td>
                             <td>{{ article.title }}</td>
                             <td>{{ article.author|capitalize|hook }}</td>
                             <td>
@@ -31,9 +31,9 @@
                             <td>{{ article.date|date('d/m/Y h:i:s') }}</td>
                             <td>{{ article.comments|length }}</td>
                             {% if article.active %}
-                                <td>Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></td>
+                                <td class="enable active-toggle" data-href="{{ path('back_article_update_active', { 'articleId': article.id }) }}">Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></td>
                             {% else %}
-                                <td>Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></td>
+                                <td class="disable active-toggle" data-href="{{ path('back_article_update_active', { 'articleId': article.id }) }}">Disable <i class="fa fa-circle text-danger" aria-hidden="true"></i></td>
                             {% endif %}
                             <td>
                                 <a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id }) }}" class="pull-left btn btn-info">Show</a>

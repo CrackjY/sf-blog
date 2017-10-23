@@ -8,11 +8,13 @@ use AppBundle\Entity\Article\Comment;
 use AppBundle\Entity\Article\Tag;
 use AppBundle\Form\Type\Article\ArticleType;
 use AppBundle\Form\Type\Article\CommentType;
+use Beta\A;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class ArticleController
@@ -97,7 +99,7 @@ class ArticleController extends Controller
             if ($form->isValid()) {
                 $currentTags = new ArrayCollection();
 
-                foreach($article->getTags() as $tag) {
+                foreach ($article->getTags() as $tag) {
                     $tagDb = $entityManager->getRepository(Tag::class)->findOneByName($tag->getName());
 
                     if ($tagDb) {
@@ -119,6 +121,24 @@ class ArticleController extends Controller
         return $this->render(':back/article:update.html.twig', array(
             'form' => $form->createView(),
             'article' => $article,
+        ));
+    }
+
+    /**
+     * @param EntityManagerInterface $entityManager
+     * @param $articleId
+     * @return JsonResponse
+     */
+    public function updateActiveAction(EntityManagerInterface $entityManager, $articleId)
+    {
+        $article = $entityManager->getRepository(Article::class)->find($articleId);
+
+        $active = $article->getActive();
+
+        $response = new JsonResponse();
+
+        return $response->setData(array(
+            'active' => $active,
         ));
     }
 }

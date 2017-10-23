@@ -1,15 +1,19 @@
 /**
- * add tag
+ * show input comment
  */
 $(function() {
-
-    $('body').on('click', '#show-input-comment-send', function(e) {
+    $('body').on('click', '#show-input-comment-send', function (e) {
         e.preventDefault();
 
         $('.writing-comment-and-save').show();
         $('#show-input-comment-send').remove();
-    });
+    })
+});
 
+/**
+ * add Tag
+ */
+$(function () {
     $('body').on('click', '#add-tag', function(e) {
         e.preventDefault();
 
@@ -20,14 +24,39 @@ $(function() {
         tagForm = tagForm.replace(/__tag__/g, tagCount);
 
         tagContainer.append(tagForm);
-    });
+    })
+});
 
-    /**
-     * Delete tag
-     */
+/**
+ * Delete tag
+ */
+$(function () {
     $('body').on('click', '#delete-tag', function(e) {
         e.preventDefault();
 
         $(this).closest('.tag-form').remove();
+    })
+});
+
+/**
+ * update Enable/Disable
+ */
+$(function () {
+    $('body').on('click', '.active-toggle', function(e) {
+        e.preventDefault();
+
+        var activeToggle = $(this);
+        var route = "";
+
+        console.log(route);
+
+        $.ajax({
+            url: route,
+            success: function (data) {
+                console.log(data);
+            }
+        })
+
+
     })
 });
