@@ -129,26 +129,20 @@ class ArticleController extends Controller
      * @param $articleId
      * @return JsonResponse
      */
-    public function updateActiveAction(EntityManagerInterface $entityManager, $articleId)
+    public function updateStateAction(EntityManagerInterface $entityManager, $articleId)
     {
         $article = $entityManager->getRepository(Article::class)->find($articleId);
 
-        $active = $article->getActive();
+        $state = $article->setActive(!$article->getActive());
 
-        if($active == false) {
-            $article->setActive(true);
-            $entityManager->persist($article);
-        } else {
-            $article->setActive(false);
-            $entityManager->persist($article);
-        }
+        $entityManager->persist($article);
 
         $entityManager->flush();
 
         $response = new JsonResponse();
 
         return $response->setData(array(
-            'active' => $active,
+            'state' => $state,
         ));
     }
 }

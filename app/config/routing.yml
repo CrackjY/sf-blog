@@ -103,10 +103,10 @@ back_article_update:
     path:     /admin/article/update/{articleId}
     defaults: { _controller: AppBundle:Back/Article:update }
 
-# route updateActiveAction
-back_article_update_active:
-    path:     /admin/article/update/active/{articleId}
-    defaults: { _controller: AppBundle:Back/Article:updateActive }
+# route updateStateAction
+back_article_update_state:
+    path:     /admin/article/update/state/{articleId}
+    defaults: { _controller: AppBundle:Back/Article:updateState }
 
 # route updateActionCommentAdmin
 back_comment_show:
