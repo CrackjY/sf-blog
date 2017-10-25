@@ -26,7 +26,8 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('categories', EntityType::class,
+            ->add('categories',
+                EntityType::class,
                 [
                     'class'         => Category::class,
                     'query_builder' => function(EntityRepository $er) {

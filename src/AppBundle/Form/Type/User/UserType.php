@@ -2,10 +2,10 @@
 
 namespace AppBundle\Form\Type\User;
 
+use AppBundle\Entity\User\Role;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\User\User;
-use AppBundle\Entity\User\Role;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -44,6 +44,21 @@ class UserType extends AbstractType
                     'attr' => [
                         'placeholder' => 'Email',
                     ],
+                ]
+            )
+            ->add(
+              'roles',
+              EntityType::class,
+              [
+                  'class' => Role::class,
+                  'query_builder' => function(EntityRepository $er) {
+                      return $er->createQueryBuilder('ro')
+                          ->orderBy('ro.name', 'ASC');
+                  },
+                  'expanded' => true,
+                  'multiple'      => true,
+                  'choice_label'   => 'name',
+                  'required'    => false,
                 ]
             );
     }

@@ -23,7 +23,7 @@ class RoleType extends AbstractType
     {
         $builder
             ->add(
-                'role',
+                'name',
                 TextType::class,
                 [
                     'required' => false,

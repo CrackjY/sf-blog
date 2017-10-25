@@ -31,11 +31,11 @@
                             <td>{{ article.date|date('d/m/Y h:i:s') }}</td>
                             <td>{{ article.comments|length }}</td>
                             {% if article.active %}
-                                <td class="enable active-toggle " data-toggle="toggle" data-href="{{ path('back_article_update_state', { 'articleId': article.id }) }}">
+                                <td class="enable active-toggle" data-href="{{ path('back_article_update_state', { 'articleId': article.id }) }}">
                                     <input type="checkbox" checked data-toggle="toggle">
                                 </td>
                             {% else %}
-                                <td class="disable active-toggle" data-toggle="toggle" data-href="{{ path('back_article_update_state', { 'articleId': article.id }) }}">
+                                <td class="disable active-toggle" data-href="{{ path('back_article_update_state', { 'articleId': article.id }) }}">
                                     <input type="checkbox" data-toggle="toggle">
                                 </td>
                             {% endif %}

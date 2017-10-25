@@ -22,9 +22,9 @@ class Role
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(name="role_name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $role;
+    private $name;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User\User", inversedBy="roles", fetch="EXTRA_LAZY")
@@ -53,19 +53,18 @@ class Role
     /**
      * @return mixed
      */
-    public function getRole()
+    public function getName()
     {
-        return $this->role;
+        return $this->name;
     }
 
     /**
-     * @param mixed $role
+     * @param mixed $name
      * @return Role
      */
-    public function setRole($role)
+    public function setName($name)
     {
-        $this->role = $role;
-
+        $this->name = $name;
         return $this;
     }
 

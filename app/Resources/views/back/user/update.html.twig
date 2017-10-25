@@ -11,6 +11,12 @@
         {{ form_widget(form.username) }}
         {{ form_errors(form.username) }}
 
+        {{ form_widget(form.email) }}
+        {{ form_errors(form.email) }}
+
+        {{ form_widget(form.roles) }}
+        {{ form_errors(form.roles) }}
+
         {{ form_rest(form) }}
 
         <button class="btn btn-default" type="submit">Register</button>

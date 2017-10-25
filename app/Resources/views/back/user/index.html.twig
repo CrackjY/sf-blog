@@ -1,6 +1,7 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
+    {{ dump(app.user) }}
     <h1 class="text-danger">Administrator : </h1>
     <a class="btn btn-info link-new-article" href="{{ path('front_register') }}">New User</a>
     <div class="table-responsive">
@@ -20,7 +21,9 @@
             {% for user in users %}
                 <tr>
                     <td>{{ user.id }}</td>
-                    <td>.............</td>
+                    {% for role in user.roles %}
+                        <td>{{ role }}</td>
+                    {% endfor %}
                     <td>{{ user.username }}</td>
                     <td>{{ user.email|capitalize|hook }}</td>
                     {% if user.enabled %}
