@@ -257,6 +257,33 @@ class User implements AdvancedUserInterface
     }
 
     /**
+     * @param $roles
+     * @return $this
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @param Role $role
+     */
+    public function addRole(Role $role)
+    {
+        $this->roles[] = $role;
+    }
+
+    /**
+     * @param Role $role
+     */
+    public function removeRole(Role $role)
+    {
+        $this->roles->removeElement($role);
+    }
+
+    /**
      * @return bool
      */
     public function isAccountNonExpired()
