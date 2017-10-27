@@ -46,6 +46,9 @@ class ArticleType extends AbstractType
                 [
                     'label'    => 'Title',
                     'required' => false,
+                    'attr' => [
+                        'placeholder' => 'Title',
+                    ],
                 ]
             )
             ->add(
@@ -54,6 +57,9 @@ class ArticleType extends AbstractType
                 [
                     'label'    => 'Content',
                     'required' => false,
+                    'attr' => [
+                        'placeholder' => 'Content',
+                    ],
                 ]
             )
             ->add(
@@ -62,12 +68,16 @@ class ArticleType extends AbstractType
                 [
                     'label'    => 'Author',
                     'required' => false,
+                    'attr' => [
+                        'placeholder' => 'Author',
+                    ],
                 ]
             )
             ->add(
                 'tags',
                 CollectionType::class,
                 [
+                    'label' => false,
                     'entry_type'     => TagType::class,
                     'allow_add'      => true,
                     'allow_delete'   => true,

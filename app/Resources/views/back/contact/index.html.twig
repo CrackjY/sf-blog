@@ -1,6 +1,7 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
+
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -15,7 +16,9 @@
                 </tr>
             </thead>
             <tbody>
+
                 {% for contact in contacts %}
+
                     <tr>
                         <td class="text-positive td-data-contact">{{ contact.title }}</td>
                         <td class="text-positive td-data-contact">{{ contact.firstname }}</td>
@@ -29,8 +32,11 @@
                             <a class="btn btn-danger" href="{{ path('back_contact_delete', { 'contactId': contact.id }) }}">Delete</a>
                         </td>
                     </tr>
+
                 {% endfor %}
+
             </tbody>
         </table>
     </div>
+
 {% endblock %}

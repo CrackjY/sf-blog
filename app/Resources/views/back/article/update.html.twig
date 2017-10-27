@@ -1,12 +1,14 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
+
     {% form_theme form':back/article/form:tag.html.twig' %}
 
-    <h2>Id : {{ article.id }}</h2>
+    <h2>Id : {{ article.id }} updating...</h2>
+    <a href="{{ path('back_article_index') }}" class="btn btn-info"><i class="fa fa-undo" aria-hidden="true"></i> Return</a>
 
     <div class="bloc-article-update">
-        <a href="{{ path('back_article_index') }}" class="return-blog btn btn-info input-post-article"><i class="fa fa-undo" aria-hidden="true"></i> Return</a>
+
         {{ form_start(form) }}
 
             {{ form_errors(form) }}
@@ -15,30 +17,29 @@
             {{ form_widget(form.categories, {'attr': {'class': ''} }) }}
             {{ form_errors(form.categories) }}
 
-            {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.title, {'attr': {'class': ''} }) }}
             {{ form_errors(form.title) }}
 
-            {{ form_label(form.content, "Article", {'label_attr': {'class': 'text-primary'} }) }}
             {{ form_widget(form.content, {'attr': {'class': ''} }) }}
             {{ form_errors(form.content) }}
 
-            {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
-            {{ form_widget(form.author, {'attr': {'class': ' input-author'} }) }}
+            {{ form_widget(form.author, {'attr': {'class': ''} }) }}
             {{ form_errors(form.author) }}
 
             {{ form_widget(form.active, {'attr': {'class': ''} }) }}
             {{ form_errors(form.active) }}
 
-            <button id="add-tag" class="btn btn-default input-post-article">Add tag</button>
+            <button id="add-tag" class="btn btn-info">Add tag</button>
 
             {{ form_widget(form.tags, {'attr': {'class': ''} }) }}
             {{ form_errors(form.tags) }}
 
-            <input type="submit" class="btn btn-default" value="Edit article" />
+            <button type="submit" class="btn btn-primary">Edit</button>
 
             {{ form_rest(form) }}
 
         {{ form_end(form) }}
+
     </div>
+
 {% endblock %}

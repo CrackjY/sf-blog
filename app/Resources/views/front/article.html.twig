@@ -1,40 +1,56 @@
 {% extends '::base_front.html.twig' %}
 
 {% block content %}
-    <div class="block-article">
-        <div class="well">
-            {{ nbComments }} comments in this article.
-        </div>
-        <div class="row article show-article">
-            <a href="{{ path('front_index') }}" class="return-blog btn btn-default"><i class="fa fa-undo" aria-hidden="true"></i> Go Home</a>
-            <h4 class="">{{ article.title }}</h4>
-            <p>{{ article.content }}</p>
-            <span class="">By {{ article.author }}</span>
-            <p class="pull-right">Posted the {{ article.date|date('F  j  Y, H\\h i\\m') }}<p>
-            <button id="show-input-comment-send" class="btn btn-default">Comment</button>
-            {{ form_start(form, {'attr': {'class': 'form'} }) }}
 
-                {{ form_errors(form) }}
-                {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
-
-                <div class="writing-comment-and-save">
-                    {{ form_widget(form.content) }}
-                    {{ form_errors(form.content) }}
-
-                    {{ form_widget(form.save, { 'attr': {'class': 'inut-send-comment btn btn-default' } }) }}
-                </div>
-
-                {{ form_rest(form) }}
-
-            {{ form_end(form) }}
-        </div>
-        {% for comment in comments %}
-            <div class="row article comment-block">
-                <div class="">
-                    <p class="">{{ comment.content }}</p>
-                    <p class="pull-right">Posted the {{ comment.date|date('F  j  Y, H\\h i\\m') }}</p>
-                </div>
-            </div>
-        {% endfor %}
+    <a href="{{ path('front_index') }}" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Go Home</a>
+    <div class="well">
+        {{ nbComments }} comments in this article.
     </div>
+
+    <div class="block-article-comment-front">
+        <div class="block-article">
+            <div class="article">
+
+                <h4 class="">{{ article.title }}</h4>
+                <p>{{ article.content }}</p>
+                <span class="">By {{ article.author }}</span>
+                <p class="pull-right">Posted the {{ article.date|date('F  j  Y, H\\h i\\m') }}<p>
+                    <button id="show-form-comment" class="btn btn-primary">Comment</button>
+
+                    {{ form_start(form, {'attr': {'class': 'form'} }) }}
+
+                        {{ form_errors(form) }}
+                        {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
+
+                    <div class="writing-comment-and-button">
+                        {{ form_widget(form.content) }}
+                        {{ form_errors(form.content) }}
+
+                        <button type="submit" class="btn btn-primary">Comment</button>
+                    </div>
+
+                        {{ form_rest(form) }}
+
+                    {{ form_end(form) }}
+
+            </div>
+        </div>
+        <div class="block-comment">
+
+            {% for comment in comments %}
+
+                <div class="comment">
+                    <div class="">
+                        <p class="">{{ comment.content }}</p>
+                    </div>
+                    <div class="">
+                        <p class="pull-right">Posted the {{ comment.date|date('F  j  Y, H\\h i\\m') }}</p>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
 {% endblock %}

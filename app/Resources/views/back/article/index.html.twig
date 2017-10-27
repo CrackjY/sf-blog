@@ -1,8 +1,10 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
+
     <h1 class="text-danger">Administrator : </h1>
     <a class="btn btn-info link-new-article" href="{{ path('back_article_new') }}">New article</a>
+
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -18,18 +20,23 @@
                 </tr>
             </thead>
             <tbody>
+
                 {% for article in articles %}
+
                         <tr class="row-article">
                             <td class="article-id">{{ article.id }}</td>
                             <td>{{ article.title }}</td>
                             <td>{{ article.author|capitalize|hook }}</td>
                             <td>
+
                                 {% for category in article.categories %}
                                     {{ category.name }} {% if loop.last != true %}/{% endif %}
                                 {% endfor %}
+
                             </td>
                             <td>{{ article.date|date('d/m/Y h:i:s') }}</td>
                             <td>{{ article.comments|length }}</td>
+
                             {% if article.active %}
                                 <td class="enable active-toggle" data-href="{{ path('back_article_update_state', { 'articleId': article.id }) }}">
                                     <input type="checkbox" checked data-toggle="toggle">
@@ -39,13 +46,17 @@
                                     <input type="checkbox" data-toggle="toggle">
                                 </td>
                             {% endif %}
+
                             <td>
-                                <a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id }) }}" class="pull-left btn btn-info">Show</a>
-                                <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id }) }}" class="pull-left btn btn-warning">Update</a>
+                                <a id="article-id" href="{{ path('back_article_show', { 'articleId': article.id }) }}" class="btn btn-info">Show</a>
+                                <a id="article-id" href="{{ path('back_article_update', { 'articleId': article.id }) }}" class="btn btn-warning">Update</a>
                             </td>
                         </tr>
+
                 {% endfor %}
+
             </tbody>
         </table>
     </div>
+
 {% endblock %}

@@ -9,33 +9,36 @@
             <link rel="stylesheet" href="{{ asset('libs/font-awesome/css/font-awesome.min.css') }}" />
             <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
         {% endblock %}
-        <link rel="" type="" />
     </head>
     <body>
-    {% block body %}
-        <div class="wrapper">
-            <div class="container-body">
-                {% block header %}
-                    {% block menu %}
-                        {% include ':back/includes:menu_back.html.twig' %}
-                    {% endblock %}
-                {% endblock %}
-                <div class="content">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-                <div class="footer">
-                {% block footer %}
-                    <p>© Yassine Latti - 2017</p>
-                {% endblock %}
+        {% block body %}
+            <div class="wrapper">
+                <div class="container">
+                    <header>
+                        {% block header %}
+                            <nav>
+                                {% block menu %}
+                                    {% include ':back/includes:menu_back.html.twig' %}
+                                {% endblock %}
+                            </nav>
+                        {% endblock %}
+                    </header>
+                    <main class="back">
+                        {% block content %}
+                        {% endblock %}
+                    </main>
+                    <footer>
+                        {% block footer %}
+                            <p>© Yassine Latti - 2017</p>
+                        {% endblock %}
+                    </footer>
                 </div>
             </div>
-        </div>
-    {% endblock %}
-    {% block javascripts %}
-        <script type="text/javascript" src="{{ asset('libs/jquery/jquery-3.2.1.min.js') }}"></script>
-        <script src="{{ asset('libs/bootstrap-toggle-master/js/bootstrap-toggle.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-    {% endblock %}
+        {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('libs/jquery/jquery-3.2.1.min.js') }}"></script>
+            <script src="{{ asset('libs/bootstrap-toggle-master/js/bootstrap-toggle.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

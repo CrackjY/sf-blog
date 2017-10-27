@@ -13,22 +13,26 @@
     <body>
         {% block body %}
             <div class="wrapper">
-                <div class="container-body">
-                    {% block header %}
-                        {% block menu %}
-                            {#{% include ':front/includes:menu_front.html.twig' %}#}
-                            {{ render(controller('AppBundle:Front/Front:menu')) }}
+                <div class="container">
+                    <header>
+                        {% block header %}
+                            <nav>
+                                {% block menu %}
+                                    {#{% include ':front/includes:menu_front.html.twig' %}#}
+                                    {{ render(controller('AppBundle:Front/Front:menu')) }}
+                                {% endblock %}
+                            </nav>
                         {% endblock %}
-                    {% endblock %}
-                    <div class="content">
+                    </header>
+                    <main class="front">
                         {% block content %}
                         {% endblock %}
-                    </div>
-                    <div class="footer">
-                    {% block footer %}
-                        <p>© Yassine Latti - 2017</p>
-                    {% endblock %}
-                    </div>
+                    </main>
+                    <footer>
+                        {% block footer %}
+                            <p>© Yassine Latti - 2017</p>
+                        {% endblock %}
+                    </footer>
                 </div>
             </div>
         {% endblock %}

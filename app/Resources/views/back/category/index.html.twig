@@ -1,32 +1,40 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
-    <h1 class="text-danger">Administrator :</h1>
+
+    <h1 class="text-danger">Administrator</h1>
     <h3><a class="btn btn-info" href="{{ path('back_category_new') }}">Add category</a></h3>
     <div class="table-responsive">
-    <table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Active</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for category in categories %}
-        <tr>
-            <td>{{ category.name }}</td>
-            {% if category.active %}
-                <td><span class="text-success">Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></span></td>
-            {% else %}
-                <td><span class="text-danger">Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></span></td>
-            {% endif %}
-            <td>
-                <a id="article-id" href="{{ path('back_category_show', { 'categoryId': category.id }) }}" class="pull-left btn btn-info">nbArticles</a>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-    </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Active</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for category in categories %}
+
+                    <tr>
+                        <td>{{ category.name }}</td>
+
+                        {% if category.active %}
+                            <td><span class="text-success">Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></span></td>
+                        {% else %}
+                            <td><span class="text-danger">Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></span></td>
+                        {% endif %}
+
+                        <td>
+                            <a id="article-id" href="{{ path('back_category_show', { 'categoryId': category.id }) }}" class="btn btn-info">show</a>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
     </div>
+
 {% endblock %}

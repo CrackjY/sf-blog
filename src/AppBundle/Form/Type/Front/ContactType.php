@@ -84,14 +84,7 @@ class ContactType extends AbstractType
                         'placeholder' => 'Message'
                     ],
                 ]
-            )
-            ->add(
-                'save',
-                SubmitType::class,
-                [
-                    'label'    => 'Send'
-                ]
-            );               
+            );
     }
     
     /**

@@ -1,9 +1,11 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
+
     {{ dump(app.user) }}
-    <h1 class="text-danger">Administrator : </h1>
+    <h1 class="text-danger">Administrator</h1>
     <a class="btn btn-info link-new-article" href="{{ path('front_register') }}">New User</a>
+
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -18,27 +20,38 @@
             </tr>
             </thead>
             <tbody>
+
             {% for user in users %}
+
                 <tr>
                     <td>{{ user.id }}</td>
+
                     {% for role in user.roles %}
+
                         <td>{{ role }}</td>
+
                     {% endfor %}
+
                     <td>{{ user.username }}</td>
                     <td>{{ user.email|capitalize|hook }}</td>
+
                     {% if user.enabled %}
                         <td>Enable <i class="fa fa-circle text-success" aria-hidden="true"></i></td>
                     {% else %}
                         <td>Desable <i class="fa fa-circle text-danger" aria-hidden="true"></i></td>
                     {% endif %}
+
                     <td>{{ user.lastLogin|date('d/m/Y h:i:s') }}<td>
                     <td>
-                        <a id="user-id" href="{{ path('back_user_show', { 'userId': user.id }) }}" class="pull-left btn btn-info">Show</a>
-                        <a id="user-id" href="{{ path('back_user_update', { 'userId': user.id }) }}" class="pull-left btn btn-warning">Update</a>
+                        <a id="user-id" href="{{ path('back_user_show', { 'userId': user.id }) }}" class="btn btn-info">Show</a>
+                        <a id="user-id" href="{{ path('back_user_update', { 'userId': user.id }) }}" class="btn btn-warning">Update</a>
                     </td>
                 </tr>
+
             {% endfor %}
+
             </tbody>
         </table>
     </div>
+
 {% endblock %}

@@ -1,8 +1,10 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
-    <h1 class="text-danger">Administrator : </h1>
+
+    <h1 class="text-danger">Administrator</h1>
     <a class="btn btn-info link-new-article" href="{{ path('back_role_new') }}">New role</a>
+
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -13,16 +15,21 @@
             </tr>
             </thead>
             <tbody>
+
             {% for role in roles %}
+
                 <tr>
                     <td>{{ role.id }}</td>
                     <td>{{ role.name|hook }}</td>
                     <td>
-                        <a id="user-id" href="{{  path('back_role_update', { 'roleId': role.id })  }}" class="pull-left btn btn-warning">Update</a>
+                        <a id="user-id" href="{{  path('back_role_update', { 'roleId': role.id })  }}" class="btn btn-warning">Update</a>
                     </td>
                 </tr>
+
             {% endfor %}
+
             </tbody>
         </table>
     </div>
+
 {% endblock %}

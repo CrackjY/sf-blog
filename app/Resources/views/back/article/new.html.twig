@@ -10,24 +10,19 @@
                 {{ form_widget(form.categories, {'attr': {'class': ''} }) }}
                 {{ form_errors(form.categories) }}
 
-                {{ form_label(form.title, "Title ", {'label_attr': {'class': 'text-primary'} }) }}
                 {{ form_widget(form.title, {'attr': {'class': ''} }) }}
                 {{ form_errors(form.title) }}
 
-                {{ form_label(form.content, "Article", {'label_attr': {'class': 'text-primary'} }) }}
                 {{ form_widget(form.content, {'attr': {'class': ''} }) }}
                 {{ form_errors(form.content) }}
 
-                {{ form_label(form.author, "Author ", {'label_attr': {'class': 'text-primary'} }) }}
                 {{ form_widget(form.author, {'attr': {'class': ' input-author'} }) }}
                 {{ form_errors(form.author) }}
 
-                {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
-                {{ form_errors(form.active) }}
-
-                <input type="submit" class="btn btn-default" value="Add article" />
-
                 {{ form_rest(form) }}
+
+                <button type="submit" class="btn btn-primary">Add</button>
+
 
         {{ form_end(form) }}
     </div>

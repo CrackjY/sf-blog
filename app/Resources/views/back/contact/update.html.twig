@@ -1,40 +1,39 @@
 {% extends '::base_back.html.twig' %}
 
 {% block content %}
-    <h3 class="text-info"> Vous êtes entrain d'editer le contact numéro : {{ contact.id }}</h3>
+
+    <h3 class="text-info">Id : {{ contact.id }} updtating...</h3>
+
     <div class="form-contact-update">
+
         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
             {{ form_errors(form) }}
 
-            {{ form_label(form.title, "Title", {'label_attr': {'class': ''} }) }}
             {{ form_widget(form.title, {'attr': {'class': '' } }) }}
             {{ form_errors(form.title) }}
 
-            {{ form_label(form.firstname, "Firstname", {'label_attr': {'class': ''} }) }}
             {{ form_widget(form.firstname, {'attr': {'class': ''} }) }}
             {{ form_errors(form.firstname) }}
 
-            {{ form_label(form.lastname, "Lastname", {'label_attr': {'class': ''} }) }}
             {{ form_widget(form.lastname, {'attr': {'class': ''} }) }}
             {{ form_errors(form.lastname) }}
 
-            {{ form_label(form.email, "Email", {'label_attr': {'class': ''} }) }}
             {{ form_widget(form.email, {'attr': {'class': ''} }) }}
             {{ form_errors(form.email) }}
 
-            {{ form_label(form.object, "Object", {'label_attr': {'class': ''} }) }}
             {{ form_widget(form.object, {'attr': {'class': ''} }) }}
             {{ form_errors(form.object) }}
 
-            {{ form_label(form.message, "Message", {'label_attr': {'class': ''} }) }}
-            {{ form_widget(form.message, {'attr': {'class': 'form-control'} }) }}
+            {{ form_widget(form.message, {'attr': {'class': ''} }) }}
             {{ form_errors(form.message) }}
 
-            {{ form_widget(form.save, {'attr': {'class': 'btn btn-default contact-send-update'} }) }}
+            <button type="submit" class="btn btn-primary">Edit</button>
 
             {{ form_rest(form) }}
 
         {{ form_end(form) }}
+
     </div>
+
 {% endblock %}

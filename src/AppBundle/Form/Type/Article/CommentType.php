@@ -31,8 +31,10 @@ class CommentType extends AbstractType
                 'content',
                 TextareaType::class,
                 [
-                    'label'    => 'Comment',
                     'required' => false,
+                    'attr' => [
+                      'placeholder' => 'Comment',
+                    ],
                 ]
             )
             ->add(
@@ -41,13 +43,6 @@ class CommentType extends AbstractType
                 [
                     'label'    => false,
                     'required' => false,
-                ]
-            )
-            ->add(
-                'save',
-                SubmitType::class,
-                [
-                    'label'    => ''
                 ]
             );
     }

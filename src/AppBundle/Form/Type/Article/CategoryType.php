@@ -37,13 +37,9 @@ class CategoryType extends AbstractType
                 [
                     'label'    => 'Name',
                     'required' => false,
-                ]
-            )
-            ->add(
-                'save',
-                SubmitType::class,
-                [
-                    'label'    => 'Add'
+                    'attr' => [
+                        'placeholder' => 'Name',
+                    ],
                 ]
             );
     }
