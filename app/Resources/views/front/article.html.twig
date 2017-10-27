@@ -6,32 +6,43 @@
     <div class="well">
         {{ nbComments }} comments in this article.
     </div>
-
-    <div class="block-article-comment-front">
+    <div class="container-fluid block-article-comment-front">
         <div class="block-article">
             <div class="article">
+                <div class="">
+                    <a id="article-id" href="{{ path('front_article_show', { 'articleId': article.id }) }}" class="pull-right btn btn-info">Show</a>
+                </div>
+                <header class="">
+                    <h2>{{ article.title }}</h2>
+                </header>
+                <div class="">
+                    <p class="">{{ article.content }}</p>
+                </div>
+                <div class="">
+                    <p class="pull-right">Posted the {{  article.date|date('F  j  Y, H\\h i\\m') }}</p>
+                </div>
+                <div class="">
+                    <p class="">By {{ article.author }}</p>
+                </div>
 
-                <h4 class="">{{ article.title }}</h4>
-                <p>{{ article.content }}</p>
-                <span class="">By {{ article.author }}</span>
-                <p class="pull-right">Posted the {{ article.date|date('F  j  Y, H\\h i\\m') }}<p>
-                    <button id="show-form-comment" class="btn btn-primary">Comment</button>
+                <button id="show-form-comment" class="btn btn-primary">Comment</button>
 
-                    {{ form_start(form, {'attr': {'class': 'form'} }) }}
+                {{ form_start(form, {'attr': {'class': 'form'} }) }}
 
-                        {{ form_errors(form) }}
-                        {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
+                    {{ form_errors(form) }}
+                    {{ form_row(form.active, {'attr': {'class': 'hidden'} }) }}
 
                     <div class="writing-comment-and-button">
+
                         {{ form_widget(form.content) }}
                         {{ form_errors(form.content) }}
 
-                        <button type="submit" class="btn btn-primary">Comment</button>
+                        <button type="submit" id="add-comment" class="btn btn-primary">Comment</button>
                     </div>
 
-                        {{ form_rest(form) }}
+                    {{ form_rest(form) }}
 
-                    {{ form_end(form) }}
+                {{ form_end(form) }}
 
             </div>
         </div>
@@ -39,7 +50,7 @@
 
             {% for comment in comments %}
 
-                <div class="comment">
+                <div class="row comment">
                     <div class="">
                         <p class="">{{ comment.content }}</p>
                     </div>

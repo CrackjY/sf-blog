@@ -4,31 +4,32 @@
 
 	{{ render(controller('AppBundle:Front/Front:search')) }}
 
-	<div class="block-article">
+	<div class="container-fluid">
+		<div class="block-article">
 
-		{% for article in articles %}
+            {% for article in articles %}
 
-			<div class="article">
-				<div class="">
-					<a id="article-id" href="{{ path('front_article_show', { 'articleId': article.id }) }}" class="pull-right btn btn-info">Show</a>
+				<div class="article">
+					<div class="">
+						<a id="article-id" href="{{ path('front_article_show', { 'articleId': article.id }) }}" class="pull-right btn btn-info">Show</a>
+					</div>
+					<header class="">
+						<h2>{{ article.title }}</h2>
+					</header>
+					<div class="">
+						<p class="">{{ article.content }}</p>
+					</div>
+					<div class="">
+						<p class="pull-right">Posted the {{  article.date|date('F  j  Y, H\\h i\\m') }}</p>
+					</div>
+					<div class="">
+						<p class="">By {{ article.author }}</p>
+					</div>
 				</div>
-				<header class="">
-					<h2>{{ article.title }}</h2>
-				</header>
-				<div class="">
-					<p class="">{{ article.content }}</p>
-				</div>
 
-				<div class="">
-					<p class="pull-right">Posted the {{  article.date|date('F  j  Y, H\\h i\\m') }}</p>
-				</div>
-				<div class="">
-					<p class="">By {{ article.author }}</p>
-				</div>
-			</div>
+            {% endfor %}
 
-		{% endfor %}
-
+		</div>
 	</div>
 
 {% endblock %}

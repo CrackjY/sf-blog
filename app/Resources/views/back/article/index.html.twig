@@ -15,7 +15,7 @@
                     <th>Categories</th>
                     <th>Date</th>
                     <th>Nb comments</th>
-                    <th id="th-active">Active</th>
+                    <th>Active</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -39,7 +39,7 @@
 
                             {% if article.active %}
                                 <td class="enable active-toggle" data-href="{{ path('back_article_update_state', { 'articleId': article.id }) }}">
-                                    <input type="checkbox" checked data-toggle="toggle">
+                                    <input type="checkbox" data-onstyle="success" checked data-toggle="toggle">
                                 </td>
                             {% else %}
                                 <td class="disable active-toggle" data-href="{{ path('back_article_update_state', { 'articleId': article.id }) }}">

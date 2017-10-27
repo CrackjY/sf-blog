@@ -1,12 +1,23 @@
 /**
+ * Search Engine effect
+ */
+$(function () {
+   $('body').on('click', '#show-search-engine', function(e) {
+       e.preventDefault();
+       $('.block-search-engine').show();
+       $(this).hide();
+   })
+});
+
+/**
  * show input comment
  */
 $(function() {
-    $('body').on('click', '#show-input-comment-send', function (e) {
+    $('body').on('click', '#show-form-comment', function (e) {
         e.preventDefault();
 
-        $('.writing-comment-and-save').show();
-        $('#show-input-comment-send').remove();
+        $('.writing-comment-and-button').show();
+        $(this).hide();
     })
 });
 

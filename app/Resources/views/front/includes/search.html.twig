@@ -1,26 +1,37 @@
-<div class="row bloc-search-engine">
+<div class="text-center">
+    <button id="show-search-engine" class="btn btn-search"><i class="fa fa-search fa-5x" aria-hidden="true"></i></button>
+</div>
+<div class="block-search-engine">
 
     {{ form_start(form, { 'attr': { 'action': path('front_search'), 'class': 'form' } }) }}
 
         {{ form_errors(form) }}
 
-        {{ form_widget(form.term, { 'attr': { 'class': 'form-control' } }) }}
+        <div class="hidden">
+            {{ form_label(form.categories, "Category", {'label_attr': {'class': ''} }) }}
+            {{ form_widget(form.categories, { 'attr': { 'class': '' } }) }}
+            {{ form_errors(form.categories) }}
+
+            {{ form_label(form.startDate) }}
+            {{ form_widget(form.startDate, { 'attr': { 'class': '' } }) }}
+            {{ form_errors(form.startDate) }}
+
+            {{ form_label(form.endDate) }}
+            {{ form_widget(form.endDate, { 'attr': { 'class': '' } }) }}
+            {{ form_errors(form.endDate) }}
+        </div>
+
+        <div class="input-group">
+            {{ form_widget(form.term, { 'attr': { 'class': '' } }) }}
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </div>
+        </div>
+
         {{ form_errors(form.term) }}
 
-        {{ form_widget(form.categories, { 'attr': { 'class': '' } }) }}
-        {{ form_errors(form.categories) }}
-
-        {{ form_label(form.startDate) }}
-        {{ form_widget(form.startDate, { 'attr': { 'class': '' } }) }}
-        {{ form_errors(form.startDate) }}
-
-        {{ form_label(form.endDate) }}
-        {{ form_widget(form.endDate, { 'attr': { 'class': '' } }) }}
-        {{ form_errors(form.endDate) }}
-
-        <button type="submit" class="btn btn-default button-search"><i class="fa fa-search fa-1x" aria-hidden="true"></i></button>
-
         {{ form_rest(form) }}
+
 
     {{ form_end(form) }}
 

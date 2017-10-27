@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>{% block title %}ADMIN !{% endblock %}</title>
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('libs/bootstrap/bootstrap.min.css') }}" />
+            <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}" />
             <link rel="stylesheet" href="{{ asset('libs/bootstrap-toggle-master/css/bootstrap-toggle.min.css') }}" />
             <link rel="stylesheet" href="{{ asset('libs/font-awesome/css/font-awesome.min.css') }}" />
             <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
@@ -16,11 +16,9 @@
                 <div class="container">
                     <header>
                         {% block header %}
-                            <nav>
-                                {% block menu %}
-                                    {% include ':back/includes:menu_back.html.twig' %}
-                                {% endblock %}
-                            </nav>
+                            {% block menu %}
+                                {% include ':back/includes:menu_back.html.twig' %}
+                            {% endblock %}
                         {% endblock %}
                     </header>
                     <main class="back">
@@ -37,6 +35,7 @@
         {% endblock %}
         {% block javascripts %}
             <script type="text/javascript" src="{{ asset('libs/jquery/jquery-3.2.1.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
             <script src="{{ asset('libs/bootstrap-toggle-master/js/bootstrap-toggle.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
         {% endblock %}
