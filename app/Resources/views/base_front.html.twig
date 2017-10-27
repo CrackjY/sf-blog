@@ -7,6 +7,7 @@
             <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}" />
             <link rel="stylesheet" href="{{ asset('libs/font-awesome/css/font-awesome.min.css') }}" />
             <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/search.css') }}" />
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -28,7 +29,7 @@
                     </main>
                     <footer>
                         {% block footer %}
-                            <p>© Yassine Latti - 2017</p>
+                            {#<p>© Yassine Latti - 2017</p>#}
                         {% endblock %}
                     </footer>
                 </div>
@@ -38,6 +39,7 @@
             <script type="text/javascript" src="{{ asset('libs/jquery/jquery-3.2.1.min.js') }}"></script>
             <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/search.js') }}"></script>
         {% endblock %}
     </body>
 </html>

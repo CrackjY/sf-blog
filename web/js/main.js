@@ -1,13 +1,3 @@
-/**
- * Search Engine effect
- */
-$(function () {
-   $('body').on('click', '#show-search-engine', function(e) {
-       e.preventDefault();
-       $('.block-search-engine').show();
-       $(this).hide();
-   })
-});
 
 /**
  * show input comment

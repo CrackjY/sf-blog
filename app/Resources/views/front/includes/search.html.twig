@@ -1,16 +1,25 @@
+<span id="close-search"><i class="fa fa-times fa-2  x pull-right" aria-hidden="true"></i></span>
 <div class="text-center">
-    <button id="show-search-engine" class="btn btn-search"><i class="fa fa-search fa-5x" aria-hidden="true"></i></button>
+    <button id="show-search-engine-by-term" class="btn btn-info">Search by Term <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i></button>
+    <button id="show-search-engine-by-ca" class="btn btn-search">Search by category <i class="fa fa-archive fa-5x" aria-hidden="true"></i></button>
+    <button id="show-search-engine-by-date" class="btn btn-info">Search by Date <i class="fa fa fa-calendar fa-5x" aria-hidden="true"></i></button>
+    {#<button id="show-search-engine-advanced" class="btn btn-search">Search advanced <i class="fa fa-cogs fa-5x" aria-hidden="true"></i></button>#}
 </div>
+
 <div class="block-search-engine">
 
     {{ form_start(form, { 'attr': { 'action': path('front_search'), 'class': 'form' } }) }}
 
         {{ form_errors(form) }}
 
-        <div class="hidden">
-            {{ form_label(form.categories, "Category", {'label_attr': {'class': ''} }) }}
+        <div class="block-search-ca">
+
             {{ form_widget(form.categories, { 'attr': { 'class': '' } }) }}
             {{ form_errors(form.categories) }}
+
+            <button id="btn-search-by-ca" type="submit" class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+        <div class="block-search-date">
 
             {{ form_label(form.startDate) }}
             {{ form_widget(form.startDate, { 'attr': { 'class': '' } }) }}
@@ -19,19 +28,23 @@
             {{ form_label(form.endDate) }}
             {{ form_widget(form.endDate, { 'attr': { 'class': '' } }) }}
             {{ form_errors(form.endDate) }}
-        </div>
 
-        <div class="input-group">
-            {{ form_widget(form.term, { 'attr': { 'class': '' } }) }}
-            <div class="input-group-btn">
-                <button type="submit" class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <button id="btn-search-by-date" type="submit" class="pull-right btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+        <div class="block-search-term">
+            <div class="input-group">
+
+                {{ form_widget(form.term, { 'attr': { 'class': '' } }) }}
+
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
             </div>
         </div>
 
         {{ form_errors(form.term) }}
 
         {{ form_rest(form) }}
-
 
     {{ form_end(form) }}
 

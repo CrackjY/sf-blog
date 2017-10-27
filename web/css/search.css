@@ -1,0 +1,31 @@
+#show-search-engine-by-term, #show-search-engine-by-date {
+    margin-bottom: 50px;
+}
+div.block-search-engine {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+div.block-search-term ,div.block-search-date {
+    display: none;
+    margin-top: 30px;
+}
+div.block-search-ca {
+    display: none;
+}
+span#close-search {
+    display: none;
+    cursor: pointer;
+    color:#5bc0de;
+}
+#btn-search-by-ca {
+    margin-top: 5px;
+    display: none;
+}
+#btn-search-by-date {
+    margin-top: 10px;
+    display: none;
+}
+.block-search-engine-advanced {
+    display: none;
+}

@@ -3,8 +3,7 @@
 {% block content %}
 
     {{ dump(app.user) }}
-    <h1 class="text-danger">Administrator</h1>
-    <a class="btn btn-info link-new-article" href="{{ path('front_register') }}">New User</a>
+    <a class="btn btn-primary link-new-article" href="{{ path('front_register') }}">New User</a>
 
     <div class="table-responsive">
         <table class="table">
