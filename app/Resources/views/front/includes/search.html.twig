@@ -1,11 +1,10 @@
 <span id="close-search"><i class="fa fa-times fa-2  x pull-right" aria-hidden="true"></i></span>
 <div class="text-center">
-    <button id="show-search-engine-by-term" class="btn btn-info">Search by Term <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i></button>
+    <button id="show-search-engine-by-term" class="btn">Search by Term <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i></button>
     <button id="show-search-engine-by-ca" class="btn btn-search">Search by category <i class="fa fa-archive fa-5x" aria-hidden="true"></i></button>
-    <button id="show-search-engine-by-date" class="btn btn-info">Search by Date <i class="fa fa fa-calendar fa-5x" aria-hidden="true"></i></button>
+    <button id="show-search-engine-by-date" class="btn">Search by Date <i class="fa fa fa-calendar fa-5x" aria-hidden="true"></i></button>
     {#<button id="show-search-engine-advanced" class="btn btn-search">Search advanced <i class="fa fa-cogs fa-5x" aria-hidden="true"></i></button>#}
 </div>
-
 <div class="block-search-engine">
 
     {{ form_start(form, { 'attr': { 'action': path('front_search'), 'class': 'form' } }) }}

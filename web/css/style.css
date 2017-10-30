@@ -38,11 +38,13 @@ nav.navbar {
 }
 main {
     width: 70%;
-
     margin: auto;
 }
 footer {
 
+}
+.form-control {
+    margin-bottom: 20px;
 }
 .btn {
     border:none;
@@ -59,6 +61,15 @@ footer {
     width: 100%;
 }
 .block-article {
+}
+.block-recent-article {
+}
+.block-article-categoty {
+}
+
+.block-article-result {
+}
+.block-recent-article {
     width: 100%;
 }
 .article {

@@ -1,5 +1,11 @@
-#show-search-engine-by-term, #show-search-engine-by-date {
+button#show-search-engine-by-term, button#show-search-engine-by-date {
     margin-bottom: 50px;
+    background-color: rgba(72, 121, 136, 0.27);
+    color: white;
+}
+button#show-search-engine-by-term:hover, button#show-search-engine-by-date:hover {
+    background-color: #5bc0de;
+    color: white;
 }
 div.block-search-engine {
     width: 60%;
@@ -29,3 +35,4 @@ span#close-search {
 .block-search-engine-advanced {
     display: none;
 }
+

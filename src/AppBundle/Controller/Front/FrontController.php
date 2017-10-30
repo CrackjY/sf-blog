@@ -30,9 +30,11 @@ class FrontController extends Controller
     public function indexAction(EntityManagerInterface $entityManager)
     {
         $articles = $entityManager->getRepository(Article::class)->findByActive();
+        $recentArticles = $entityManager->getRepository(Article::class)->findByRecent();
 
         return $this->render(':front:index.html.twig', array(
-            'articles' => $articles
+            'articles' => $articles,
+            'recentArticles' => $recentArticles,
         ));
     }
 

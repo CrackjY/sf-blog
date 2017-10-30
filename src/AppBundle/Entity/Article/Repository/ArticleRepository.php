@@ -16,8 +16,8 @@ use Doctrine\ORM\EntityRepository;
 class ArticleRepository extends EntityRepository
 {
     /**
-     * @return array
-     */
+ * @return array
+ */
     public function findByActive()
     {
         return $this
@@ -25,6 +25,21 @@ class ArticleRepository extends EntityRepository
             ->Where('a.active = :active')
             ->orderBy('a.date', 'DESC')
             ->setParameter(':active', true)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * @return array
+     */
+    public function findByRecent()
+    {
+        return $this
+            ->createQueryBuilder('a')
+            ->Where('a.active = :active')
+            ->orderBy('a.date', 'DESC')
+            ->setParameter(':active', true)
+            ->setMaxResults(5)
             ->getQuery()
             ->getResult();
     }
