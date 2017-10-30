@@ -30,24 +30,30 @@
             {% endfor %}
 
 		</div>
-		<div id="block-recent-article" class="col-md-3 well">
+		<div class="col-md-3">
+			<h3 class="title-recent-article text-info">Recent Articles</h3>
+			<div id="block-recent-article">
 
-            {% for recentArticle in recentArticles %}
+                {% for recentArticle in recentArticles %}
 
-				<div class="article">
-					<header class="">
-						<h2>{{ recentArticle.title }}</h2>
-					</header>
-					<div>
-						<p class="">Posted the {{  recentArticle.date|date('F  j  Y, H\\h i\\m') }}</p>
+					<div class="article">
+						<div>
+                            {{ recentArticle.title }}
+						</div>
+						<div>
+							<p class="">Posted the {{  recentArticle.date|date('F  j  Y, H\\h i\\m') }}</p>
+						</div>
+						<div class="">
+							<a id="recent-article-id" href="{{ path('front_article_show', { 'articleId': recentArticle.id }) }}" class="pull-right btn btn-info">Show</a>
+						</div>
+						<div class="">
+							<p class="">By {{ recentArticle.author }}</p>
+						</div>
 					</div>
-					<div class="">
-						<p class="">By {{ recentArticle.author }}</p>
-					</div>
-				</div>
 
-        	{% endfor %}
+                {% endfor %}
 
+			</div>
 		</div>
 	</div>
 

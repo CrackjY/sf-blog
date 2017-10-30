@@ -37,7 +37,7 @@ nav.navbar {
     background-color: #026AA7;
 }
 main {
-    width: 70%;
+    width: 80%;
     margin: auto;
 }
 footer {
@@ -60,17 +60,23 @@ footer {
 .block-article-comment-front {
     width: 100%;
 }
-.block-article {
-}
-.block-recent-article {
+#block-article {
 }
 .block-article-categoty {
 }
-
 .block-article-result {
 }
-.block-recent-article {
-    width: 100%;
+#block-recent-article {
+    height: 650px;
+    overflow: auto;
+    border-left: rgba(72, 121, 136, 0.27) 1px solid;
+}
+.title-recent-article {
+    text-align: center;
+    margin-bottom: 40px;
+}
+#recent-article-id {
+    background-color: rgba(72, 121, 136, 0.27);
 }
 .article {
    /* background-color: #E2E4E6;*/
