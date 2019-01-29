@@ -48,7 +48,7 @@ class SearchType extends AbstractType
                     'label'       => 'Search',
                     'required'    => false,
                     'attr'        => array(
-                        'placeholder' => 'Search'
+                        'placeholder' => 'Search by term'
                     ),
                 ]
             )

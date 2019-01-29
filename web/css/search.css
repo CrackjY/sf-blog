@@ -1,38 +1,16 @@
-button#show-search-engine-by-term, button#show-search-engine-by-date {
-    margin-bottom: 50px;
-    background-color: rgba(72, 121, 136, 0.27);
-    color: white;
-}
-button#show-search-engine-by-term:hover, button#show-search-engine-by-date:hover {
-    background-color: #5bc0de;
-    color: white;
-}
-div.block-search-engine {
-    width: 60%;
-    margin: auto;
-    margin-bottom: 50px;
-}
-div.block-search-term ,div.block-search-date {
-    display: none;
-    margin-top: 30px;
-}
-div.block-search-ca {
-    display: none;
-}
-span#close-search {
-    display: none;
-    cursor: pointer;
-    color:#5bc0de;
-}
-#btn-search-by-ca {
-    margin-top: 5px;
-    display: none;
-}
-#btn-search-by-date {
-    margin-top: 10px;
-    display: none;
-}
-.block-search-engine-advanced {
-    display: none;
-}
+.block-search-ca,
+.block-search-date {
 
+}
+.block-search-term {
+    margin-bottom: 50px;
+}
+#search_term {
+    height: 5em;
+    border-radius: 0;
+}
+#btn-search-by-term {
+    height: 5em;
+    width: 5em;
+    border-radius: 0;
+}

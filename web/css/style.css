@@ -23,8 +23,7 @@ header {
 nav.navbar {
     border-radius: 0;
     border: none;
-    /*background-color: #731b1b;*/
-    background-color: #026AA7;
+    background-color: #d43030;
     margin-bottom: 40px;
 }
 .navbar-inverse .navbar-nav>li>a {
@@ -79,20 +78,20 @@ footer {
     background-color: rgba(72, 121, 136, 0.27);
 }
 .article {
-   /* background-color: #E2E4E6;*/
-    box-shadow: 5px 5px 5px grey;
     padding: 20px;
     margin-bottom: 30px;
+    border: solid 1px #80808054;
 }
 div.writing-comment-and-button {
     display: none;
 }
 .comment {
-    box-shadow: 5px 5px 5px grey;
-    margin-bottom: 13px;
+    border: solid 1px #80808054;
     width: 65%;
     padding: 10px;
+    margin: 0 0 10px 30px;
 }
-#add-comment {
+#add-comment, #show-form-comment {
     margin-top: 15px;
+    border-radius: 0;
 }

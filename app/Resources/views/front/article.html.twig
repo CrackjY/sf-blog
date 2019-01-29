@@ -1,7 +1,6 @@
 {% extends '::base_front.html.twig' %}
 
 {% block content %}
-
     <div class="well">
         {{ nbComments }} comments in this article.
     </div>
@@ -10,9 +9,6 @@
     <div class="container-fluid block-article-comment-front">
         <div class="block-article">
             <div class="article">
-                <div class="">
-                    <a id="article-id" href="{{ path('front_article_show', { 'articleId': article.id }) }}" class="pull-right btn btn-info">Show</a>
-                </div>
                 <header class="">
                     <h2>{{ article.title }}</h2>
                 </header>
@@ -26,6 +22,8 @@
                     <p class="">By {{ article.author }}</p>
                 </div>
 
+                <hr>
+
                 <button id="show-form-comment" class="btn btn-primary">Comment</button>
 
                 {{ form_start(form, {'attr': {'class': 'form'} }) }}
@@ -38,15 +36,15 @@
                         {{ form_widget(form.content) }}
                         {{ form_errors(form.content) }}
 
-                        <button type="submit" id="add-comment" class="btn btn-primary">Comment</button>
+                        <button type="submit" id="add-comment" class="btn btn-danger">Comment</button>
                     </div>
 
                     {{ form_rest(form) }}
 
                 {{ form_end(form) }}
-
             </div>
         </div>
+
         <div class="block-comment">
 
             {% for comment in comments %}
